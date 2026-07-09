@@ -3,6 +3,6 @@
   <Project Path="Helpers/06.Helpers.csproj" Id="529d8b5c-4f45-46d7-8699-75481b2391ab" />
   <Project Path="Interfaces/04.Interfaces.csproj" Id="b3219521-3671-4281-985d-ddae28496859" />
   <Project Path="Models/05.Models.csproj" Id="6ea26d0f-2336-4245-b680-a0bffff0766a" />
+  <Project Path="REMS.UI/01.REMS.UI.csproj" Id="a8a3654d-0f3b-4122-89e5-f2fc29ca3c5b" />
   <Project Path="Services/02.Services.csproj" Id="bffc2030-ffcd-4e42-bab7-72f347a26839" />
-  <Project Path="WindowsFormsApp9/01.REMS.UI.csproj" Id="a8a3654d-0f3b-4122-89e5-f2fc29ca3c5b" />
 </Solution>

@@ -27,4 +27,4 @@ WindowsFormsApp9/App.config
 # Local config files - may contain database credentials
 DataAccessLayer/app.config
 Helpers/app.config
-WindowsFormsApp9/App.config
+REMS.UI/App.config
