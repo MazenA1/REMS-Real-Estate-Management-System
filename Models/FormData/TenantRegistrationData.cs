@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace REMS.UI.Form_Models
 {
-    public class TenantFormData
+    public class TenantRegistrationData
     {
 
         public ClientRole ClientRole { get; set; }
         public Tenant Tenant { get; set; }
 
-        public TenantFormData()
+        public TenantRegistrationData()
         {
             ClientRole = new ClientRole();
             Tenant = new Tenant();

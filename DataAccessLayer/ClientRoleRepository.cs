@@ -4,6 +4,7 @@ using Models;
 using Models.DTOs;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 
 namespace DataAccessLayer
@@ -205,9 +206,9 @@ namespace DataAccessLayer
             };
         }
 
-        public List<ClientListDTO> GetAllClientsList()
+        public BindingList<ClientListDTO> GetAllClientsList()
         {
-            List<ClientListDTO> clients = new List<ClientListDTO>();
+            BindingList<ClientListDTO> clients = new BindingList<ClientListDTO>();
 
             try
             {

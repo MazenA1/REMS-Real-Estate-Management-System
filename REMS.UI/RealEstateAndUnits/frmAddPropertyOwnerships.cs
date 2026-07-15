@@ -100,7 +100,7 @@ namespace REMS.UI.RealEstateAndUnits
             else
                 return; // letare handaling error
         }
-
+          
 
     }
 }

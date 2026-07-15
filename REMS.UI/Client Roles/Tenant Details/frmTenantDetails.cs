@@ -67,9 +67,9 @@ namespace REMS.UI.Client_Roles.Tenant_Details
                 _InitializeForAddMode();
             }
         }
-        private TenantFormData _GetFormData()
+        private TenantRegistrationData _GetFormData()
         {
-            return new TenantFormData
+            return new TenantRegistrationData
             {
                 ClientRole = new ClientRole
                 {
@@ -101,9 +101,9 @@ namespace REMS.UI.Client_Roles.Tenant_Details
         private bool _DataSave_AddNewMode()
         {
 
-            TenantFormData data = _GetFormData();
+            TenantRegistrationData data = _GetFormData();
 
-            if (_tenantApplicationService.RegisterTenant(data))
+            if (_tenantApplicationService.Register(data))
             {
                 MessageBox.Show("تم حفظ المستأجر بنجاح.");
             }

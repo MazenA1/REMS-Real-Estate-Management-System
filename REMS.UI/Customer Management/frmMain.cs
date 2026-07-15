@@ -1,6 +1,14 @@
 ﻿using Guna.UI2.WinForms;
 using Interfaces;
 using Microsoft.Web.WebView2.Core;
+using Models;
+using Models.DTOs;
+using REMS.UI.Factories;
+using REMS.UI.Form_Models.Interfaces;
+using REMS.UI.Form_Models.Services;
+using REMS.UI.FormDependencies;
+using REMS.UI.Lease_Contracts;
+using REMS.UI.RealEstateAndUnits;
 using Services;
 using System;
 using System.Collections.Generic;
@@ -11,12 +19,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using REMS.UI.Factories;
-using REMS.UI.Form_Models.Interfaces;
-using REMS.UI.Form_Models.Services;
-using REMS.UI.FormDependencies;
-using REMS.UI.Lease_Contracts;
-using REMS.UI.RealEstateAndUnits;
 
 namespace REMS.UI.Customer_Management
 {
@@ -25,6 +27,7 @@ namespace REMS.UI.Customer_Management
 
         private MainFormDependencies _deps;
         private AddEditClientFormDependencies _clientFormDeps;
+        private BindingList<ClientListDTO> _clients = new BindingList<ClientListDTO>(); 
         public frmMain(MainFormDependencies deps)
         {
             InitializeComponent();
@@ -77,14 +80,10 @@ namespace REMS.UI.Customer_Management
         }
         private async Task _LoadAllClientsAsync()
         {
-            dgvAllClients.DataSource = null;
+            _clients = await Task.Run(() =>
+                _deps.RoleService.GetAllClientsList());
 
-            var clients = await Task.Run(() =>
-            {
-                return _deps.RoleService.GetAllClientsList();
-            });
-
-            dgvAllClients.DataSource = clients;
+            dgvAllClients.DataSource = _clients;
         }
 
         private void _StyleDataGridView()

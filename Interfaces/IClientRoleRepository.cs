@@ -1,6 +1,7 @@
 ﻿using Models;
 using Models.DTOs;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Interfaces
 {
@@ -16,6 +17,6 @@ namespace Interfaces
 
         bool Exists(int clientRoleID);
         bool ExistsByClientAndRoleType(int clientID, byte clientRoleTypeID);
-        List<ClientListDTO> GetAllClientsList();
+        BindingList<ClientListDTO> GetAllClientsList();
     }
 }

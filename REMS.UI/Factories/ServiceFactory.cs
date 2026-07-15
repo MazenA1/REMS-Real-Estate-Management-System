@@ -136,6 +136,14 @@ namespace REMS.UI.Factories
             return new PropertyApplicationService(repository); 
         }
 
+        public static ITenantApplicationService CreateTenantRegistrationService()
+        {
+            IAppLogger logger = new EventLogger();
+
+            ITenantRegistrationRepository repository = new TenantRegistrationRepository(logger);
+
+            return new TenantApplicationService(repository);
+        }
         public static IImageService CreateImageService()
         {
              return new ImageService();

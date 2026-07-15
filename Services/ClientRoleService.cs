@@ -3,6 +3,7 @@ using Models;
 using Models.DTOs;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Services
 {
@@ -76,7 +77,7 @@ namespace Services
             return _clientRoleRepository.GetAll();
         }
 
-        public List<ClientListDTO> GetAllClientsList()
+        public BindingList<ClientListDTO> GetAllClientsList()
         {
             return _clientRoleRepository.GetAllClientsList();
         }

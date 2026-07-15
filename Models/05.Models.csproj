@@ -62,7 +62,7 @@
     <Compile Include="DTOs\OwnerCardDTO.cs" />
     <Compile Include="FormData\OwnerFormData.cs" />
     <Compile Include="FormData\PropertyRegistrationData.cs" />
-    <Compile Include="FormData\TenantFormData.cs" />
+    <Compile Include="FormData\TenantRegistrationData.cs" />
     <Compile Include="ManagementCommissionType.cs" />
     <Compile Include="Owner.cs" />
     <Compile Include="Person.cs" />

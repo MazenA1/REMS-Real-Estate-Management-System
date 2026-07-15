@@ -176,6 +176,7 @@
     <Compile Include="PropertyOwnershipRepository.cs" />
     <Compile Include="PropertyRepository.cs" />
     <Compile Include="PropertyTypeRepository.cs" />
+    <Compile Include="TenantRegistrationRepository .cs" />
     <Compile Include="TenantRepository.cs" />
     <Compile Include="UserRepository.cs" />
   </ItemGroup>

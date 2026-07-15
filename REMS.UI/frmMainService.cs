@@ -66,10 +66,7 @@ namespace REMS.UI
                 ClientRoleService =
                     clientRoleService,
 
-                TenantApplicationService =
-                    new TenantApplicationService(
-                        clientRoleService,
-                        tenantService),
+                TenantApplicationService = ServiceFactory.CreateTenantRegistrationService(),
 
                 OwnerService =
                     ownerService

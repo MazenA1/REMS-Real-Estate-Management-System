@@ -85,6 +85,7 @@
     <Compile Include="IPropertyTypeRepository.cs" />
     <Compile Include="IPropertyTypeService.cs" />
     <Compile Include="ITenantApplicationService.cs" />
+    <Compile Include="ITenantRegistrationRepository.cs" />
     <Compile Include="ITenantRepository.cs" />
     <Compile Include="ITenantService.cs" />
     <Compile Include="IUserRepository.cs" />

@@ -9,6 +9,6 @@ namespace Interfaces
 {
     public interface ITenantApplicationService
     {
-        bool RegisterTenant(TenantFormData data);
+        bool Register(TenantRegistrationData data);
     }
 }
