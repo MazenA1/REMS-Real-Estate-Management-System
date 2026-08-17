@@ -1,13 +1,14 @@
 ﻿using Helpers;
 using Interfaces;
+using Models;
+using Models.DTOs;
+using REMS.UI.Form_Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Models;
-using REMS.UI.Form_Models;
 
 namespace DataAccessLayer
 {
@@ -70,9 +71,37 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                _logger.LogError("",ex);
+                _logger.LogError("", ex);
 
                 return -1;
+            }
+        }
+
+        public TenantListDTO GetClientListItemByClientRoleID(int ClientRoleID)
+        {
+
+            try
+            {
+                using (SqlDataReader reader = SqlHelper.ExecuteReader("SP_GetClientListItemByClientRoleID",
+                    new SqlParameter("@ClientRoleID", ClientRoleID))) 
+                {
+
+                    if (reader.Read())
+                        return new TenantListDTO
+                        {
+                            TenantFullName = reader["FullName"].ToString(),
+                            TenantNationalNo = reader["NationalNo"].ToString(),
+                            TenantPhoneNumber = reader["PhoneNumber"].ToString(),
+                            TenantOpeningBalance = Convert.ToDecimal(reader["OpeningBalance"])
+                        };
+                    else
+                        return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Layer: DataAccess | Class: TenantRegistrationRepository | Method: GetClientListItemByClientRoleID | Exception: {ex}"); 
+                return null;
             }
         }
     }

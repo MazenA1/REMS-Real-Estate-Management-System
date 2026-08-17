@@ -13,10 +13,14 @@ namespace Interfaces
 
         ClientRole GetByID(int clientRoleID);
         List<ClientRole> GetByClientID(int clientID);
+        BindingList<ClientListDTO> GetAllClientsList();
         List<ClientRole> GetAll();
+
+        ClientListDTO GetClientItemInfoByNationalNo(string NationalNo);
 
         bool Exists(int clientRoleID);
         bool ExistsByClientAndRoleType(int clientID, byte clientRoleTypeID);
-        BindingList<ClientListDTO> GetAllClientsList();
+
+
     }
 }

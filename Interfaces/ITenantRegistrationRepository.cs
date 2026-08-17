@@ -1,4 +1,5 @@
-﻿using REMS.UI.Form_Models;
+﻿using Models.DTOs;
+using REMS.UI.Form_Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace Interfaces
 {
     public interface ITenantRegistrationRepository
     {
-        int Add(TenantRegistrationData data); 
+        int Add(TenantRegistrationData data);
+
+        TenantListDTO GetClientListItemByClientRoleID(int ClientRoleID); 
     }
 }

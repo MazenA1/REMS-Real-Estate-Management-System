@@ -1,7 +1,9 @@
 ﻿using Interfaces;
 using Models;
+using Models.DTOs;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Services
 {
@@ -74,5 +76,9 @@ namespace Services
         {
             return _propertyRepository.Exists(propertyID);
         }
-    }
+        public BindingList<InvestorPreferredPropertyTypeDTO> GetPropertyTypesWithPropertiesCount()
+        {
+            return _propertyRepository.GetPropertyTypesWithPropertiesCount();
+        }
+    } 
 }

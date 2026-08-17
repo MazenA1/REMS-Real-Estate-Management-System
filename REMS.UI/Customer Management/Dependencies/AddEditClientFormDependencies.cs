@@ -16,7 +16,13 @@ namespace REMS.UI.FormDependencies
         public ITenantService TenantService { get; set; }
         public IClientRoleService ClientRoleService { get; set; }
         public ITenantApplicationService TenantApplicationService { get; set; }
-
+        public IOwnerApplicationService OwnerApplicationService { get; set; }
         public IOwnerService OwnerService { get; set; }
+        public IPropertyService PropertyService { get; set; }
+        public ICityService CityService { get; set; }
+        public IPaymentMethodService PaymentMethodService {  get; set; }
+        public IInvestmentPurposeService InvestmentPurposeService { get; set; }
+        public IInterestLevelService InterestLevelService { get; set; }
+        public IInvestorRegistrationService InvestorRegistrationService { get; set; }
     }
 }

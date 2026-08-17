@@ -1,8 +1,10 @@
 ﻿using Helpers;
 using Interfaces;
 using Models;
+using Models.DTOs;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 
 namespace DataAccessLayer
@@ -212,6 +214,36 @@ namespace DataAccessLayer
 
                 Mode = Property.enMode.Update
             };
+        }
+
+        public BindingList<InvestorPreferredPropertyTypeDTO> GetPropertyTypesWithPropertiesCount()
+        {
+            BindingList<InvestorPreferredPropertyTypeDTO> selectionDTOs = new BindingList<InvestorPreferredPropertyTypeDTO>();
+
+            try
+            {
+                using (SqlDataReader reader = SqlHelper.ExecuteReader("SP_GetPropertyTypesWithPropertiesCount"))
+                {
+                    while(reader.Read())
+                    {
+                        selectionDTOs.Add(new InvestorPreferredPropertyTypeDTO()
+                        {
+                            PropertyTypeID = Convert.ToInt16(reader["PropertyTypeID"]),
+                            PropertyTypeName = reader["ArabicName"].ToString(),
+                            PropertiesCount = Convert.ToInt32(reader["PropertyCount"])
+                        });
+
+                    }
+                }
+
+                return selectionDTOs;
+            }
+
+            catch(Exception ex)
+            {
+                _logger.LogError($"Layer: DataAccess | Class: PropertyRepository | Method: GetPropertyTypesWithPropertiesCount | Exception: {ex}");
+                return null;
+            }
         }
     }
 }

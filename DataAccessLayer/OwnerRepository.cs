@@ -4,6 +4,8 @@ using Models;
 using Models.DTOs;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DataAccessLayer
@@ -290,6 +292,39 @@ namespace DataAccessLayer
                 CreationDate = Convert.ToDateTime(reader["CreationDate"]),
                 CreatedByUserID = Convert.ToInt32(reader["CreatedByUserID"])
             };
+        }
+
+        private OwnersListDTO _MapOwnerToDTO(IDataRecord reader)
+        {
+            return new OwnersListDTO
+            {
+                OwnerFullName = reader["FullName"].ToString(),
+                OwnerPhoneNumber = reader["PhoneNumber"].ToString(),
+                OwnerNationalNo = reader["NationalNo"].ToString(),
+                OwnerOpeningBalance = Convert.ToDecimal(reader["OpeningBalance"])
+            };
+        }
+
+        public BindingList<OwnersListDTO> GetAllOwnersList()
+        {
+            BindingList<OwnersListDTO> listDTOs = new BindingList<OwnersListDTO>();
+
+            try
+            {
+
+                using (SqlDataReader reader = SqlHelper.ExecuteReader("SP_GetOwnersList"))
+                {
+                    while (reader.Read())
+                        listDTOs.Add(_MapOwnerToDTO(reader));
+                }
+
+                return listDTOs;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Layer: DataAccess | Class: OwnerRepository | Method: GetAllOwnersList | Exception: {ex}"); 
+                return null;
+            }
         }
     }
 }

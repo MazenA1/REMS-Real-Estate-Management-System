@@ -22,6 +22,7 @@ using REMS.UI.Person;
 using REMS.UI.Person.Events;
 using REMS.UI.Validation;
 using static REMS.UI.Customer_Management.Control.ctrlClientRoleNavigator;
+using REMS.UI.Client_Roles.Investor;
 
 namespace REMS.UI.Customer_Management
 {
@@ -332,10 +333,8 @@ namespace REMS.UI.Customer_Management
 
         private void _OpenOwnerDetailsForm()
         {
-            //IOwnerService ownerService = ServiceFactory.CreateOwnerService();
-            IOwnerApplicationService ownerApplicationService = new OwnerApplicationServics(this._deps.ClientRoleService, this._deps.OwnerService);
 
-            Form frm = new frmAddEditOwner(this._deps.OwnerService, this._deps.ClientRoleService, this._deps.CountryService, ownerApplicationService, this._client);
+            Form frm = new frmAddEditOwner(this._deps.OwnerService, this._deps.ClientRoleService, this._deps.CountryService, this._deps.OwnerApplicationService, this._client);
             frm.ShowDialog();
         }
         private void btnOwner_Click(object sender, EventArgs e)
@@ -361,6 +360,13 @@ namespace REMS.UI.Customer_Management
                     "خطأ",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
+        }
+
+        private void btnInvestor_Click(object sender, EventArgs e)
+        {
+            frmAddNewInvestor frm = new frmAddNewInvestor(this._deps.PropertyService, this._deps.CityService, this._deps.PaymentMethodService,
+                this._deps.InvestmentPurposeService, this._deps.InterestLevelService, this._deps.InvestorRegistrationService, this._ClientID);  
+            frm.ShowDialog();
         }
     }
 }

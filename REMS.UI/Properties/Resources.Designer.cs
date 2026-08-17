@@ -203,6 +203,16 @@ namespace REMS.UI.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_arrow_pointing_left_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-arrow-pointing-left-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_bulleted_list_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-bulleted-list-30", resourceCulture);
@@ -456,6 +466,26 @@ namespace REMS.UI.Properties {
         internal static System.Drawing.Bitmap icons8_menu_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-menu-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_more_info_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-more-info-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_more_info_301 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-more-info-301", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

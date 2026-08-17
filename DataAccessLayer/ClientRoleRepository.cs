@@ -235,5 +235,33 @@ namespace DataAccessLayer
                 return null;
             }
         }
+
+        public ClientListDTO GetClientItemInfoByNationalNo(string NationalNo)
+        {
+            ClientListDTO clientListDTO = new ClientListDTO();
+
+            try
+            {
+                using (SqlDataReader reader = SqlHelper.ExecuteReader("SP_GetClientListItemByNationalNo", new SqlParameter("@NationalNo", NationalNo)))
+                {
+                    if (reader.Read())
+                    {
+                        clientListDTO.ClientID = Convert.ToInt32(reader["ClientID"]);
+                        clientListDTO.FullName = reader["FullName"].ToString();
+                        clientListDTO.PhoneNumber = reader["PhoneNumber"].ToString();
+                        clientListDTO.NationalNo = reader["NationalNo"].ToString();
+                        clientListDTO.ClientTypeName = reader["RoleNameAr"].ToString();
+                    }
+
+                    return clientListDTO;
+                }
+            }
+
+            catch (Exception ex) 
+            {
+                _logger.LogError($"Layer: DataAccess | Class: ClientRepository | Method: GetClientItemInfoByNationalNo | Exception: {ex}");
+                return null;
+            }
+        }
     }
 }

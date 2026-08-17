@@ -1,5 +1,7 @@
 ﻿using Models;
+using Models.DTOs;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Interfaces
 {
@@ -13,7 +15,11 @@ namespace Interfaces
         Tenant GetByID(int tenantID);
         Tenant GetByClientRoleID(int clientRoleID);
 
-        List<Tenant> GetAll();
+        TenantListDTO GetClientListItemById(int ClientID); 
+
+        List <Tenant> GetAll();
+        BindingList<TenantListDTO> GetTenantList();
+
 
         bool Exists(int tenantID);
         bool ExistsByClientRoleID(int clientRoleID);

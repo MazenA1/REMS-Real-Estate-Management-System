@@ -3,6 +3,7 @@ using Models;
 using Models.DTOs;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Services
 {
@@ -99,7 +100,12 @@ namespace Services
 
         public OwnerCardDTO GetOwnerCardByNationalNo(string nationalNo)
         {
-            return null;
+            return null; // Letar Added
+        }
+
+        public BindingList<OwnersListDTO> GetAllOwnersList()
+        {
+            return _ownerRepository.GetAllOwnersList();
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Interfaces;
 using Models;
+using Models.DTOs;
+using Models.Events;
 using Models.FormData;
 using System;
 using System.Collections.Generic;
@@ -11,25 +13,42 @@ namespace Services
 {
     public class OwnerApplicationServics : IOwnerApplicationService
     {
-        private readonly IClientRoleService _clientRoleService;
-        private readonly IOwnerService _ownerService; 
+        private readonly IOwnerRegistrationRepository _repository; 
 
-        public OwnerApplicationServics(IClientRoleService clientRoleService, IOwnerService ownerService)
+
+        public event EventHandler<OwnerRegisteredEventArgs> OwnerRegistered;
+
+        public OwnerApplicationServics(IOwnerRegistrationRepository _repository)
         {
-            this._clientRoleService = clientRoleService;
-            this._ownerService = ownerService;
+            this._repository = _repository;
         }
         public bool RegisterOwner(OwnerFormData data)
         {
-            if (data == null || data.ClientRole == null || data.Owner == null)
+            if (data == null)
                 return false;
 
-            if (!_clientRoleService.Save(data.ClientRole))
+            if (data.ClientRole == null)
                 return false;
 
-            data.Owner.ClientRoleID = data.ClientRole.ClientRoleID;
+            if (data.Owner == null)
+                return false;
 
-            return _ownerService.Save(data.Owner);
+            if (_repository.Add(data))
+            {
+
+                OwnerRegistered?.Invoke(this, new OwnerRegisteredEventArgs(GetClientListItemByClientRoleID(data.ClientRole.ClientRoleID)));
+
+                return true;
+            }
+
+            return false;
         }
+
+        public OwnersListDTO GetClientListItemByClientRoleID(int ClientRoleID)
+        {
+            return this._repository.GetClientListItemByClientRoleID(ClientRoleID); 
+        }
+
+
     }
 }

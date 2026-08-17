@@ -62,9 +62,14 @@
     <Compile Include="EventLogger.cs" />
     <Compile Include="FileStorageService.cs" />
     <Compile Include="ImageService.cs" />
+    <Compile Include="InterestLevelService.cs" />
+    <Compile Include="InvestmentPurposeService.cs" />
+    <Compile Include="InvestorRegistrationService.cs" />
+    <Compile Include="InvestorService.cs" />
     <Compile Include="ManagementCommissionTypeService.cs" />
     <Compile Include="OwnerApplicationServics.cs" />
     <Compile Include="OwnerService.cs" />
+    <Compile Include="PaymentMethodService.cs" />
     <Compile Include="PersonImageService.cs" />
     <Compile Include="PersonService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,7 +78,7 @@
     <Compile Include="PropertyOwnershipService.cs" />
     <Compile Include="PropertyService.cs" />
     <Compile Include="PropertyTypeService.cs" />
-    <Compile Include="TenantApplicationService .cs" />
+    <Compile Include="TenantApplicationService.cs" />
     <Compile Include="TenantService.cs" />
     <Compile Include="UserService.cs" />
   </ItemGroup>

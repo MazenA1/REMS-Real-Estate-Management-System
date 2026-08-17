@@ -1,5 +1,7 @@
 ﻿using DataAccessLayer;
+using DataAccessLayer.Repositories;
 using Interfaces;
+using Interfaces.Services;
 using Services;
 using System;
 using System.Collections.Generic;
@@ -144,9 +146,82 @@ namespace REMS.UI.Factories
 
             return new TenantApplicationService(repository);
         }
+        public static IOwnerApplicationService CreateOwnerRegistrationService() 
+        {
+            IAppLogger logger = new EventLogger();
+
+            IOwnerRegistrationRepository repository = new OwnerRegistrationRepository(logger); 
+
+            return new OwnerApplicationServics(repository);
+
+        }
+        public static IPropertyService CreatePropertyService()
+        {
+            IAppLogger logger = new EventLogger();
+
+            IPropertyRepository repository = new PropertyRepository(logger);
+
+            return new PropertyService(repository); 
+        }
         public static IImageService CreateImageService()
         {
              return new ImageService();
+        }
+        public static IInvestorService CreateInvestorService()
+        {
+            IAppLogger logger = new EventLogger();
+
+            IInvestorRepository investorRepository =
+                new InvestorRepository(logger);
+
+            return new InvestorService(investorRepository);
+        }
+        public static IPaymentMethodService CreatePaymentMethodService()
+        {
+            IAppLogger logger =
+                new EventLogger();
+
+            IPaymentMethodRepository repository =
+                new PaymentMethodRepository(logger);
+
+            return new PaymentMethodService(repository);
+        }
+
+        public static IInvestmentPurposeService CreateInvestmentPurposeService()
+        {
+            IAppLogger logger =
+                new EventLogger();
+
+            IInvestmentPurposeRepository repository =
+                new InvestmentPurposeRepository(logger);
+
+            return new InvestmentPurposeService(repository);
+        }
+
+        public static IInterestLevelService CreateInterestLevelService()
+        {
+            IAppLogger logger =
+                new EventLogger();
+
+            IInterestLevelRepository repository =
+                new InterestLevelRepository(logger);
+
+            return new InterestLevelService(repository);
+        }
+
+        public static IInvestorRegistrationService CreateInvestorRegistrationService()
+        {
+            IAppLogger logger =
+                new EventLogger();
+
+
+            IInvestorRegistrationRepository repository =
+                new InvestorRegistrationRepository(
+                    logger);
+
+
+            return new InvestorRegistrationService(
+                repository);
         }
     }
 }

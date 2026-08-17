@@ -1,11 +1,13 @@
 ﻿using Interfaces;
 using Models;
+using Models.DTOs;
+using Models.Events;
+using REMS.UI.Form_Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using REMS.UI.Form_Models;
 
 namespace Services
 {
@@ -13,7 +15,7 @@ namespace Services
     {
         private readonly ITenantRegistrationRepository _repository;
 
-        public event Action<Tenant> TenantRegistered;
+        public event EventHandler<TenantRegisteredEventArgs> TenantRegistered;
 
         public TenantApplicationService(
             ITenantRegistrationRepository repository)
@@ -34,14 +36,20 @@ namespace Services
 
             int clientRoleID = _repository.Add(data);
 
-            if (clientRoleID <= 0)
-                return false;
+            if (clientRoleID >= 0)
+            {
+                TenantRegistered?.Invoke(this, new TenantRegisteredEventArgs(GetClientListItemByClientRoleID(clientRoleID)));
+                 
+                return true;
+            }
 
-            data.Tenant.ClientRoleID = clientRoleID;
-
-            TenantRegistered?.Invoke(data.Tenant);
-
-            return true;
+            return false ;
         }
+
+        public TenantListDTO GetClientListItemByClientRoleID(int ClientRoleID)
+        {
+            return this._repository.GetClientListItemByClientRoleID(ClientRoleID); 
+        }
+        
     }
 }

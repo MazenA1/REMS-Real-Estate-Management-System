@@ -90,5 +90,10 @@ namespace Services
         {
             return _clientRoleRepository.ExistsByClientAndRoleType(clientID, clientRoleTypeID);
         }
+
+        public ClientListDTO GetClientItemInfoByNationalNo(string NationalNo)
+        {
+            return _clientRoleRepository.GetClientItemInfoByNationalNo(NationalNo);
+        }
     }
 }

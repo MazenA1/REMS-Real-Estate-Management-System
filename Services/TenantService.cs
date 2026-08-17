@@ -1,7 +1,11 @@
 ﻿using Interfaces;
 using Models;
+using Models.DTOs;
+using Models.Events;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace Services
 {
@@ -10,6 +14,9 @@ namespace Services
         private readonly ITenantRepository _tenantRepository;
 
         public event Action TenantAdded;
+
+        public event EventHandler<TenantRegisteredEventArgs> TenantRegistered; 
+
         public TenantService(ITenantRepository tenantRepository)
         {
             this._tenantRepository = tenantRepository;
@@ -22,7 +29,7 @@ namespace Services
             if (tenantID != -1)
             {
                 tenant.TenantID = tenantID;
-                TenantAdded?.Invoke();
+                TenantRegistered?.Invoke(this, new TenantRegisteredEventArgs(GetClientListItemById(tenantID))); 
                 return true;
             }
 
@@ -78,6 +85,10 @@ namespace Services
             return _tenantRepository.GetAll();
         }
 
+        public BindingList<TenantListDTO> GetTenantList()
+        {
+            return _tenantRepository.GetTenantList(); 
+        }
         public bool Exists(int tenantID)
         {
             return _tenantRepository.Exists(tenantID);
@@ -90,6 +101,10 @@ namespace Services
         public int GetCount()
         {
             return _tenantRepository.GetTenantsCount();
+        }
+        public TenantListDTO GetClientListItemById(int ClientID)
+        {
+            return _tenantRepository.GetClientListItemById(ClientID);
         }
     }
 }

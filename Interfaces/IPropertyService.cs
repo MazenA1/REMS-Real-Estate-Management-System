@@ -1,6 +1,8 @@
 ﻿using Models;
+using Models.DTOs;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Interfaces
 {
@@ -13,6 +15,7 @@ namespace Interfaces
         Property GetByCode(Guid propertyCode);
 
         List<Property> GetAll();
+        BindingList<InvestorPreferredPropertyTypeDTO> GetPropertyTypesWithPropertiesCount();
 
         bool Exists(int propertyID);
     }

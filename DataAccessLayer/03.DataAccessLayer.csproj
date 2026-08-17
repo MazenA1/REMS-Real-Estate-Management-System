@@ -166,8 +166,14 @@
     <Compile Include="ClientTypeRepository.cs" />
     <Compile Include="CountryRepository.cs" />
     <Compile Include="DistrictRepository.cs" />
+    <Compile Include="InterestLevelRepository.cs" />
+    <Compile Include="InvestmentPurposeRepository.cs" />
+    <Compile Include="InvestorRegistrationRepository.cs" />
+    <Compile Include="InvestorRepository .cs" />
     <Compile Include="ManagementCommissionTypeRepository.cs" />
+    <Compile Include="OwnerRegistrationRepository .cs" />
     <Compile Include="OwnerRepository.cs" />
+    <Compile Include="PaymentMethodRepository.cs" />
     <Compile Include="PersonRepository.cs" />
     <Compile Include="DataAccessSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

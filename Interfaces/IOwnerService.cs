@@ -2,6 +2,7 @@
 using Models.DTOs;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Interfaces
 {
@@ -20,7 +21,7 @@ namespace Interfaces
 
         OwnerCardDTO GetOwnerCardByID(int ownerID);
         OwnerCardDTO GetOwnerCardByNationalNo(string nationalNo);
-
+        BindingList<OwnersListDTO> GetAllOwnersList();
         List<Owner> GetAll();
 
         bool Exists(int ownerID);

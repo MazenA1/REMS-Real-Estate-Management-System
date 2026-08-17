@@ -68,8 +68,22 @@ namespace REMS.UI
 
                 TenantApplicationService = ServiceFactory.CreateTenantRegistrationService(),
 
+                OwnerApplicationService = ServiceFactory.CreateOwnerRegistrationService(),
+
                 OwnerService =
-                    ownerService
+                    ownerService,
+
+                PropertyService = ServiceFactory.CreatePropertyService(),
+
+                CityService = ServiceFactory.CreateCityService(),
+
+                InterestLevelService = ServiceFactory.CreateInterestLevelService(),
+
+                InvestmentPurposeService = ServiceFactory.CreateInvestmentPurposeService(),
+
+                InvestorRegistrationService = ServiceFactory.CreateInvestorRegistrationService(),
+
+                PaymentMethodService = ServiceFactory.CreatePaymentMethodService()
             };
         }
 

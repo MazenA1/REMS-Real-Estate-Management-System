@@ -1,8 +1,10 @@
 ﻿using Helpers;
 using Interfaces;
 using Models;
+using Models.DTOs;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 
 namespace DataAccessLayer
@@ -45,5 +47,34 @@ namespace DataAccessLayer
                 return null;
             }
         }
+        public BindingList<InvestorPreferredCitieSelectionDTO> GetAllCities()
+        {
+            BindingList<InvestorPreferredCitieSelectionDTO> citieSelectionDTOs = new BindingList<InvestorPreferredCitieSelectionDTO>();
+
+            try
+            {
+                using (SqlDataReader reader = SqlHelper.ExecuteReader("SP_GetAllCities"))
+                {
+                    while(reader.Read())
+                    {
+                        citieSelectionDTOs.Add(new InvestorPreferredCitieSelectionDTO()
+                        {
+                            CitieId = Convert.ToInt16(reader["CityID"]),
+                            CitieName = reader["CityNameTurkish"].ToString(),
+                            PlateCode = Convert.ToInt16(reader["PlateCode"])
+                        });
+                    }
+                }
+
+                return citieSelectionDTOs;
+            }
+
+            catch(Exception ex)
+            {
+                _logger.LogError($"Layer: DataAccess | Class: CityRepository | Method: GetAllCities | Exception: {ex}"); 
+                return null;
+            }
+        }
+        
     }
 }

@@ -69,6 +69,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client Roles\Investor\frmAddNewInvestor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client Roles\Investor\frmAddNewInvestor.Designer.cs">
+      <DependentUpon>frmAddNewInvestor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Client Roles\Owner\Control\ctrlFindOwnerWhithFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -116,8 +122,8 @@
     <Compile Include="Form Models\ClientFormData.cs" />
     <Compile Include="Form Models\Interfaces\IClientFormMapper.cs" />
     <Compile Include="Form Models\Services\ClientFormMapper.cs" />
-    <Compile Include="FormDependencies\AddEditClientFormDependencies.cs" />
-    <Compile Include="FormDependencies\AddNewPropertyFormDependencies.cs" />
+    <Compile Include="Customer Management\Dependencies\AddEditClientFormDependencies.cs" />
+    <Compile Include="RealEstateAndUnits\Dependencies\AddNewPropertyFormDependencies.cs" />
     <Compile Include="FormDependencies\MainFormDependencies.cs" />
     <Compile Include="Lease Contracts\frmAddNewLeaseAgreement.cs">
       <SubType>Form</SubType>
@@ -214,6 +220,9 @@
       <DependentUpon>frmUsersManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Validation\ValidationHelper.cs" />
+    <EmbeddedResource Include="Client Roles\Investor\frmAddNewInvestor.resx">
+      <DependentUpon>frmAddNewInvestor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Client Roles\Owner\Control\ctrlFindOwnerWhithFilter.resx">
       <DependentUpon>ctrlFindOwnerWhithFilter.cs</DependentUpon>
     </EmbeddedResource>
@@ -496,6 +505,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-percentage-302.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-more-info-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-arrow-pointing-left-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-more-info-301.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Web.WebView2.1.0.3967.48\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.3967.48\build\Microsoft.Web.WebView2.targets')" />

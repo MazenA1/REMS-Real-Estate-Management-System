@@ -45,6 +45,18 @@ namespace REMS.UI.Validation
             errorProvider.SetError(textBox, "");
             return true;
         }
+
+        public static bool ValidateRequiredCheckBox(CheckBox checkBox, ErrorProvider errorProvider, string message)
+        {
+            if (!checkBox.Checked)
+            {
+                errorProvider.SetError(checkBox, message);
+                return false;
+            }
+
+            errorProvider.SetError(checkBox, "");
+            return true;
+        }
     }
 }
 

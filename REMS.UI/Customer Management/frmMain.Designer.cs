@@ -34,6 +34,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,7 +60,19 @@
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.guna2Button29 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.dgvAllOwners = new Guna.UI2.WinForms.Guna2DataGridView();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.guna2Button23 = new Guna.UI2.WinForms.Guna2Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.dgvAllTenants = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.colTenantName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTenantNationalNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTenantPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTenantOpeningBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tabPage11 = new System.Windows.Forms.TabPage();
@@ -112,6 +130,10 @@
             this.guna2Button24 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button25 = new Guna.UI2.WinForms.Guna2Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.colOwnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOwnerNationalNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOwnerPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOwnerOpeningBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -121,6 +143,10 @@
             this.guna2TabControl2.SuspendLayout();
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllClients)).BeginInit();
+            this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllOwners)).BeginInit();
+            this.tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllTenants)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -451,23 +477,283 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.BackColor = System.Drawing.Color.White;
+            this.tabPage7.Controls.Add(this.label13);
+            this.tabPage7.Controls.Add(this.guna2Button29);
+            this.tabPage7.Controls.Add(this.guna2TextBox3);
+            this.tabPage7.Controls.Add(this.dgvAllOwners);
             this.tabPage7.Location = new System.Drawing.Point(4, 4);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage7.Size = new System.Drawing.Size(1031, 431);
             this.tabPage7.TabIndex = 1;
             this.tabPage7.Text = "أصحاب الأملاك";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(916, 18);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(58, 32);
+            this.label13.TabIndex = 7;
+            this.label13.Text = ": ابحث";
+            // 
+            // guna2Button29
+            // 
+            this.guna2Button29.BorderRadius = 5;
+            this.guna2Button29.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button29.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button29.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button29.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button29.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
+            this.guna2Button29.Font = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.guna2Button29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(201)))), ((int)(((byte)(209)))));
+            this.guna2Button29.Image = global::REMS.UI.Properties.Resources.icons8_add_new_30;
+            this.guna2Button29.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.guna2Button29.Location = new System.Drawing.Point(21, 18);
+            this.guna2Button29.Name = "guna2Button29";
+            this.guna2Button29.Size = new System.Drawing.Size(240, 45);
+            this.guna2Button29.TabIndex = 2;
+            this.guna2Button29.Text = "إضافة عميل جديد";
+            // 
+            // guna2TextBox3
+            // 
+            this.guna2TextBox3.BackColor = System.Drawing.Color.White;
+            this.guna2TextBox3.BorderRadius = 15;
+            this.guna2TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox3.DefaultText = "";
+            this.guna2TextBox3.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox3.Location = new System.Drawing.Point(670, 18);
+            this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2TextBox3.Name = "guna2TextBox3";
+            this.guna2TextBox3.PlaceholderText = "";
+            this.guna2TextBox3.SelectedText = "";
+            this.guna2TextBox3.Size = new System.Drawing.Size(229, 38);
+            this.guna2TextBox3.TabIndex = 6;
+            // 
+            // dgvAllOwners
+            // 
+            this.dgvAllOwners.AllowDrop = true;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvAllOwners.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvAllOwners.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Cairo", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAllOwners.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvAllOwners.ColumnHeadersHeight = 26;
+            this.dgvAllOwners.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvAllOwners.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colOwnerName,
+            this.colOwnerNationalNo,
+            this.colOwnerPhoneNumber,
+            this.colOwnerOpeningBalance});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Cairo", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAllOwners.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvAllOwners.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvAllOwners.Location = new System.Drawing.Point(21, 78);
+            this.dgvAllOwners.Name = "dgvAllOwners";
+            this.dgvAllOwners.ReadOnly = true;
+            this.dgvAllOwners.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dgvAllOwners.RowHeadersVisible = false;
+            this.dgvAllOwners.RowHeadersWidth = 51;
+            this.dgvAllOwners.RowTemplate.Height = 24;
+            this.dgvAllOwners.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvAllOwners.Size = new System.Drawing.Size(989, 338);
+            this.dgvAllOwners.TabIndex = 5;
+            this.dgvAllOwners.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvAllOwners.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvAllOwners.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvAllOwners.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvAllOwners.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvAllOwners.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.dgvAllOwners.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvAllOwners.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
+            this.dgvAllOwners.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvAllOwners.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Cairo SemiBold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dgvAllOwners.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvAllOwners.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvAllOwners.ThemeStyle.HeaderStyle.Height = 26;
+            this.dgvAllOwners.ThemeStyle.ReadOnly = true;
+            this.dgvAllOwners.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvAllOwners.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvAllOwners.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Cairo", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dgvAllOwners.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.dgvAllOwners.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvAllOwners.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvAllOwners.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
             // tabPage8
             // 
+            this.tabPage8.BackColor = System.Drawing.Color.White;
+            this.tabPage8.Controls.Add(this.guna2Button23);
+            this.tabPage8.Controls.Add(this.label12);
+            this.tabPage8.Controls.Add(this.guna2TextBox2);
+            this.tabPage8.Controls.Add(this.dgvAllTenants);
             this.tabPage8.Location = new System.Drawing.Point(4, 4);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage8.Size = new System.Drawing.Size(1031, 431);
             this.tabPage8.TabIndex = 2;
             this.tabPage8.Text = "المستأجرون";
-            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // guna2Button23
+            // 
+            this.guna2Button23.BorderRadius = 5;
+            this.guna2Button23.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button23.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button23.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button23.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button23.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
+            this.guna2Button23.Font = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.guna2Button23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(201)))), ((int)(((byte)(209)))));
+            this.guna2Button23.Image = global::REMS.UI.Properties.Resources.icons8_add_new_30;
+            this.guna2Button23.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.guna2Button23.Location = new System.Drawing.Point(6, 8);
+            this.guna2Button23.Name = "guna2Button23";
+            this.guna2Button23.Size = new System.Drawing.Size(240, 45);
+            this.guna2Button23.TabIndex = 7;
+            this.guna2Button23.Text = "إضافة مستأجر جديد";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(893, 15);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(58, 32);
+            this.label12.TabIndex = 6;
+            this.label12.Text = ": ابحث";
+            // 
+            // guna2TextBox2
+            // 
+            this.guna2TextBox2.BackColor = System.Drawing.Color.White;
+            this.guna2TextBox2.BorderRadius = 15;
+            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox2.DefaultText = "";
+            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox2.Location = new System.Drawing.Point(647, 15);
+            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2TextBox2.Name = "guna2TextBox2";
+            this.guna2TextBox2.PlaceholderText = "";
+            this.guna2TextBox2.SelectedText = "";
+            this.guna2TextBox2.Size = new System.Drawing.Size(229, 38);
+            this.guna2TextBox2.TabIndex = 5;
+            // 
+            // dgvAllTenants
+            // 
+            this.dgvAllTenants.AllowDrop = true;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dgvAllTenants.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvAllTenants.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Cairo", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAllTenants.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvAllTenants.ColumnHeadersHeight = 26;
+            this.dgvAllTenants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvAllTenants.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colTenantName,
+            this.colTenantNationalNo,
+            this.colTenantPhoneNumber,
+            this.colTenantOpeningBalance});
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Cairo", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAllTenants.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvAllTenants.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvAllTenants.Location = new System.Drawing.Point(6, 77);
+            this.dgvAllTenants.Name = "dgvAllTenants";
+            this.dgvAllTenants.ReadOnly = true;
+            this.dgvAllTenants.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dgvAllTenants.RowHeadersVisible = false;
+            this.dgvAllTenants.RowHeadersWidth = 51;
+            this.dgvAllTenants.RowTemplate.Height = 24;
+            this.dgvAllTenants.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvAllTenants.Size = new System.Drawing.Size(989, 338);
+            this.dgvAllTenants.TabIndex = 4;
+            this.dgvAllTenants.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvAllTenants.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvAllTenants.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvAllTenants.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvAllTenants.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvAllTenants.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.dgvAllTenants.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvAllTenants.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
+            this.dgvAllTenants.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvAllTenants.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Cairo SemiBold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dgvAllTenants.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvAllTenants.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvAllTenants.ThemeStyle.HeaderStyle.Height = 26;
+            this.dgvAllTenants.ThemeStyle.ReadOnly = true;
+            this.dgvAllTenants.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvAllTenants.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvAllTenants.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Cairo", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dgvAllTenants.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.dgvAllTenants.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvAllTenants.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvAllTenants.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // colTenantName
+            // 
+            this.colTenantName.HeaderText = "أسم العميل";
+            this.colTenantName.MinimumWidth = 6;
+            this.colTenantName.Name = "colTenantName";
+            this.colTenantName.ReadOnly = true;
+            // 
+            // colTenantNationalNo
+            // 
+            this.colTenantNationalNo.HeaderText = "رقم الهوية";
+            this.colTenantNationalNo.MinimumWidth = 6;
+            this.colTenantNationalNo.Name = "colTenantNationalNo";
+            this.colTenantNationalNo.ReadOnly = true;
+            // 
+            // colTenantPhoneNumber
+            // 
+            this.colTenantPhoneNumber.HeaderText = "رقم الجوال";
+            this.colTenantPhoneNumber.MinimumWidth = 6;
+            this.colTenantPhoneNumber.Name = "colTenantPhoneNumber";
+            this.colTenantPhoneNumber.ReadOnly = true;
+            // 
+            // colTenantOpeningBalance
+            // 
+            this.colTenantOpeningBalance.HeaderText = "الرصيد الافتتاحي";
+            this.colTenantOpeningBalance.MinimumWidth = 6;
+            this.colTenantOpeningBalance.Name = "colTenantOpeningBalance";
+            this.colTenantOpeningBalance.ReadOnly = true;
             // 
             // tabPage9
             // 
@@ -865,27 +1151,27 @@
             // 
             // dgvContracts
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvContracts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.dgvContracts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvContracts.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvContracts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvContracts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvContracts.ColumnHeadersHeight = 4;
             this.dgvContracts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvContracts.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvContracts.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvContracts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvContracts.Location = new System.Drawing.Point(5, 62);
             this.dgvContracts.Name = "dgvContracts";
@@ -1359,6 +1645,34 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "قسم عقود الايجار";
             // 
+            // colOwnerName
+            // 
+            this.colOwnerName.HeaderText = "أسم العميل";
+            this.colOwnerName.MinimumWidth = 6;
+            this.colOwnerName.Name = "colOwnerName";
+            this.colOwnerName.ReadOnly = true;
+            // 
+            // colOwnerNationalNo
+            // 
+            this.colOwnerNationalNo.HeaderText = "رقم الهوية";
+            this.colOwnerNationalNo.MinimumWidth = 6;
+            this.colOwnerNationalNo.Name = "colOwnerNationalNo";
+            this.colOwnerNationalNo.ReadOnly = true;
+            // 
+            // colOwnerPhoneNumber
+            // 
+            this.colOwnerPhoneNumber.HeaderText = "رقم الجوال";
+            this.colOwnerPhoneNumber.MinimumWidth = 6;
+            this.colOwnerPhoneNumber.Name = "colOwnerPhoneNumber";
+            this.colOwnerPhoneNumber.ReadOnly = true;
+            // 
+            // colOwnerOpeningBalance
+            // 
+            this.colOwnerOpeningBalance.HeaderText = "الرصيد الافتتاحي";
+            this.colOwnerOpeningBalance.MinimumWidth = 6;
+            this.colOwnerOpeningBalance.Name = "colOwnerOpeningBalance";
+            this.colOwnerOpeningBalance.ReadOnly = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1381,6 +1695,12 @@
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllClients)).EndInit();
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllOwners)).EndInit();
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllTenants)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -1485,5 +1805,21 @@
         private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox4;
         private Guna.UI2.WinForms.Guna2WinProgressIndicator guna2WinProgressIndicator1;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvAllTenants;
+        private System.Windows.Forms.Label label12;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private Guna.UI2.WinForms.Guna2Button guna2Button23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTenantName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTenantNationalNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTenantPhoneNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTenantOpeningBalance;
+        private System.Windows.Forms.Label label13;
+        private Guna.UI2.WinForms.Guna2Button guna2Button29;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvAllOwners;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOwnerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOwnerNationalNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOwnerPhoneNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOwnerOpeningBalance;
     }
 }

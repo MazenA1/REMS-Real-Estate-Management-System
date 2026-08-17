@@ -1,8 +1,10 @@
 ﻿using Helpers;
 using Interfaces;
 using Models;
+using Models.DTOs;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 
 namespace DataAccessLayer
@@ -173,6 +175,29 @@ namespace DataAccessLayer
             }
         }
 
+        public BindingList<TenantListDTO> GetTenantList()
+        {
+            BindingList<TenantListDTO> List = new BindingList<TenantListDTO>();
+
+            try
+            {
+                using (SqlDataReader reader = SqlHelper.ExecuteReader("SP_GetTenantsList"))
+                {
+                    while(reader.Read())
+                    {
+                        List.Add(_MapReaderToTenantList(reader));
+                    }
+
+                }
+                   
+                return List;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Layer: DataAccess | Class: TenantRepository | Method: GetTenantList | Exception: {ex}");
+                return null;
+            }
+        }
         public bool Exists(int tenantID)
         {
             try
@@ -209,6 +234,16 @@ namespace DataAccessLayer
             }
         }
 
+        private TenantListDTO _MapReaderToTenantList(SqlDataReader reader)
+        {
+            return new TenantListDTO
+            {
+                TenantFullName = reader["FullName"].ToString(),
+                TenantNationalNo = reader["NationalNo"].ToString(),
+                TenantPhoneNumber = reader["PhoneNumber"].ToString(),
+                TenantOpeningBalance = Convert.ToDecimal( reader["OpeningBalance"])
+            };
+        }
         private Tenant _MapReaderToTenant(SqlDataReader reader)
         {
             return new Tenant
@@ -235,6 +270,34 @@ namespace DataAccessLayer
 
                 Mode = Tenant.enMode.Update
             };
+        }
+
+        public TenantListDTO GetClientListItemById(int ClientID) 
+        {
+
+            try
+            {
+                using (SqlDataReader reader = SqlHelper.ExecuteReader("SP_GetClientListItemById",
+                    new SqlParameter("@ClientID", ClientID)))
+                {
+
+                    if (reader.HasRows)
+                        return new TenantListDTO
+                        {
+                            TenantFullName = reader["FullName"].ToString(),
+                            TenantNationalNo = reader["NationalNo"].ToString(),
+                            TenantPhoneNumber = reader["PhoneNumber"].ToString(),
+                            TenantOpeningBalance = Convert.ToDecimal(reader["OpeningBalance"])
+                        };
+                    else
+                        return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Layer: DataAccess | Class: TenantRepository | Method: GetClientListItemById | Exception: {ex}");
+                return null;
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ using Interfaces;
 using Microsoft.Web.WebView2.Core;
 using Models;
 using Models.DTOs;
+using Models.Events;
 using REMS.UI.Factories;
 using REMS.UI.Form_Models.Interfaces;
 using REMS.UI.Form_Models.Services;
@@ -28,6 +29,8 @@ namespace REMS.UI.Customer_Management
         private MainFormDependencies _deps;
         private AddEditClientFormDependencies _clientFormDeps;
         private BindingList<ClientListDTO> _clients = new BindingList<ClientListDTO>(); 
+        private BindingList<TenantListDTO> _Tenants = new BindingList<TenantListDTO>();  
+        private BindingList<OwnersListDTO> _Owners = new BindingList<OwnersListDTO>(); 
         public frmMain(MainFormDependencies deps)
         {
             InitializeComponent();
@@ -78,12 +81,310 @@ namespace REMS.UI.Customer_Management
             dgvAllClients.Columns["colEdit"].Width = 70;
             dgvAllClients.Columns["colDelete"].Width = 70;
         }
+        private void _TenantsDataGridView() 
+        {
+            dgvAllTenants.AutoGenerateColumns = false;
+
+            dgvAllTenants.Columns["colTenantName"].DataPropertyName = "TenantFullName";
+            dgvAllTenants.Columns["colTenantNationalNo"].DataPropertyName = "TenantNationalNo";
+            dgvAllTenants.Columns["colTenantPhoneNumber"].DataPropertyName = "TenantPhoneNumber"; 
+            dgvAllTenants.Columns["colTenantOpeningBalance"].DataPropertyName = "TenantOpeningBalance";
+
+
+            if (!dgvAllTenants.Columns.Contains("colEdit"))
+            {
+                DataGridViewButtonColumn editColumn = new DataGridViewButtonColumn();
+                editColumn.Name = "colEdit";
+                editColumn.HeaderText = "تعديل";
+                editColumn.Text = "تعديل";
+                editColumn.UseColumnTextForButtonValue = true;
+                editColumn.Width = 90;
+                dgvAllTenants.Columns.Add(editColumn);
+            }
+
+            if (!dgvAllTenants.Columns.Contains("colDelete"))
+            {
+                DataGridViewButtonColumn deleteColumn = new DataGridViewButtonColumn();
+                deleteColumn.Name = "colDelete";
+                deleteColumn.HeaderText = "حذف";
+                deleteColumn.Text = "حذف";
+                deleteColumn.UseColumnTextForButtonValue = true;
+                deleteColumn.Width = 90;
+                dgvAllTenants.Columns.Add(deleteColumn); 
+            }
+
+            dgvAllTenants.Columns["colTenantName"].DisplayIndex = 0;
+            dgvAllTenants.Columns["colTenantPhoneNumber"].DisplayIndex = 1;
+            dgvAllTenants.Columns["colTenantNationalNo"].DisplayIndex = 2;
+            dgvAllTenants.Columns["colTenantOpeningBalance"].DisplayIndex = 3; 
+            dgvAllTenants.Columns["colEdit"].DisplayIndex = 4;
+            dgvAllTenants.Columns["colDelete"].DisplayIndex = 5;
+
+            dgvAllTenants.Columns["colDelete"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvAllTenants.Columns["colEdit"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            dgvAllTenants.Columns["colEdit"].Width = 70;
+            dgvAllTenants.Columns["colDelete"].Width = 70;
+        }
+        private void _OwnersDataGridView()
+        {
+            dgvAllOwners.AutoGenerateColumns = false;
+
+            dgvAllOwners.Columns["colOwnerName"].DataPropertyName = "OwnerFullName";
+            dgvAllOwners.Columns["colOwnerNationalNo"].DataPropertyName = "OwnerNationalNo";
+            dgvAllOwners.Columns["colOwnerPhoneNumber"].DataPropertyName = "OwnerPhoneNumber";
+            dgvAllOwners.Columns["colOwnerOpeningBalance"].DataPropertyName = "OwnerOpeningBalance"; 
+
+
+            if (!dgvAllOwners.Columns.Contains("colEdit"))
+            {
+                DataGridViewButtonColumn editColumn = new DataGridViewButtonColumn();
+                editColumn.Name = "colEdit";
+                editColumn.HeaderText = "تعديل";
+                editColumn.Text = "تعديل";
+                editColumn.UseColumnTextForButtonValue = true;
+                editColumn.Width = 90;
+                dgvAllOwners.Columns.Add(editColumn);
+            }
+
+            if (!dgvAllOwners.Columns.Contains("colDelete"))
+            {
+                DataGridViewButtonColumn deleteColumn = new DataGridViewButtonColumn();
+                deleteColumn.Name = "colDelete";
+                deleteColumn.HeaderText = "حذف";
+                deleteColumn.Text = "حذف";
+                deleteColumn.UseColumnTextForButtonValue = true;
+                deleteColumn.Width = 90;
+                dgvAllOwners.Columns.Add(deleteColumn);
+            }
+
+            dgvAllOwners.Columns["colOwnerName"].DisplayIndex = 0;
+            dgvAllOwners.Columns["colOwnerPhoneNumber"].DisplayIndex = 1;
+            dgvAllOwners.Columns["colOwnerNationalNo"].DisplayIndex = 2;
+            dgvAllOwners.Columns["colOwnerOpeningBalance"].DisplayIndex = 3;
+            dgvAllOwners.Columns["colEdit"].DisplayIndex = 4;
+            dgvAllOwners.Columns["colDelete"].DisplayIndex = 5;
+
+            dgvAllOwners.Columns["colDelete"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvAllOwners.Columns["colEdit"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            dgvAllOwners.Columns["colEdit"].Width = 70;
+            dgvAllOwners.Columns["colDelete"].Width = 70;
+        } 
+
         private async Task _LoadAllClientsAsync()
         {
             _clients = await Task.Run(() =>
                 _deps.RoleService.GetAllClientsList());
 
             dgvAllClients.DataSource = _clients;
+        }
+        private async Task _LoadAllTenantsAsync()
+        {
+            this._Tenants = await Task.Run(() =>
+                _deps.TenantService.GetTenantList());
+
+            dgvAllTenants.DataSource = this._Tenants;
+        }
+        private async Task _LoadAllOwnersAsync() 
+        {
+            this._Owners = await Task.Run(() =>
+                _deps.OwnerService.GetAllOwnersList());
+
+            dgvAllOwners.DataSource = this._Owners; 
+        }
+        private void _UpdatedgvAllClients(string NationalNo)
+        {
+            ClientListDTO clientListDTO = this._deps.AddEditClientDeps.ClientRoleService.GetClientItemInfoByNationalNo(NationalNo);
+
+            this._clients.Add(clientListDTO);
+        }
+        private void _StyleDataGridViewTenants() 
+        {
+            // الشكل العام
+            dgvAllTenants.BorderStyle = BorderStyle.None;
+
+            dgvAllTenants.BackgroundColor = Color.White;
+            dgvAllTenants.GridColor = Color.FromArgb(235, 235, 235);
+
+            dgvAllTenants.CellBorderStyle =
+                DataGridViewCellBorderStyle.SingleHorizontal;
+
+            dgvAllTenants.EnableHeadersVisualStyles = false;
+
+            // الهيدر
+            dgvAllTenants.ColumnHeadersBorderStyle =
+                DataGridViewHeaderBorderStyle.Single;
+
+            dgvAllTenants.ThemeStyle.HeaderStyle.Height = 45;
+            dgvAllTenants.ColumnHeadersHeight = 45;
+
+            dgvAllTenants.ThemeStyle.HeaderStyle.BackColor = Color.White;
+            dgvAllTenants.ThemeStyle.HeaderStyle.ForeColor = Color.Black;
+
+            dgvAllTenants.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
+            dgvAllTenants.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+
+            dgvAllTenants.ColumnHeadersDefaultCellStyle.Font =
+                new Font("Cairo", 10, FontStyle.Bold);
+
+            dgvAllTenants.ColumnHeadersDefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
+            // الصفوف
+            dgvAllTenants.ThemeStyle.RowsStyle.Height = 45;
+            dgvAllTenants.RowTemplate.Height = 45;
+
+            dgvAllTenants.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dgvAllTenants.DefaultCellStyle.BackColor = Color.White;
+
+            dgvAllTenants.ThemeStyle.RowsStyle.ForeColor =
+                Color.FromArgb(35, 35, 35);
+
+            dgvAllTenants.DefaultCellStyle.ForeColor =
+                Color.FromArgb(35, 35, 35);
+
+            dgvAllTenants.DefaultCellStyle.Font =
+                new Font("Cairo", 10, FontStyle.Regular);
+
+            dgvAllTenants.DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
+            // alternating rows
+            dgvAllTenants.ThemeStyle.AlternatingRowsStyle.BackColor =
+                Color.FromArgb(248, 248, 248);
+
+            dgvAllTenants.AlternatingRowsDefaultCellStyle.BackColor =
+                Color.FromArgb(248, 248, 248);
+
+            // التحديد
+            dgvAllTenants.ThemeStyle.RowsStyle.SelectionBackColor =
+                Color.FromArgb(230, 226, 255);
+
+            dgvAllTenants.ThemeStyle.RowsStyle.SelectionForeColor =
+                Color.FromArgb(35, 35, 35);
+
+            dgvAllTenants.DefaultCellStyle.SelectionBackColor =
+                Color.FromArgb(230, 226, 255);
+
+            dgvAllTenants.DefaultCellStyle.SelectionForeColor =
+                Color.FromArgb(35, 35, 35);
+
+            // إعدادات إضافية
+            dgvAllTenants.AutoSizeRowsMode =
+                DataGridViewAutoSizeRowsMode.None;
+
+            dgvAllTenants.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgvAllTenants.RowHeadersVisible = false;
+
+            dgvAllTenants.MultiSelect = false;
+
+            dgvAllTenants.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
+
+            dgvAllTenants.AllowUserToAddRows = false;
+            dgvAllTenants.AllowUserToResizeRows = false;
+            dgvAllTenants.AllowUserToResizeColumns = false;
+
+            dgvAllTenants.ReadOnly = true;
+
+            dgvAllTenants.RightToLeft = RightToLeft.Yes;
+        }
+
+        private void _StyleDataGridViewOwners()
+        {
+            // الشكل العام
+            dgvAllOwners.BorderStyle = BorderStyle.None;
+
+            dgvAllOwners.BackgroundColor = Color.White;
+            dgvAllOwners.GridColor = Color.FromArgb(235, 235, 235);
+
+            dgvAllOwners.CellBorderStyle =
+                DataGridViewCellBorderStyle.SingleHorizontal;
+
+            dgvAllOwners.EnableHeadersVisualStyles = false;
+
+            // الهيدر
+            dgvAllOwners.ColumnHeadersBorderStyle =
+                DataGridViewHeaderBorderStyle.Single;
+
+            dgvAllOwners.ThemeStyle.HeaderStyle.Height = 45;
+            dgvAllOwners.ColumnHeadersHeight = 45;
+
+            dgvAllOwners.ThemeStyle.HeaderStyle.BackColor = Color.White;
+            dgvAllOwners.ThemeStyle.HeaderStyle.ForeColor = Color.Black;
+
+            dgvAllOwners.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
+            dgvAllOwners.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+
+            dgvAllOwners.ColumnHeadersDefaultCellStyle.Font =
+                new Font("Cairo", 10, FontStyle.Bold);
+
+            dgvAllOwners.ColumnHeadersDefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
+            // الصفوف
+            dgvAllOwners.ThemeStyle.RowsStyle.Height = 45;
+            dgvAllOwners.RowTemplate.Height = 45;
+
+            dgvAllOwners.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dgvAllOwners.DefaultCellStyle.BackColor = Color.White;
+
+            dgvAllOwners.ThemeStyle.RowsStyle.ForeColor =
+                Color.FromArgb(35, 35, 35);
+
+            dgvAllOwners.DefaultCellStyle.ForeColor =
+                Color.FromArgb(35, 35, 35);
+
+            dgvAllOwners.DefaultCellStyle.Font =
+                new Font("Cairo", 10, FontStyle.Regular);
+
+            dgvAllOwners.DefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
+            // alternating rows
+            dgvAllOwners.ThemeStyle.AlternatingRowsStyle.BackColor =
+                Color.FromArgb(248, 248, 248);
+
+            dgvAllOwners.AlternatingRowsDefaultCellStyle.BackColor =
+                Color.FromArgb(248, 248, 248);
+
+            // التحديد
+            dgvAllOwners.ThemeStyle.RowsStyle.SelectionBackColor =
+                Color.FromArgb(230, 226, 255);
+
+            dgvAllOwners.ThemeStyle.RowsStyle.SelectionForeColor =
+                Color.FromArgb(35, 35, 35);
+
+            dgvAllOwners.DefaultCellStyle.SelectionBackColor =
+                Color.FromArgb(230, 226, 255);
+
+            dgvAllOwners.DefaultCellStyle.SelectionForeColor =
+                Color.FromArgb(35, 35, 35);
+
+            // إعدادات إضافية
+            dgvAllOwners.AutoSizeRowsMode =
+                DataGridViewAutoSizeRowsMode.None;
+
+            dgvAllOwners.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgvAllOwners.RowHeadersVisible = false;
+
+            dgvAllOwners.MultiSelect = false;
+
+            dgvAllOwners.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
+
+            dgvAllOwners.AllowUserToAddRows = false;
+            dgvAllOwners.AllowUserToResizeRows = false;
+            dgvAllOwners.AllowUserToResizeColumns = false;
+
+            dgvAllOwners.ReadOnly = true;
+
+            dgvAllOwners.RightToLeft = RightToLeft.Yes;
         }
 
         private void _StyleDataGridView()
@@ -310,6 +611,31 @@ namespace REMS.UI.Customer_Management
 
             dgvAllClients.Columns["colClientName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
+
+        private void _SetColumnsSizedgvTenants() 
+        {
+            dgvAllTenants.Columns["colTenantName"].Width = 190;
+            dgvAllTenants.Columns["colTenantPhoneNumber"].Width = 130;
+            dgvAllTenants.Columns["colTenantOpeningBalance"].Width = 110;
+            dgvAllTenants.Columns["colTenantNationalNo"].Width = 130;
+
+            dgvAllTenants.Columns["colEdit"].Width = 55;
+            dgvAllTenants.Columns["colDelete"].Width = 55;
+
+            dgvAllTenants.Columns["colTenantName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; 
+        }
+        private void _SetColumnsSizedgvOwners()
+        {
+            dgvAllOwners.Columns["colOwnerName"].Width = 190;
+            dgvAllOwners.Columns["colOwnerPhoneNumber"].Width = 130;
+            dgvAllOwners.Columns["colOwnerOpeningBalance"].Width = 110;
+            dgvAllOwners.Columns["colOwnerNationalNo"].Width = 130;
+
+            dgvAllOwners.Columns["colEdit"].Width = 55;
+            dgvAllOwners.Columns["colDelete"].Width = 55; 
+
+            dgvAllOwners.Columns["colOwnerName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; 
+        }
         private frmAddEditClient _CreateAddClientForm()
         {
             return new frmAddEditClient(this._deps.AddEditClientDeps);
@@ -326,11 +652,30 @@ namespace REMS.UI.Customer_Management
             lblClientsCount.Text = _deps.DashboardStatisticsService.GetClientsCount().ToString();
             lblTenantsCount.Text = _deps.DashboardStatisticsService.GetTenantsCount().ToString();
             lblOwnersCounts.Text = _deps.DashboardStatisticsService.GetOwnersCount().ToString();
+        } // Letar Handling 
+        private void OnTenantRegistered(object sender, TenantRegisteredEventArgs e)
+        {
+            this._Tenants.Add(e.Tenant);
+
+            _UpdatedgvAllClients(e.Tenant.TenantNationalNo);
+
+            lblTenantsCount.Text = _deps.DashboardStatisticsService.GetTenantsCount().ToString();
+        }
+
+        private void OnOwnerRegistered(object sender, OwnerRegisteredEventArgs e)
+        {
+            this._Owners.Add(e.ownersListDTO);
+
+            _UpdatedgvAllClients(e.ownersListDTO.OwnerNationalNo);
+
+            lblOwnersCounts.Text = _deps.DashboardStatisticsService.GetOwnersCount().ToString(); 
         }
         private void _SubscribeToEvents()
         {
             _deps.ClientService.ClientAdded += _RefreshDashboardCounts;
-            _deps.TenantService.TenantAdded += _RefreshDashboardCounts;
+            _deps.AddEditClientDeps.TenantApplicationService.TenantRegistered += OnTenantRegistered;
+            _deps.AddEditClientDeps.OwnerApplicationService.OwnerRegistered += OnOwnerRegistered; 
+
             _deps.OwnerService.OwnerAdded += _RefreshDashboardCounts;
         }
         private void WebView21_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
@@ -342,9 +687,23 @@ namespace REMS.UI.Customer_Management
             _SubscribeToEvents();
             _RefreshDashboardCounts();
 
+            // dgvAllClients.
             _PrepareDataGridView();
             _StyleDataGridView();
             _SetColumnsSize();
+
+            // dgvAllTenants.
+            _TenantsDataGridView();
+            _StyleDataGridViewTenants();
+            _SetColumnsSizedgvTenants();
+            await _LoadAllTenantsAsync();
+
+            // dgvAllOwners.
+
+            _OwnersDataGridView();
+            _StyleDataGridViewOwners();
+            _SetColumnsSizedgvOwners();
+            await _LoadAllOwnersAsync();
 
             // Bage 2
             _CreateColumns();
