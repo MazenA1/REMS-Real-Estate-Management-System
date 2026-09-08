@@ -67,6 +67,7 @@
             this.label27 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.CBPrimaryOwner = new System.Windows.Forms.CheckBox();
             this.panel18 = new System.Windows.Forms.Panel();
             this.label40 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
@@ -134,7 +135,6 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.gunaDoughnutDataset1 = new Guna.Charts.WinForms.GunaDoughnutDataset();
-            this.CBPrimaryOwner = new System.Windows.Forms.CheckBox();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.guna2GroupBox1.SuspendLayout();
@@ -598,6 +598,19 @@
             this.panel6.Size = new System.Drawing.Size(1161, 669);
             this.panel6.TabIndex = 1;
             // 
+            // CBPrimaryOwner
+            // 
+            this.CBPrimaryOwner.AutoSize = true;
+            this.CBPrimaryOwner.ForeColor = System.Drawing.Color.Gray;
+            this.CBPrimaryOwner.Location = new System.Drawing.Point(305, 287);
+            this.CBPrimaryOwner.Name = "CBPrimaryOwner";
+            this.CBPrimaryOwner.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.CBPrimaryOwner.Size = new System.Drawing.Size(141, 33);
+            this.CBPrimaryOwner.TabIndex = 54;
+            this.CBPrimaryOwner.Text = "المالك الأساسي";
+            this.CBPrimaryOwner.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CBPrimaryOwner.UseVisualStyleBackColor = true;
+            // 
             // panel18
             // 
             this.panel18.BackColor = System.Drawing.Color.White;
@@ -780,7 +793,6 @@
             this.txtOwnershipPercentage.Size = new System.Drawing.Size(335, 38);
             this.txtOwnershipPercentage.TabIndex = 44;
             this.txtOwnershipPercentage.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
-            this.txtOwnershipPercentage.UpDownButtonForeColor = System.Drawing.Color.White;
             // 
             // guna2Button3
             // 
@@ -1496,19 +1508,6 @@
             // gunaDoughnutDataset1
             // 
             this.gunaDoughnutDataset1.Label = "Doughnut1";
-            // 
-            // CBPrimaryOwner
-            // 
-            this.CBPrimaryOwner.AutoSize = true;
-            this.CBPrimaryOwner.ForeColor = System.Drawing.Color.Gray;
-            this.CBPrimaryOwner.Location = new System.Drawing.Point(305, 287);
-            this.CBPrimaryOwner.Name = "CBPrimaryOwner";
-            this.CBPrimaryOwner.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.CBPrimaryOwner.Size = new System.Drawing.Size(141, 33);
-            this.CBPrimaryOwner.TabIndex = 54;
-            this.CBPrimaryOwner.Text = "المالك الأساسي";
-            this.CBPrimaryOwner.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CBPrimaryOwner.UseVisualStyleBackColor = true;
             // 
             // frmAddNewProperty
             // 

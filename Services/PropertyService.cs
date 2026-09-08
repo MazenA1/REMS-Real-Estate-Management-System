@@ -80,5 +80,10 @@ namespace Services
         {
             return _propertyRepository.GetPropertyTypesWithPropertiesCount();
         }
+        public PropertyBasicInfoDTO GetPropertyCardInfoByID(int propertyID)
+        {
+            return null;
+        }
+        
     } 
 }

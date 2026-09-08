@@ -243,6 +243,36 @@ namespace REMS.UI.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_create_document_44 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-create-document-44", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_create_document_441 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-create-document-441", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_create_document_442 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-create-document-442", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_file_invoice_dollar_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-file-invoice-dollar-32", resourceCulture);
@@ -286,6 +316,16 @@ namespace REMS.UI.Properties {
         internal static System.Drawing.Bitmap icons8_help_30__1_ {
             get {
                 object obj = ResourceManager.GetObject("icons8-help-30 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_hotel_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-hotel-100", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -613,6 +653,46 @@ namespace REMS.UI.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_search_44 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-search-44", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_search_441 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-search-441", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_search_442 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-search-442", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_search_property_44 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-search-property-44", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_services_35 {
             get {
                 object obj = ResourceManager.GetObject("icons8-services-35", resourceCulture);
@@ -666,6 +746,16 @@ namespace REMS.UI.Properties {
         internal static System.Drawing.Bitmap icons8_tenant_35__2_ {
             get {
                 object obj = ResourceManager.GetObject("icons8-tenant-35 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_user_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-user-50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

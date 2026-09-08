@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer;
 using DataAccessLayer.Repositories;
 using Interfaces;
+using Interfaces.Repositories;
 using Interfaces.Services;
 using Services;
 using System;
@@ -222,6 +223,17 @@ namespace REMS.UI.Factories
 
             return new InvestorRegistrationService(
                 repository);
+        }
+        public static IUnitService CreateUnitService()
+        {
+            IAppLogger logger =
+                new EventLogger();
+
+            IUnitRepository unitRepository =
+                new UnitRepository(logger);
+
+            return new UnitService(
+                unitRepository);
         }
     }
 }

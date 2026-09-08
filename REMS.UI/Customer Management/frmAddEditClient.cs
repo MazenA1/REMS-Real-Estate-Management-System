@@ -1,5 +1,19 @@
 ﻿using Interfaces;
 using Models;
+using REMS.UI.Client_Roles.Investor;
+using REMS.UI.Client_Roles.Owner;
+using REMS.UI.Client_Roles.Tenant_Details;
+using REMS.UI.Client_Roles.UnitOwner;
+using REMS.UI.Factories;
+using REMS.UI.Form_Models;
+using REMS.UI.Form_Models.Interfaces;
+using REMS.UI.Form_Models.Services;
+using REMS.UI.FormDependencies;
+using REMS.UI.Global;
+using REMS.UI.Person;
+using REMS.UI.Person.Events;
+using REMS.UI.RealEstateAndUnits;
+using REMS.UI.Validation;
 using Services;
 using System;
 using System.Collections.Generic;
@@ -10,19 +24,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using REMS.UI.Client_Roles.Owner;
-using REMS.UI.Client_Roles.Tenant_Details;
-using REMS.UI.Factories;
-using REMS.UI.Form_Models;
-using REMS.UI.Form_Models.Interfaces;
-using REMS.UI.Form_Models.Services;
-using REMS.UI.FormDependencies;
-using REMS.UI.Global;
-using REMS.UI.Person;
-using REMS.UI.Person.Events;
-using REMS.UI.Validation;
 using static REMS.UI.Customer_Management.Control.ctrlClientRoleNavigator;
-using REMS.UI.Client_Roles.Investor;
 
 namespace REMS.UI.Customer_Management
 {
@@ -366,6 +368,12 @@ namespace REMS.UI.Customer_Management
         {
             frmAddNewInvestor frm = new frmAddNewInvestor(this._deps.PropertyService, this._deps.CityService, this._deps.PaymentMethodService,
                 this._deps.InvestmentPurposeService, this._deps.InterestLevelService, this._deps.InvestorRegistrationService, this._ClientID);  
+            frm.ShowDialog();
+        }
+
+        private void btnOwner_alone_Click(object sender, EventArgs e)
+        {
+            frmRegistrationUnitOwner frm = new frmRegistrationUnitOwner();
             frm.ShowDialog();
         }
     }

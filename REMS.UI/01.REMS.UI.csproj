@@ -107,6 +107,24 @@
     <Compile Include="Client Roles\Tenant Details\frmTenantDetails.Designer.cs">
       <DependentUpon>frmTenantDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Client Roles\UnitOwner\Control\ctrlPropertyUnitsSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Client Roles\UnitOwner\Control\ctrlPropertyUnitsSelector.Designer.cs">
+      <DependentUpon>ctrlPropertyUnitsSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client Roles\UnitOwner\frmRegistrationUnitOwner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client Roles\UnitOwner\frmRegistrationUnitOwner.Designer.cs">
+      <DependentUpon>frmRegistrationUnitOwner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client Roles\UnitOwner\frmUnitsListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client Roles\UnitOwner\frmUnitsListView.Designer.cs">
+      <DependentUpon>frmUnitsListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customer Management\Control\ctrlClientRoleNavigator.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,6 +141,18 @@
     <Compile Include="Form Models\Interfaces\IClientFormMapper.cs" />
     <Compile Include="Form Models\Services\ClientFormMapper.cs" />
     <Compile Include="Customer Management\Dependencies\AddEditClientFormDependencies.cs" />
+    <Compile Include="RealEstateAndUnits\Control\ctrlPropertyCardBasicInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RealEstateAndUnits\Control\ctrlPropertyCardBasicInfo.Designer.cs">
+      <DependentUpon>ctrlPropertyCardBasicInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RealEstateAndUnits\Control\ctrlPropertyCardBasicInfoWhithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RealEstateAndUnits\Control\ctrlPropertyCardBasicInfoWhithFilter.Designer.cs">
+      <DependentUpon>ctrlPropertyCardBasicInfoWhithFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="RealEstateAndUnits\Dependencies\AddNewPropertyFormDependencies.cs" />
     <Compile Include="FormDependencies\MainFormDependencies.cs" />
     <Compile Include="Lease Contracts\frmAddNewLeaseAgreement.cs">
@@ -207,6 +237,12 @@
     <Compile Include="RealEstateAndUnits\frmAddPropertyOwnerships.Designer.cs">
       <DependentUpon>frmAddPropertyOwnerships.cs</DependentUpon>
     </Compile>
+    <Compile Include="RealEstateAndUnits\frmFindPropertyBasicInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RealEstateAndUnits\frmFindPropertyBasicInfo.Designer.cs">
+      <DependentUpon>frmFindPropertyBasicInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users Management\frmAddEditUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,6 +273,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Client Roles\Tenant Details\frmTenantDetails.resx">
       <DependentUpon>frmTenantDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client Roles\UnitOwner\Control\ctrlPropertyUnitsSelector.resx">
+      <DependentUpon>ctrlPropertyUnitsSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client Roles\UnitOwner\frmRegistrationUnitOwner.resx">
+      <DependentUpon>frmRegistrationUnitOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client Roles\UnitOwner\frmUnitsListView.resx">
+      <DependentUpon>frmUnitsListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer Management\Control\ctrlClientRoleNavigator.resx">
       <DependentUpon>ctrlClientRoleNavigator.cs</DependentUpon>
@@ -284,11 +329,20 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RealEstateAndUnits\Control\ctrlPropertyCardBasicInfo.resx">
+      <DependentUpon>ctrlPropertyCardBasicInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RealEstateAndUnits\Control\ctrlPropertyCardBasicInfoWhithFilter.resx">
+      <DependentUpon>ctrlPropertyCardBasicInfoWhithFilter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RealEstateAndUnits\frmAddNewProperty.resx">
       <DependentUpon>frmAddNewProperty.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RealEstateAndUnits\frmAddPropertyOwnerships.resx">
       <DependentUpon>frmAddPropertyOwnerships.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RealEstateAndUnits\frmFindPropertyBasicInfo.resx">
+      <DependentUpon>frmFindPropertyBasicInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users Management\frmAddEditUser.resx">
       <DependentUpon>frmAddEditUser.cs</DependentUpon>
@@ -514,6 +568,34 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-more-info-301.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-property-44.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-create-document-44.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-44.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-441.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-create-document-441.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-442.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-create-document-442.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\icons8-hotel-100.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Web.WebView2.1.0.3967.48\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.3967.48\build\Microsoft.Web.WebView2.targets')" />

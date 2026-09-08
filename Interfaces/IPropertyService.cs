@@ -16,7 +16,7 @@ namespace Interfaces
 
         List<Property> GetAll();
         BindingList<InvestorPreferredPropertyTypeDTO> GetPropertyTypesWithPropertiesCount();
-
+        PropertyBasicInfoDTO GetPropertyCardInfoByID(int propertyID); 
         bool Exists(int propertyID);
     }
 }

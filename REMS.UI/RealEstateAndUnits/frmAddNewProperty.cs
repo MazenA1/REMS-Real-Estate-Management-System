@@ -240,7 +240,6 @@ namespace REMS.UI.RealEstateAndUnits
             dgvContracts.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.White;
             dgvContracts.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.Black;
         }
-
         private void frmAddNewProperty_Load(object sender, EventArgs e)
         {
             _FillcbPropertyTypes();
@@ -281,7 +280,6 @@ namespace REMS.UI.RealEstateAndUnits
 
             return this._deps.PropertyApplicationService.Add(PropertyApplicationinfo) > 0;  
         }
-
         private PropertyOwnership _GetMainOwnerFromControls()
         {
             return new PropertyOwnership
@@ -297,7 +295,6 @@ namespace REMS.UI.RealEstateAndUnits
                 IsPrimaryOwner = CBPrimaryOwner.Checked
             };
         }
-
         private List<PropertyOwnership> _GetAllOwnerships()
         {
             List<PropertyOwnership> ownerships = new List<PropertyOwnership>();
@@ -375,8 +372,6 @@ namespace REMS.UI.RealEstateAndUnits
             }
 
         }
-
-
         private string _HandleDeedImage() 
         {
             string ImageFolder = @"C:\\REMS_DeedImages";
@@ -405,7 +400,6 @@ namespace REMS.UI.RealEstateAndUnits
 
             return isValid;
         }
-
         private void OnlyNumbers_KeyPress(object sender, KeyPressEventArgs e)
         {
             // السماح بالأرقام
@@ -429,7 +423,6 @@ namespace REMS.UI.RealEstateAndUnits
             }
 
         }
-
         private void _OnPropertyOwnerShipSelected(object sender, OnPropertyOwnerShipSelectedEventArgs e)
         {
             _propertyOwnerships.Add(e.propertyOwnership);
