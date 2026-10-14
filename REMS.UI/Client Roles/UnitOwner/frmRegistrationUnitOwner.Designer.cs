@@ -32,35 +32,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Container = new System.Windows.Forms.Panel();
+            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.ContractDataPanel = new System.Windows.Forms.Panel();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.label30 = new System.Windows.Forms.Label();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.txtPurchasePrice = new Guna.UI2.WinForms.Guna2NumericUpDown();
-            this.txtValuationAmount = new Guna.UI2.WinForms.Guna2NumericUpDown();
-            this.dtpEvaluationDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.rsPropertyEvaluation = new Guna.UI2.WinForms.Guna2RatingStar();
-            this.txtResidentialEntity = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.guna2TextBox13 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.label28 = new System.Windows.Forms.Label();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.pbSuccess = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.label27 = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.panel18 = new System.Windows.Forms.Panel();
@@ -87,7 +62,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtOwnerName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtUnitID = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -110,15 +85,6 @@
             this.guna2Panel1.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
             this.ContractDataPanel.SuspendLayout();
-            this.panel15.SuspendLayout();
-            this.panel16.SuspendLayout();
-            this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPurchasePrice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtValuationAmount)).BeginInit();
-            this.panel13.SuspendLayout();
-            this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSuccess)).BeginInit();
-            this.panel10.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -135,13 +101,34 @@
             // Container
             // 
             this.Container.BackColor = System.Drawing.Color.White;
+            this.Container.Controls.Add(this.btnSave);
             this.Container.Controls.Add(this.guna2Panel1);
             this.Container.Controls.Add(this.HeaderPanel);
             this.Container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Container.Location = new System.Drawing.Point(0, 0);
             this.Container.Name = "Container";
-            this.Container.Size = new System.Drawing.Size(1248, 903);
+            this.Container.Size = new System.Drawing.Size(1248, 977);
             this.Container.TabIndex = 0;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BorderRadius = 5;
+            this.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSave.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSave.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
+            this.btnSave.Font = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold);
+            this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(201)))), ((int)(((byte)(209)))));
+            this.btnSave.Image = global::REMS.UI.Properties.Resources.icons8_save_30__2_;
+            this.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnSave.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnSave.Location = new System.Drawing.Point(0, 932);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(1248, 45);
+            this.btnSave.TabIndex = 9;
+            this.btnSave.Text = "حفظ";
             // 
             // guna2Panel1
             // 
@@ -149,7 +136,7 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 55);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1248, 807);
+            this.guna2Panel1.Size = new System.Drawing.Size(1248, 852);
             this.guna2Panel1.TabIndex = 7;
             // 
             // guna2GroupBox1
@@ -173,9 +160,6 @@
             // ContractDataPanel
             // 
             this.ContractDataPanel.AutoScroll = true;
-            this.ContractDataPanel.Controls.Add(this.panel15);
-            this.ContractDataPanel.Controls.Add(this.panel12);
-            this.ContractDataPanel.Controls.Add(this.panel9);
             this.ContractDataPanel.Controls.Add(this.panel6);
             this.ContractDataPanel.Controls.Add(this.panel2);
             this.ContractDataPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -183,324 +167,6 @@
             this.ContractDataPanel.Name = "ContractDataPanel";
             this.ContractDataPanel.Size = new System.Drawing.Size(1248, 760);
             this.ContractDataPanel.TabIndex = 0;
-            // 
-            // panel15
-            // 
-            this.panel15.Controls.Add(this.linkLabel2);
-            this.panel15.Controls.Add(this.panel16);
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel15.Location = new System.Drawing.Point(0, 1380);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(1227, 161);
-            this.panel15.TabIndex = 9;
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel2.Location = new System.Drawing.Point(494, 70);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(173, 29);
-            this.linkLabel2.TabIndex = 4;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "اضغط هنا لتحميل الملف";
-            // 
-            // panel16
-            // 
-            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.panel16.Controls.Add(this.label30);
-            this.panel16.Controls.Add(this.panel17);
-            this.panel16.Location = new System.Drawing.Point(3, 4);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(1182, 55);
-            this.panel16.TabIndex = 3;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Cairo Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
-            this.label30.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label30.Location = new System.Drawing.Point(1015, 16);
-            this.label30.Name = "label30";
-            this.label30.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label30.Size = new System.Drawing.Size(114, 24);
-            this.label30.TabIndex = 3;
-            this.label30.Text = "5-   صوره العقار";
-            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel17
-            // 
-            this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
-            this.panel17.Location = new System.Drawing.Point(1181, 3);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(2, 55);
-            this.panel17.TabIndex = 2;
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.txtPurchasePrice);
-            this.panel12.Controls.Add(this.txtValuationAmount);
-            this.panel12.Controls.Add(this.dtpEvaluationDate);
-            this.panel12.Controls.Add(this.rsPropertyEvaluation);
-            this.panel12.Controls.Add(this.txtResidentialEntity);
-            this.panel12.Controls.Add(this.label29);
-            this.panel12.Controls.Add(this.label23);
-            this.panel12.Controls.Add(this.label26);
-            this.panel12.Controls.Add(this.label24);
-            this.panel12.Controls.Add(this.guna2TextBox13);
-            this.panel12.Controls.Add(this.label25);
-            this.panel12.Controls.Add(this.panel13);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(0, 1138);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(1227, 242);
-            this.panel12.TabIndex = 7;
-            // 
-            // txtPurchasePrice
-            // 
-            this.txtPurchasePrice.BackColor = System.Drawing.Color.Transparent;
-            this.txtPurchasePrice.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPurchasePrice.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtPurchasePrice.Location = new System.Drawing.Point(718, 190);
-            this.txtPurchasePrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPurchasePrice.Maximum = new decimal(new int[] {
-            1316134912,
-            2328,
-            0,
-            0});
-            this.txtPurchasePrice.Name = "txtPurchasePrice";
-            this.txtPurchasePrice.Size = new System.Drawing.Size(335, 38);
-            this.txtPurchasePrice.TabIndex = 44;
-            this.txtPurchasePrice.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
-            // 
-            // txtValuationAmount
-            // 
-            this.txtValuationAmount.BackColor = System.Drawing.Color.Transparent;
-            this.txtValuationAmount.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtValuationAmount.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtValuationAmount.Location = new System.Drawing.Point(718, 131);
-            this.txtValuationAmount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtValuationAmount.Maximum = new decimal(new int[] {
-            1316134912,
-            2328,
-            0,
-            0});
-            this.txtValuationAmount.Name = "txtValuationAmount";
-            this.txtValuationAmount.Size = new System.Drawing.Size(335, 38);
-            this.txtValuationAmount.TabIndex = 43;
-            this.txtValuationAmount.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
-            // 
-            // dtpEvaluationDate
-            // 
-            this.dtpEvaluationDate.Checked = true;
-            this.dtpEvaluationDate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
-            this.dtpEvaluationDate.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dtpEvaluationDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpEvaluationDate.Location = new System.Drawing.Point(111, 73);
-            this.dtpEvaluationDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpEvaluationDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpEvaluationDate.Name = "dtpEvaluationDate";
-            this.dtpEvaluationDate.Size = new System.Drawing.Size(335, 36);
-            this.dtpEvaluationDate.TabIndex = 39;
-            this.dtpEvaluationDate.Value = new System.DateTime(2026, 5, 25, 20, 45, 33, 825);
-            // 
-            // rsPropertyEvaluation
-            // 
-            this.rsPropertyEvaluation.Location = new System.Drawing.Point(854, 73);
-            this.rsPropertyEvaluation.Name = "rsPropertyEvaluation";
-            this.rsPropertyEvaluation.RatingColor = System.Drawing.Color.Gold;
-            this.rsPropertyEvaluation.Size = new System.Drawing.Size(173, 32);
-            this.rsPropertyEvaluation.TabIndex = 38;
-            // 
-            // txtResidentialEntity
-            // 
-            this.txtResidentialEntity.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtResidentialEntity.DefaultText = "";
-            this.txtResidentialEntity.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtResidentialEntity.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtResidentialEntity.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtResidentialEntity.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtResidentialEntity.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtResidentialEntity.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtResidentialEntity.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtResidentialEntity.Location = new System.Drawing.Point(111, 131);
-            this.txtResidentialEntity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtResidentialEntity.Name = "txtResidentialEntity";
-            this.txtResidentialEntity.PlaceholderText = "";
-            this.txtResidentialEntity.SelectedText = "";
-            this.txtResidentialEntity.Size = new System.Drawing.Size(335, 38);
-            this.txtResidentialEntity.TabIndex = 37;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.ForeColor = System.Drawing.Color.Gray;
-            this.label29.Location = new System.Drawing.Point(458, 70);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(96, 29);
-            this.label29.TabIndex = 35;
-            this.label29.Text = "تاريخ التقييم";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.ForeColor = System.Drawing.Color.Gray;
-            this.label23.Location = new System.Drawing.Point(458, 131);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(109, 29);
-            this.label23.TabIndex = 24;
-            this.label23.Text = "الجهه المقيمه";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.ForeColor = System.Drawing.Color.Gray;
-            this.label26.Location = new System.Drawing.Point(1065, 190);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(88, 29);
-            this.label26.TabIndex = 24;
-            this.label26.Text = "سعر الشراء";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.ForeColor = System.Drawing.Color.Gray;
-            this.label24.Location = new System.Drawing.Point(1065, 131);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(95, 29);
-            this.label24.TabIndex = 24;
-            this.label24.Text = "مبلغ التقييم";
-            // 
-            // guna2TextBox13
-            // 
-            this.guna2TextBox13.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox13.DefaultText = "";
-            this.guna2TextBox13.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox13.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox13.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox13.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox13.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox13.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox13.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox13.Location = new System.Drawing.Point(718, 70);
-            this.guna2TextBox13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox13.Name = "guna2TextBox13";
-            this.guna2TextBox13.PlaceholderText = "";
-            this.guna2TextBox13.ReadOnly = true;
-            this.guna2TextBox13.SelectedText = "";
-            this.guna2TextBox13.Size = new System.Drawing.Size(335, 38);
-            this.guna2TextBox13.TabIndex = 25;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.ForeColor = System.Drawing.Color.Gray;
-            this.label25.Location = new System.Drawing.Point(1065, 70);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(94, 29);
-            this.label25.TabIndex = 24;
-            this.label25.Text = "تقييم العقار";
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.panel13.Controls.Add(this.label28);
-            this.panel13.Controls.Add(this.panel14);
-            this.panel13.Location = new System.Drawing.Point(3, 4);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(1221, 55);
-            this.panel13.TabIndex = 3;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Cairo Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
-            this.label28.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label28.Location = new System.Drawing.Point(1046, 16);
-            this.label28.Name = "label28";
-            this.label28.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label28.Size = new System.Drawing.Size(153, 24);
-            this.label28.TabIndex = 3;
-            this.label28.Text = "4-   بيانات تقييم العقار";
-            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel14.Location = new System.Drawing.Point(1219, 0);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(2, 55);
-            this.panel14.TabIndex = 2;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.pbSuccess);
-            this.panel9.Controls.Add(this.linkLabel1);
-            this.panel9.Controls.Add(this.panel10);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 1000);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1227, 138);
-            this.panel9.TabIndex = 8;
-            // 
-            // pbSuccess
-            // 
-            this.pbSuccess.Image = global::REMS.UI.Properties.Resources.icons8_success_25;
-            this.pbSuccess.ImageRotate = 0F;
-            this.pbSuccess.Location = new System.Drawing.Point(467, 101);
-            this.pbSuccess.Name = "pbSuccess";
-            this.pbSuccess.Size = new System.Drawing.Size(26, 25);
-            this.pbSuccess.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbSuccess.TabIndex = 5;
-            this.pbSuccess.TabStop = false;
-            this.pbSuccess.Visible = false;
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(494, 98);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(173, 29);
-            this.linkLabel1.TabIndex = 4;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "اضغط هنا لتحميل الملف";
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.panel10.Controls.Add(this.label27);
-            this.panel10.Controls.Add(this.panel11);
-            this.panel10.Location = new System.Drawing.Point(3, 31);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1221, 55);
-            this.panel10.TabIndex = 3;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Cairo Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
-            this.label27.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label27.Location = new System.Drawing.Point(1088, 15);
-            this.label27.Name = "label27";
-            this.label27.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label27.Size = new System.Drawing.Size(110, 24);
-            this.label27.TabIndex = 3;
-            this.label27.Text = "3-   صوره الصك";
-            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel11.Location = new System.Drawing.Point(1219, 0);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(2, 55);
-            this.panel11.TabIndex = 2;
             // 
             // panel6
             // 
@@ -521,12 +187,12 @@
             this.panel6.Controls.Add(this.label17);
             this.panel6.Controls.Add(this.guna2Button2);
             this.panel6.Controls.Add(this.label12);
-            this.panel6.Controls.Add(this.txtOwnerName);
+            this.panel6.Controls.Add(this.txtUnitID);
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 331);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1227, 669);
+            this.panel6.Size = new System.Drawing.Size(1227, 762);
             this.panel6.TabIndex = 1;
             // 
             // guna2DateTimePicker1
@@ -741,6 +407,7 @@
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(41, 38);
             this.guna2Button3.TabIndex = 35;
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // guna2Button1
             // 
@@ -873,25 +540,26 @@
             this.label12.TabIndex = 7;
             this.label12.Text = "الوحدة";
             // 
-            // txtOwnerName
+            // txtUnitID
             // 
-            this.txtOwnerName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtOwnerName.DefaultText = "";
-            this.txtOwnerName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtOwnerName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtOwnerName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtOwnerName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtOwnerName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtOwnerName.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtOwnerName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtOwnerName.Location = new System.Drawing.Point(296, 95);
-            this.txtOwnerName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtOwnerName.Name = "txtOwnerName";
-            this.txtOwnerName.PlaceholderText = "";
-            this.txtOwnerName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtOwnerName.SelectedText = "";
-            this.txtOwnerName.Size = new System.Drawing.Size(757, 38);
-            this.txtOwnerName.TabIndex = 6;
+            this.txtUnitID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUnitID.DefaultText = "";
+            this.txtUnitID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtUnitID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtUnitID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUnitID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtUnitID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUnitID.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtUnitID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtUnitID.Location = new System.Drawing.Point(296, 95);
+            this.txtUnitID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtUnitID.Name = "txtUnitID";
+            this.txtUnitID.PlaceholderText = "";
+            this.txtUnitID.ReadOnly = true;
+            this.txtUnitID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtUnitID.SelectedText = "";
+            this.txtUnitID.Size = new System.Drawing.Size(757, 38);
+            this.txtUnitID.TabIndex = 6;
             // 
             // panel7
             // 
@@ -958,6 +626,7 @@
             this.txtCreationUserID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCreationUserID.Name = "txtCreationUserID";
             this.txtCreationUserID.PlaceholderText = "";
+            this.txtCreationUserID.ReadOnly = true;
             this.txtCreationUserID.SelectedText = "";
             this.txtCreationUserID.Size = new System.Drawing.Size(335, 38);
             this.txtCreationUserID.TabIndex = 41;
@@ -1005,6 +674,7 @@
             this.txtCreatedDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCreatedDate.Name = "txtCreatedDate";
             this.txtCreatedDate.PlaceholderText = "";
+            this.txtCreatedDate.ReadOnly = true;
             this.txtCreatedDate.SelectedText = "";
             this.txtCreatedDate.Size = new System.Drawing.Size(335, 38);
             this.txtCreatedDate.TabIndex = 14;
@@ -1044,6 +714,7 @@
             this.txtUnitOwnerID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUnitOwnerID.Name = "txtUnitOwnerID";
             this.txtUnitOwnerID.PlaceholderText = "";
+            this.txtUnitOwnerID.ReadOnly = true;
             this.txtUnitOwnerID.SelectedText = "";
             this.txtUnitOwnerID.Size = new System.Drawing.Size(888, 38);
             this.txtUnitOwnerID.TabIndex = 4;
@@ -1119,7 +790,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1248, 903);
+            this.ClientSize = new System.Drawing.Size(1248, 977);
             this.Controls.Add(this.Container);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmRegistrationUnitOwner";
@@ -1130,21 +801,6 @@
             this.guna2Panel1.ResumeLayout(false);
             this.guna2GroupBox1.ResumeLayout(false);
             this.ContractDataPanel.ResumeLayout(false);
-            this.panel15.ResumeLayout(false);
-            this.panel15.PerformLayout();
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPurchasePrice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtValuationAmount)).EndInit();
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSuccess)).EndInit();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel18.ResumeLayout(false);
@@ -1175,32 +831,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private System.Windows.Forms.Panel ContractDataPanel;
-        private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Panel panel12;
-        private Guna.UI2.WinForms.Guna2NumericUpDown txtPurchasePrice;
-        private Guna.UI2.WinForms.Guna2NumericUpDown txtValuationAmount;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtpEvaluationDate;
-        private Guna.UI2.WinForms.Guna2RatingStar rsPropertyEvaluation;
-        private Guna.UI2.WinForms.Guna2TextBox txtResidentialEntity;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label24;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox13;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.Panel panel9;
-        private Guna.UI2.WinForms.Guna2PictureBox pbSuccess;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Label label40;
@@ -1226,7 +856,7 @@
         private System.Windows.Forms.Label label17;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private System.Windows.Forms.Label label12;
-        private Guna.UI2.WinForms.Guna2TextBox txtOwnerName;
+        private Guna.UI2.WinForms.Guna2TextBox txtUnitID;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Panel panel8;
@@ -1243,5 +873,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtCreationUserID;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
+        private Guna.UI2.WinForms.Guna2Button btnSave;
     }
 }

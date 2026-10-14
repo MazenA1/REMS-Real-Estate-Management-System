@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.Design;
 using Interfaces;
 using Interfaces.Services;
+using REMS.UI.Factories;
 
 namespace REMS.UI.Client_Roles.UnitOwner.Control
 {
@@ -500,7 +501,7 @@ namespace REMS.UI.Client_Roles.UnitOwner.Control
                 return;
 
 
-            SelectedUnit = unit;
+            this.SelectedUnit = unit;
 
 
             dgvUnits.ClearSelection();
@@ -646,7 +647,7 @@ namespace REMS.UI.Client_Roles.UnitOwner.Control
 
         private void ctrlUnitsListView_Load(object sender, EventArgs e)
         {
-            _LoadTemporaryUnits();
+
         }
 
     }

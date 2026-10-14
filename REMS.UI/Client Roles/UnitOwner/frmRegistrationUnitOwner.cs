@@ -1,4 +1,6 @@
-﻿using REMS.UI.RealEstateAndUnits;
+﻿using Models.Events;
+using REMS.UI.Global;
+using REMS.UI.RealEstateAndUnits;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -135,16 +137,37 @@ namespace REMS.UI.Client_Roles.UnitOwner
             dgvUnitOwnerShip.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.White;
             dgvUnitOwnerShip.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.Black;
         }
-
-        private void frmRegistrationUnitOwner_Load(object sender, EventArgs e)
+        private void _InitializeForm()
         {
             _CreateColumns();
-            _StyleContractsGrid();
-        }
 
+            _StyleContractsGrid();
+
+            _InitializeDefultValue();
+        }
+        private void _InitializeDefultValue()
+        {
+            txtCreationUserID.Text = Global.Global.CourentUser.UserID.ToString();
+            txtCreatedDate.Text = DateTime.Now.ToString();
+        }
+        private void frmRegistrationUnitOwner_Load(object sender, EventArgs e)
+        {
+            _InitializeForm();
+        }
+        private void PropertyAndUnitSelected(object sender, PropertyAndUnitSelectedEventArgs e)
+        {
+            txtUnitID.Text = e.Unit.UnitNumber.ToString() + " - " + e.Unit.BuildingNumber + " - " + e.Property.PropertyName; 
+        }
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             frmFindPropertyBasicInfo frm = new frmFindPropertyBasicInfo();
+            frm.PropertyAndUnitSelected += PropertyAndUnitSelected; 
+            frm.ShowDialog();
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            frmManageUnitCoOwners frm = new frmManageUnitCoOwners(); 
             frm.ShowDialog();
         }
     }

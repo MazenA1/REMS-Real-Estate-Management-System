@@ -245,5 +245,93 @@ namespace DataAccessLayer
                 return null;
             }
         }
+        public PropertyBasicInfoDTO GetPropertyCardInfoByID(int propertyID)
+        {
+
+            PropertyBasicInfoDTO propertyBasicInfoDTO = new PropertyBasicInfoDTO();
+
+            try
+            {
+                using (SqlDataReader Reader = SqlHelper.ExecuteReader("SP_GetPropertyCardInfoByID", new SqlParameter("@PropertyID", propertyID)))
+                {
+                    if (Reader.Read())
+                    {
+                        propertyBasicInfoDTO = _MapPropertyBasicInfo(Reader);
+                    }
+                    else
+                        return null;
+                }
+
+                return propertyBasicInfoDTO;
+            }
+
+            catch (Exception ex)
+            {
+                _logger.LogError($"Layer: DataAccess | Class: PropertyRepository | Method: GetPropertyCardInfoByID | Exception: {ex}");
+                return null;
+            }
+        }
+        private PropertyBasicInfoDTO _MapPropertyBasicInfo(SqlDataReader reader)
+        {
+            return new PropertyBasicInfoDTO
+            {
+                PropertyID =
+                    Convert.ToInt32(reader["PropertyID"]),
+
+                PropertyCode =
+                    (Guid)reader["PropertyCode"],
+
+                PropertyName =
+                    reader["PropertyName"].ToString(),
+
+                BuildingYear =
+                    reader["BuildingYear"] == DBNull.Value
+                        ? (short?)null
+                        : Convert.ToInt16(reader["BuildingYear"]),
+
+                Area =
+                    reader["Area"] == DBNull.Value
+                        ? (decimal?)null
+                        : Convert.ToDecimal(reader["Area"]),
+
+                CityName =
+                    reader["CityName"].ToString(),
+
+                DistrictName =
+                    reader["DistrictName"].ToString(),
+
+                ManagementCommissionTypeName =
+                    reader["ManagementCommissionTypeName"]
+                        .ToString(),
+
+                ManagementCommissionValue =
+                    reader["ManagementCommissionValue"] == DBNull.Value
+                        ? (decimal?)null
+                        : Convert.ToDecimal(
+                            reader["ManagementCommissionValue"]),
+
+                CreatedDate =
+                    Convert.ToDateTime(reader["CreatedDate"]),
+
+                CreatedByUserName =
+                    reader["CreatedByUserName"].ToString(),
+
+                IsSubjectToVAT =
+                    Convert.ToBoolean(reader["IsSubjectToVAT"]),
+
+                IsActive =
+                    Convert.ToBoolean(reader["IsActive"]),
+
+                Address =
+                    reader["Address"] == DBNull.Value
+                        ? null
+                        : reader["Address"].ToString(),
+
+                Description =
+                    reader["Description"] == DBNull.Value
+                        ? null
+                        : reader["Description"].ToString()
+            };
+        }
     }
 }

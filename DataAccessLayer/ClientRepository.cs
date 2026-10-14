@@ -1,6 +1,7 @@
 ﻿using Helpers;
 using Interfaces;
 using Models;
+using Models.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -219,6 +220,82 @@ namespace DataAccessLayer
             }
         }
 
+        /// <inheritdoc/>
+        public ClientCardInfoDTO GetClientCardInfoByID(int clientID)
+        {
+            ClientCardInfoDTO clientCardInfo = null;
+
+            try
+            {
+                SqlParameter[] parameters =
+                {
+                    new SqlParameter(
+                        "@ClientID",
+                        clientID)
+                };
+
+                using (SqlDataReader reader =
+                    SqlHelper.ExecuteReader(
+                        "SP_GetClientCardInfoByID",
+                        parameters))
+                {
+                    if (reader.Read())
+                    {
+                        clientCardInfo =
+                            _MapClientCardInfo(reader);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(
+                    "Error getting client card info by ID.",
+                    ex);
+
+                throw;
+            }
+
+            return clientCardInfo;
+        }
+
+        /// <inheritdoc/>
+        public ClientCardInfoDTO GetClientCardInfoByPersonID(
+    int personID)
+        {
+            ClientCardInfoDTO clientCardInfo = null;
+
+            try
+            {
+                SqlParameter[] parameters =
+                {
+            new SqlParameter(
+                "@PersonID",
+                personID)
+        };
+
+                using (SqlDataReader reader =
+                    SqlHelper.ExecuteReader(
+                        "SP_GetClientCardInfoByPersonID",
+                        parameters))
+                {
+                    if (reader.Read())
+                    {
+                        clientCardInfo =
+                            _MapClientCardInfo(reader);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(
+                    "Error getting client card info by PersonID.",
+                    ex);
+
+                throw;
+            }
+
+            return clientCardInfo;
+        }
         private Client _MapReaderToClient(SqlDataReader reader)
         {
             return new Client
@@ -231,6 +308,37 @@ namespace DataAccessLayer
                 IsActive = Convert.ToByte(reader["IsActive"]),
                 Notes = reader["Notes"] == DBNull.Value ? "" : reader["Notes"].ToString(),
                 Mode = Client.enMode.Update
+            };
+        }
+        private ClientCardInfoDTO _MapClientCardInfo(SqlDataReader reader)
+        {
+            return new ClientCardInfoDTO
+            {
+                ClientID =
+                    Convert.ToInt32(
+                        reader["ClientID"]),
+
+                ClientTypeName =
+                    reader["ClientTypeName"] == DBNull.Value
+                        ? null
+                        : reader["ClientTypeName"].ToString(),
+
+                CreationDate =
+                    Convert.ToDateTime(
+                        reader["CreatedDate"]),
+
+                Notes =
+                    reader["Notes"] == DBNull.Value
+                        ? null
+                        : reader["Notes"].ToString(),
+
+                CreatedByUserID =
+                    Convert.ToInt16(
+                        reader["CreatedByUserID"]),
+
+                IsActive =
+                    Convert.ToBoolean(
+                        reader["IsActive"])
             };
         }
     }

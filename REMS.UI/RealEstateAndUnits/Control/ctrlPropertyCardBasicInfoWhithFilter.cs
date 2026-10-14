@@ -1,5 +1,6 @@
 ﻿using Interfaces;
 using Models.DTOs;
+using Models.Events;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,6 +64,7 @@ namespace REMS.UI.RealEstateAndUnits.Control
             }
         }
 
+        public event EventHandler<PropertyActionEventArgs> ShowUnitsRequested;
 
         public ctrlPropertyCardBasicInfoWhithFilter()
         {
@@ -152,8 +154,18 @@ namespace REMS.UI.RealEstateAndUnits.Control
 
             txtFilterValue.KeyDown +=
                 txtFilterValue_KeyDown;
+
+            ctrlPropertyCardBasicInfo1.ShowUnitsRequested
+                += ctrlPropertyCardBasicInfo1_ShowUnitsRequested;
         }
 
+
+        private void ctrlPropertyCardBasicInfo1_ShowUnitsRequested(
+    object sender,
+    PropertyActionEventArgs e)
+        {
+            ShowUnitsRequested?.Invoke(this, e);
+        }
 
         // =========================================
         // Reset Filter
@@ -259,7 +271,7 @@ namespace REMS.UI.RealEstateAndUnits.Control
 
                     property =
                         _SearchByPropertyID();
-
+                    ShowUnitsRequested?.Invoke(this, new PropertyActionEventArgs(property.PropertyID, property.PropertyName));
                     break;
 
 

@@ -30,13 +30,11 @@ namespace Models.DTOs
 
         public string CreatedByUserName { get; set; }
 
-        public string TaxTypeName { get; set; }
-
         public bool IsSubjectToVAT { get; set; }
 
         public bool IsActive { get; set; }
 
-        public string Title { get; set; }
+        public string Address { get; set; }
 
         public string Description { get; set; }
     }

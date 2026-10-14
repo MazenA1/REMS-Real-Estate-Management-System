@@ -30,7 +30,7 @@ namespace REMS.UI.Factories
         public static UserService CreateUserService()
         {
             IAppLogger appLogger = new EventLogger();
-            IUserRepository userRepository = new UserRepository();
+            IUserRepository userRepository = new UserRepository(appLogger); 
             return new UserService(userRepository);
         }
         public static IClientService CreateClientService()

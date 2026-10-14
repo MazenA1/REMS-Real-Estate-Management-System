@@ -59,6 +59,8 @@
     <Compile Include="ClientType.cs" />
     <Compile Include="Country.cs" />
     <Compile Include="District.cs" />
+    <Compile Include="DTOs\ClientCardInfoDTO.cs" />
+    <Compile Include="DTOs\CreatedByUserInfoDTO.cs" />
     <Compile Include="DTOs\InvestorPreferredCitieSelectionDTO.cs" />
     <Compile Include="DTOs\OwnerCardDTO.cs" />
     <Compile Include="DTOs\OwnersListDTO.cs" />
@@ -68,6 +70,7 @@
     <Compile Include="DTOs\UnitSelectionDTO.cs" />
     <Compile Include="Events\OwnerRegisteredEventArgs .cs" />
     <Compile Include="Events\PropertyActionEventArgs .cs" />
+    <Compile Include="Events\PropertyAndUnitSelectedEventArgs.cs" />
     <Compile Include="Events\TenantRegisteredEventArgs .cs" />
     <Compile Include="Events\UnitSelectedEventArgs.cs" />
     <Compile Include="FormData\InvestorRegistrationData.cs" />
@@ -89,6 +92,10 @@
     <Compile Include="PropertyType.cs" />
     <Compile Include="Tenant.cs" />
     <Compile Include="Unit.cs" />
+    <Compile Include="UnitOwner.cs" />
+    <Compile Include="UnitOwnerRegistrationData.cs" />
+    <Compile Include="UnitOwnerRegistrationItem.cs" />
+    <Compile Include="UnitOwnerShips.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

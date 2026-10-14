@@ -69,11 +69,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client Roles\frmClientRoleRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client Roles\frmClientRoleRegistration.Designer.cs">
+      <DependentUpon>frmClientRoleRegistration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Client Roles\Investor\frmAddNewInvestor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Client Roles\Investor\frmAddNewInvestor.Designer.cs">
       <DependentUpon>frmAddNewInvestor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client Roles\Owner\Control\ctrlCommonSection_Person_ClientSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Client Roles\Owner\Control\ctrlCommonSection_Person_ClientSelector.Designer.cs">
+      <DependentUpon>ctrlCommonSection_Person_ClientSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="Client Roles\Owner\Control\ctrlFindOwnerWhithFilter.cs">
       <SubType>UserControl</SubType>
@@ -113,6 +125,12 @@
     <Compile Include="Client Roles\UnitOwner\Control\ctrlPropertyUnitsSelector.Designer.cs">
       <DependentUpon>ctrlPropertyUnitsSelector.cs</DependentUpon>
     </Compile>
+    <Compile Include="Client Roles\UnitOwner\frmManageUnitCoOwners.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client Roles\UnitOwner\frmManageUnitCoOwners.Designer.cs">
+      <DependentUpon>frmManageUnitCoOwners.cs</DependentUpon>
+    </Compile>
     <Compile Include="Client Roles\UnitOwner\frmRegistrationUnitOwner.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +142,12 @@
     </Compile>
     <Compile Include="Client Roles\UnitOwner\frmUnitsListView.Designer.cs">
       <DependentUpon>frmUnitsListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer Management\Control\ctrlClientCardInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer Management\Control\ctrlClientCardInfo.Designer.cs">
+      <DependentUpon>ctrlClientCardInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer Management\Control\ctrlClientRoleNavigator.cs">
       <SubType>UserControl</SubType>
@@ -243,6 +267,18 @@
     <Compile Include="RealEstateAndUnits\frmFindPropertyBasicInfo.Designer.cs">
       <DependentUpon>frmFindPropertyBasicInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="test.Designer.cs">
+      <DependentUpon>test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users Management\Control\ctrlCreatedByUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users Management\Control\ctrlCreatedByUser.Designer.cs">
+      <DependentUpon>ctrlCreatedByUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users Management\frmAddEditUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,8 +292,14 @@
       <DependentUpon>frmUsersManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Validation\ValidationHelper.cs" />
+    <EmbeddedResource Include="Client Roles\frmClientRoleRegistration.resx">
+      <DependentUpon>frmClientRoleRegistration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Client Roles\Investor\frmAddNewInvestor.resx">
       <DependentUpon>frmAddNewInvestor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client Roles\Owner\Control\ctrlCommonSection_Person_ClientSelector.resx">
+      <DependentUpon>ctrlCommonSection_Person_ClientSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Client Roles\Owner\Control\ctrlFindOwnerWhithFilter.resx">
       <DependentUpon>ctrlFindOwnerWhithFilter.cs</DependentUpon>
@@ -277,11 +319,17 @@
     <EmbeddedResource Include="Client Roles\UnitOwner\Control\ctrlPropertyUnitsSelector.resx">
       <DependentUpon>ctrlPropertyUnitsSelector.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Client Roles\UnitOwner\frmManageUnitCoOwners.resx">
+      <DependentUpon>frmManageUnitCoOwners.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Client Roles\UnitOwner\frmRegistrationUnitOwner.resx">
       <DependentUpon>frmRegistrationUnitOwner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Client Roles\UnitOwner\frmUnitsListView.resx">
       <DependentUpon>frmUnitsListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer Management\Control\ctrlClientCardInfo.resx">
+      <DependentUpon>ctrlClientCardInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer Management\Control\ctrlClientRoleNavigator.resx">
       <DependentUpon>ctrlClientRoleNavigator.cs</DependentUpon>
@@ -343,6 +391,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RealEstateAndUnits\frmFindPropertyBasicInfo.resx">
       <DependentUpon>frmFindPropertyBasicInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="test.resx">
+      <DependentUpon>test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users Management\Control\ctrlCreatedByUser.resx">
+      <DependentUpon>ctrlCreatedByUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users Management\frmAddEditUser.resx">
       <DependentUpon>frmAddEditUser.cs</DependentUpon>

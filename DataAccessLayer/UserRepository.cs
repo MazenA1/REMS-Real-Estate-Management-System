@@ -1,6 +1,7 @@
 ﻿using Helpers;
 using Interfaces;
 using Models;
+using Models.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,6 +12,12 @@ namespace DataAccessLayer
 {
     public class UserRepository : IUserRepository
     {
+        private readonly IAppLogger _logger;
+
+        public UserRepository(IAppLogger logger) 
+        {
+            _logger = logger;
+        }
         public int Add(User user)
         {
             try
@@ -283,6 +290,62 @@ namespace DataAccessLayer
             {
                 return false;
             }
+        }
+
+        /// <inheritdoc/>
+        public CreatedByUserInfoDTO GetCreatedByUserInfoByID(int userID)
+        {
+            CreatedByUserInfoDTO userInfo = null;
+
+            try
+            {
+                SqlParameter[] parameters =
+                {
+                    new SqlParameter(
+                        "@UserID",
+                        userID)
+                };
+
+                using (SqlDataReader reader =
+                    SqlHelper.ExecuteReader(
+                        "SP_GetCreatedByUserInfoByID",
+                        parameters))
+                {
+                    if (reader.Read())
+                    {
+                        userInfo =
+                            _MapCreatedByUserInfo(reader);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                this._logger.LogError(
+                    "Error getting created-by user info by ID.",
+                    ex);
+
+                throw;
+            }
+
+            return userInfo;
+        }
+        private CreatedByUserInfoDTO _MapCreatedByUserInfo(SqlDataReader reader)
+        {
+            return new CreatedByUserInfoDTO
+            {
+                UserID =
+                    Convert.ToInt32(
+                        reader["UserID"]),
+
+                UserName =
+                    reader["UserName"] == DBNull.Value
+                        ? null
+                        : reader["UserName"].ToString(),
+
+                IsActive =
+                    Convert.ToBoolean(
+                        reader["IsActive"])
+            };
         }
     }
 }

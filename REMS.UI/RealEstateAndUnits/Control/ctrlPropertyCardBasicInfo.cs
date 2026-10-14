@@ -195,17 +195,12 @@ namespace REMS.UI.RealEstateAndUnits.Control
                 ?? string.Empty;
 
 
-            txtTaxType.Text =
-                _property.TaxTypeName
-                ?? string.Empty;
-
-
             chkSubjectToVAT.Checked =
                 _property.IsSubjectToVAT;
 
 
             txtAddress.Text =
-                _property.Title
+                _property.Address
                 ?? string.Empty;
 
 

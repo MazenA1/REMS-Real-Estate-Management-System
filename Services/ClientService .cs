@@ -1,7 +1,9 @@
 ﻿using Interfaces;
 using Models;
+using Models.DTOs;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Services
 {
@@ -88,6 +90,26 @@ namespace Services
         public int GetCount()
         {
             return _clientRepository.GetClientsCount();
+        }
+
+        /// <inheritdoc/>
+        public ClientCardInfoDTO GetClientCardInfoByID(int clientID)
+        {
+            if (clientID <= 0)
+                return null;
+
+            return _clientRepository
+                .GetClientCardInfoByID(clientID);
+        }
+
+        /// <inheritdoc/>
+        public ClientCardInfoDTO GetClientCardInfoByPersonID(int personID)
+        {
+            if (personID <= 0)
+                return null;
+
+            return _clientRepository
+                .GetClientCardInfoByPersonID(personID);
         }
     }
 }

@@ -82,7 +82,7 @@ namespace Services
         }
         public PropertyBasicInfoDTO GetPropertyCardInfoByID(int propertyID)
         {
-            return null;
+            return _propertyRepository.GetPropertyCardInfoByID(propertyID);
         }
         
     } 

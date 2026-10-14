@@ -1,5 +1,6 @@
 ﻿using Interfaces;
 using Models;
+using Models.DTOs;
 using System.Collections.Generic;
 
 namespace Services
@@ -93,6 +94,16 @@ namespace Services
         public User FindUserByUserNameAndPassword(string userName, string Password)
         {
             return _userRepository.FindUserByUserNameAndPassword(userName, Password);
+        }
+
+        /// <inheritdoc/>
+        public CreatedByUserInfoDTO GetCreatedByUserInfoByID(int userID) // This Method For User Control.
+        {
+            if (userID <= 0)
+                return null;
+
+            return _userRepository
+                .GetCreatedByUserInfoByID(userID);
         }
     }
 }

@@ -34,8 +34,8 @@
             this.ctrlPropertyCardBasicInfoWhithFilter1 = new REMS.UI.RealEstateAndUnits.Control.ctrlPropertyCardBasicInfoWhithFilter();
             this.tabUnits = new System.Windows.Forms.TabPage();
             this.UnitsContainer = new System.Windows.Forms.Panel();
-            this.btnCompleated = new Guna.UI2.WinForms.Guna2Button();
             this.ctrlUnitsListView1 = new REMS.UI.Client_Roles.UnitOwner.Control.ctrlPropertyUnitsSelector();
+            this.btnCompleated = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.guna2TabControl1.SuspendLayout();
             this.tabProperty.SuspendLayout();
@@ -82,6 +82,7 @@
             this.guna2TabControl1.TabIndex = 0;
             this.guna2TabControl1.TabMenuBackColor = System.Drawing.Color.White;
             this.guna2TabControl1.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop;
+            this.guna2TabControl1.SelectedIndexChanged += new System.EventHandler(this.guna2TabControl1_SelectedIndexChanged);
             // 
             // tabProperty
             // 
@@ -123,6 +124,14 @@
             this.UnitsContainer.Size = new System.Drawing.Size(1463, 817);
             this.UnitsContainer.TabIndex = 0;
             // 
+            // ctrlUnitsListView1
+            // 
+            this.ctrlUnitsListView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctrlUnitsListView1.Location = new System.Drawing.Point(0, 0);
+            this.ctrlUnitsListView1.Name = "ctrlUnitsListView1";
+            this.ctrlUnitsListView1.Size = new System.Drawing.Size(1463, 817);
+            this.ctrlUnitsListView1.TabIndex = 0;
+            // 
             // btnCompleated
             // 
             this.btnCompleated.BorderRadius = 5;
@@ -143,14 +152,6 @@
             this.btnCompleated.TabIndex = 5;
             this.btnCompleated.Text = "تم";
             this.btnCompleated.Click += new System.EventHandler(this.btnCompleated_Click);
-            // 
-            // ctrlUnitsListView1
-            // 
-            this.ctrlUnitsListView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ctrlUnitsListView1.Location = new System.Drawing.Point(0, 0);
-            this.ctrlUnitsListView1.Name = "ctrlUnitsListView1";
-            this.ctrlUnitsListView1.Size = new System.Drawing.Size(1463, 817);
-            this.ctrlUnitsListView1.TabIndex = 0;
             // 
             // frmFindPropertyBasicInfo
             // 
