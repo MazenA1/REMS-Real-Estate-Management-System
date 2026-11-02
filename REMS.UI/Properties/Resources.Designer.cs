@@ -233,6 +233,16 @@ namespace REMS.UI.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_cancel_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cancel-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_caretaker_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8-caretaker-48", resourceCulture);
@@ -553,6 +563,16 @@ namespace REMS.UI.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_percentage_25 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-percentage-25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_percentage_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-percentage-30", resourceCulture);
@@ -596,6 +616,16 @@ namespace REMS.UI.Properties {
         internal static System.Drawing.Bitmap icons8_person_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-person-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_reset_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-reset-30", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

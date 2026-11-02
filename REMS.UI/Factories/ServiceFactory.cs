@@ -235,5 +235,12 @@ namespace REMS.UI.Factories
             return new UnitService(
                 unitRepository);
         }
+
+        public static IFileStoradeServics CreateFileStoradeServics()
+        {
+            IAppLogger logger = new EventLogger();
+
+            return new FileStorageServics(logger);
+        }
     }
 }

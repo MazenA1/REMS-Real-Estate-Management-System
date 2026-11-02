@@ -51,6 +51,10 @@ namespace REMS.UI.Customer_Management
 
         public frmAddEditClient(int clientID, AddEditClientFormDependencies deps)
         {
+
+            InitializeComponent();
+
+
             _Mode = enMode.Edit;
             _ClientID = clientID;
             this._deps = deps;
@@ -224,6 +228,8 @@ namespace REMS.UI.Customer_Management
                     IsActive = 1,
                     Notes = txtNotes.Text.Trim()
                 }
+
+                
             };
         }
         private bool _SaveClient()  
@@ -235,6 +241,7 @@ namespace REMS.UI.Customer_Management
                 return false;
 
             txtClientID.Text = _client.ClientID.ToString();
+            
 
             return true;
         }
@@ -373,7 +380,7 @@ namespace REMS.UI.Customer_Management
 
         private void btnOwner_alone_Click(object sender, EventArgs e)
         {
-            frmRegistrationUnitOwner frm = new frmRegistrationUnitOwner();
+            frmRegistrationUnitOwner frm = new frmRegistrationUnitOwner(this._ClientID); 
             frm.ShowDialog();
         }
     }

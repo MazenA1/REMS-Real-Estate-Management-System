@@ -22,6 +22,17 @@ namespace REMS.UI.Validation
             return true;
         }
 
+        public static bool ValidateRequiredTextBox(Guna2NumericUpDown textBox, ErrorProvider errorProvider, string message)
+        {
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                errorProvider.SetError(textBox, message);
+                return false;
+            }
+
+            errorProvider.SetError(textBox, "");
+            return true;
+        }
         public static bool ValidateRequiredComboBox(ComboBox comboBox, ErrorProvider errorProvider, string message)
         {
             if (comboBox.SelectedIndex == -1 || comboBox.SelectedValue == null)
