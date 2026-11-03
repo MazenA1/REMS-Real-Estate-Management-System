@@ -8,6 +8,7 @@ using REMS.UI.Customer_Management;
 using REMS.UI.Form_Models.Interfaces;
 using REMS.UI.Person;
 using REMS.UI.Person.Events;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,7 +41,13 @@ namespace REMS.UI.Composition
         private readonly IInterestLevelService _interestLevelService;
         private readonly IInvestorRegistrationService _investorRegistrationService;
 
+        private readonly IClientService _clientService;
+        private readonly IClientTypeService _clientTypeService;
+        private readonly IClientFormMapper _clientFormMapper;
         public FormFactory(
+            IClientService clientService,
+            IClientTypeService clientTypeService,
+            IClientFormMapper clientFormMapper,
             IPersonService personService,
             ICountryService countryService,
             IPersonImageService personImageService,
@@ -57,6 +64,10 @@ namespace REMS.UI.Composition
             IInterestLevelService interestLevelService,
             IInvestorRegistrationService investorRegistrationService)
         {
+
+            _clientService = clientService;
+            _clientTypeService = clientTypeService;
+            _clientFormMapper = clientFormMapper;
             _personService = personService;
             _countryService = countryService;
             _personImageService = personImageService;
@@ -72,6 +83,7 @@ namespace REMS.UI.Composition
             _investmentPurposeService = investmentPurposeService;
             _interestLevelService = interestLevelService;
             _investorRegistrationService = investorRegistrationService;
+
         }
 
         public Form CreateFindPerson(EventHandler<OnPersonSelectedEventArgs> onSelected)
@@ -104,6 +116,14 @@ namespace REMS.UI.Composition
 
         public Form CreateUnitOwnerRegistration(int clientId) =>
             new frmRegistrationUnitOwner(clientId);
+
+        public Form CreateAddEditClient() =>
+            new frmAddEditClient(_clientService, _clientTypeService,
+                                 _clientFormMapper, this);
+
+        public Form CreateAddEditClient(int clientId) =>
+            new frmAddEditClient(clientId, _clientService, _clientTypeService,
+                                 _clientFormMapper, this);
     }
 }
 

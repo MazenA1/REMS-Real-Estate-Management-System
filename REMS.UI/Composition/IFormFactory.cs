@@ -17,5 +17,7 @@ namespace REMS.UI.Composition
         Form CreateOwnerDetails(Client client);
         Form CreateInvestorRegistration(int clientId);
         Form CreateUnitOwnerRegistration(int clientId);
+        Form CreateAddEditClient();
+        Form CreateAddEditClient(int clientId);
     }
 }

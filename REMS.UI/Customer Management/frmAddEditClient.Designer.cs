@@ -67,6 +67,7 @@
             this.cbClientTypes = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnDate = new Guna.UI2.WinForms.Guna2Button();
+            this.ctrlPersonCard1 = new REMS.UI.Person.Control.ctrlPersonCard();
             this.panel1 = new System.Windows.Forms.Panel();
             this.LiAddPerson = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -81,7 +82,6 @@
             this.btnOwner = new Guna.UI2.WinForms.Guna2Button();
             this.btnInvestor = new Guna.UI2.WinForms.Guna2Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ctrlPersonCard1 = new REMS.UI.Person.Control.ctrlPersonCard();
             guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             guna2GroupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -566,7 +566,7 @@
             this.btnSave.Size = new System.Drawing.Size(1183, 45);
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "حفظ";
-            this.btnSave.Click += new System.EventHandler(this.btnSaveClick);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnNext
             // 
@@ -705,6 +705,14 @@
             this.btnDate.Size = new System.Drawing.Size(261, 45);
             this.btnDate.TabIndex = 5;
             this.btnDate.Text = "22/04/2026";
+            // 
+            // ctrlPersonCard1
+            // 
+            this.ctrlPersonCard1.BackColor = System.Drawing.Color.White;
+            this.ctrlPersonCard1.Location = new System.Drawing.Point(3, 115);
+            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
+            this.ctrlPersonCard1.Size = new System.Drawing.Size(1206, 480);
+            this.ctrlPersonCard1.TabIndex = 1;
             // 
             // panel1
             // 
@@ -873,7 +881,7 @@
             this.btnOwner_alone.Size = new System.Drawing.Size(261, 86);
             this.btnOwner_alone.TabIndex = 6;
             this.btnOwner_alone.Text = "مالك وحده";
-            this.btnOwner_alone.Click += new System.EventHandler(this.btnOwner_alone_Click);
+            this.btnOwner_alone.Click += new System.EventHandler(this.btnUnitOwner_Click);
             // 
             // btnOwner
             // 
@@ -918,14 +926,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // ctrlPersonCard1
-            // 
-            this.ctrlPersonCard1.BackColor = System.Drawing.Color.White;
-            this.ctrlPersonCard1.Location = new System.Drawing.Point(3, 115);
-            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
-            this.ctrlPersonCard1.Size = new System.Drawing.Size(1206, 480);
-            this.ctrlPersonCard1.TabIndex = 1;
             // 
             // frmAddEditClient
             // 

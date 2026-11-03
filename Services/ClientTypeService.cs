@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Services
 {
-    public class ClientTypeService
+    public class ClientTypeService : IClientTypeService
     {
         private readonly IClientTypeRepository _repo;
 

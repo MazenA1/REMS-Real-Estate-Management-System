@@ -4,6 +4,7 @@ using Microsoft.Web.WebView2.Core;
 using Models;
 using Models.DTOs;
 using Models.Events;
+using REMS.UI.Composition;
 using REMS.UI.Factories;
 using REMS.UI.Form_Models.Interfaces;
 using REMS.UI.Form_Models.Services;
@@ -636,15 +637,17 @@ namespace REMS.UI.Customer_Management
 
             dgvAllOwners.Columns["colOwnerName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; 
         }
-        private frmAddEditClient _CreateAddClientForm()
+        private Form _CreateAddClientForm()
         {
-            return new frmAddEditClient(this._deps.AddEditClientDeps);
+            //return new frmAddEditClient(this._deps.AddEditClientDeps);
+
+            return CompositionRoot.FormFactory.CreateAddEditClient();
         }
         private void guna2Button2_Click(object sender, EventArgs e)
         {
 
-            frmAddEditClient frm = _CreateAddClientForm();
-            frm.ShowDialog();
+            using(Form frm = _CreateAddClientForm())
+                frm.ShowDialog();
 
         }
         private void _RefreshDashboardCounts()

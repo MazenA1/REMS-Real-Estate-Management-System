@@ -143,6 +143,7 @@
     <Compile Include="Client Roles\UnitOwner\frmUnitsListView.Designer.cs">
       <DependentUpon>frmUnitsListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Composition\CompositionRoot.cs" />
     <Compile Include="Composition\FormFactory.cs" />
     <Compile Include="Composition\IFormFactory.cs" />
     <Compile Include="Customer Management\Control\ctrlClientCardInfo.cs">

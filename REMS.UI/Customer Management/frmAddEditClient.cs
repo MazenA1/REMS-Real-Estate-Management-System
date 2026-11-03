@@ -1,387 +1,323 @@
 ﻿using Interfaces;
 using Models;
-using REMS.UI.Client_Roles.Investor;
-using REMS.UI.Client_Roles.Owner;
-using REMS.UI.Client_Roles.Tenant_Details;
-using REMS.UI.Client_Roles.UnitOwner;
-using REMS.UI.Factories;
+using REMS.UI.Composition;
 using REMS.UI.Form_Models;
 using REMS.UI.Form_Models.Interfaces;
-using REMS.UI.Form_Models.Services;
-using REMS.UI.FormDependencies;
 using REMS.UI.Global;
-using REMS.UI.Person;
 using REMS.UI.Person.Events;
-using REMS.UI.RealEstateAndUnits;
 using REMS.UI.Validation;
-using Services;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static REMS.UI.Customer_Management.Control.ctrlClientRoleNavigator;
 
 namespace REMS.UI.Customer_Management
 {
     public partial class frmAddEditClient : Form
     {
-        //private readonly IClientTypeService _clientTypeService;
+        private readonly IClientService _clientService;
+        private readonly IClientTypeService _clientTypeService;
+        private readonly IClientFormMapper _clientFormMapper;
+        private readonly IFormFactory _formFactory;
 
-        private readonly AddEditClientFormDependencies _deps;
+        private readonly int _initialClientID;   // 0 = وضع الإضافة
+        private Client _client;                  // null = لسا ما انحفظ/ما انحمّل
+        private int _personID;
 
-        private Models.Person _person;
-        private Models.Client _client;
+        /// وضع التعديل = في عميل محمّل وله ID. هاد المصدر الوحيد لمعرفة الوضع.
+        private bool IsEditMode => _client != null && _client.ClientID > 0;
+        private int CurrentClientID => IsEditMode ? _client.ClientID : 0;
 
-        private int _PersonID {  get; set; }
-        private enum enMode { AddNew = 0, Edit = 1 }
-        private enMode _Mode {  get; set; }
-        private int _ClientID { get; set; }
-        public frmAddEditClient(AddEditClientFormDependencies deps)
+        #region Constructors
+
+        public frmAddEditClient(
+            IClientService clientService,
+            IClientTypeService clientTypeService,
+            IClientFormMapper clientFormMapper,
+            IFormFactory formFactory)
         {
             InitializeComponent();
-            this._deps = deps;
 
-            _Mode = enMode.AddNew;
+            _clientService = clientService;
+            _clientTypeService = clientTypeService;
+            _clientFormMapper = clientFormMapper;
+            _formFactory = formFactory;
+
+            // الربط مرة وحدة هون، مش داخل Click.
+            ctrlPersonCard1.EditLinkClicked += _OnPersonInfoUpdated;
         }
 
-        public frmAddEditClient(int clientID, AddEditClientFormDependencies deps)
+        public frmAddEditClient(
+            int clientID,
+            IClientService clientService,
+            IClientTypeService clientTypeService,
+            IClientFormMapper clientFormMapper,
+            IFormFactory formFactory)
+            : this(clientService, clientTypeService, clientFormMapper, formFactory)
         {
-
-            InitializeComponent();
-
-
-            _Mode = enMode.Edit;
-            _ClientID = clientID;
-            this._deps = deps;
-
+            _initialClientID = clientID;
         }
+
+        #endregion
+
+        #region Messages
+
+        private void ShowWarning(string msg) =>
+            MessageBox.Show(msg, "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+        private void ShowError(string msg) =>
+            MessageBox.Show(msg, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        private void ShowInfo(string msg) =>
+            MessageBox.Show(msg, "تم", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        private void ShowClientNotFound() =>
+            ShowError("تعذر العثور على بيانات العميل المطلوب.");
+
+        #endregion
+
+        #region Initialization
+
+        private void frmAddEditClient_Load(object sender, EventArgs e)
+        {
+            _FillClientTypesComboBox();
+
+            if (_initialClientID > 0)
+                _LoadExistingClient(_clientService.GetByID(_initialClientID));
+            else
+                _SetupAddMode();
+        }
+
         private void _FillClientTypesComboBox()
         {
-            var service = ServiceFactory.CreateClientTypeService();
-
-            var types = service.GetAll();
-
-            cbClientTypes.DataSource = types;
+            cbClientTypes.DataSource = _clientTypeService.GetAll();
             cbClientTypes.DisplayMember = "TypeNameAr";
             cbClientTypes.ValueMember = "ClientTypeID";
         }
-        private bool _ValidateForm()
-        {
-            bool isValid = true;
 
-            if (!ValidationHelper.ValidateRequiredComboBox(cbClientTypes, errorProvider1, "الرجاء اختيار النوع"))
-                isValid = false;
+        private void _SetupAddMode()
+        {
+            Text = "إضافة عميل جديد";
+            _client = null;
+            _personID = 0;
+            txtClientID.Text = "N/A";
 
-            return isValid;
+            _SetButtons(canSave: false, canNext: false);
         }
-        private void _InitializeData() 
+
+        /// يحمّل عميل موجود (من الـ Constructor أو من البحث) ويحوّل الفورم لوضع التعديل.
+        private void _LoadExistingClient(Client client)
         {
-            _FillClientTypesComboBox();
-        }
-        private void _LoadPersonCardInfo(int PersonID)
-        {
-            ctrlPersonCard1.LoadPersonByID(PersonID);
-            this._PersonID = PersonID;
-        }
-        private void _LoadClientData(Client client)
-        {
-            _LoadPersonCardInfo(client.PersonID);
+            if (client == null)
+            {
+                ShowClientNotFound();
+                _SetButtons(canSave: false, canNext: false);
+                return;
+            }
+
+            _client = client;
+            _client.Mode = Client.enMode.Update;
+
+            Text = "تعديل بيانات العميل";
+            _LoadPersonCard(client.PersonID);
 
             txtClientID.Text = client.ClientID.ToString();
             cbClientTypes.SelectedValue = client.ClientTypeID;
             txtNotes.Text = client.Notes;
+
+            _SetButtons(canSave: true, canNext: true);
         }
 
-        private void _InitializeForUpdateMode()
+        private void _LoadPersonCard(int personID)
         {
-            _client = _deps.ClientService.GetByID(this._ClientID);
-
-            if (_client == null)
-            {
-                MessageBox.Show("تعذر العثور على بيانات العميل المطلوب.",
-                    "خطأ",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-
-                btnSave.Enabled = false;
-                btnNext.Enabled = false;
-                return;
-            }
-
-            _client.Mode = Client.enMode.Update;
-            _LoadClientData(_client);
-
-            btnSave.Enabled = true;
-            btnNext.Enabled = true;
+            _personID = personID;
+            ctrlPersonCard1.LoadPersonByID(personID);
         }
-        private void _SetupAddMode()
+
+        private void _SetButtons(bool canSave, bool canNext)
         {
-            this.Text = "إضافة عميل جديد";
-
-            _client = null;
-            _PersonID = 0;
-
-            txtClientID.Text = "N/A";
-            btnSave.Enabled = false;
-            btnNext.Enabled = false;
+            btnSave.Enabled = canSave;
+            btnNext.Enabled = canNext;
         }
-        private void _SetupEditMode()
-        {
-            this.Text = "تعديل بيانات العميل";
 
-            btnSave.Enabled = true;
-            btnNext.Enabled = true;
-        }
-        private void frmAddEditClient_Load(object sender, EventArgs e)
-        {
-            _InitializeData();
+        #endregion
 
-            if (_Mode == enMode.AddNew)
-            {
-                _SetupAddMode();
-            }
-            else
-            {
-                _SetupEditMode();
-                _InitializeForUpdateMode();
-            }
-        }
-        private bool _CheckClientIsExist(int PersonID)
-        {
-            return _deps.ClientService.ExistsByPersonID(PersonID);
-        }
+        #region Person selection
+
         private void _SetSelectedPerson(Models.Person person)
         {
-            if (person == null)
-                return;
+            if (person == null) return;
 
-            _PersonID = person.PersonID;
+            string title = $"{person.NationalNo} - {person.FullName}";
+            LiAddPerson.Text = title;
+            LiSelectedPerson.Text = title;
 
-            LiAddPerson.Text = $"{person.NationalNo} - {person.FullName}";
-            LiSelectedPerson.Text = $"{person.NationalNo} - {person.FullName}";
-
-            ctrlPersonCard1.LoadPersonByID(person.PersonID);
+            _LoadPersonCard(person.PersonID);
         }
+
         private void _OnPersonSelected(object sender, OnPersonSelectedEventArgs e)
         {
             _SetSelectedPerson(e.Person);
 
-            this.Show();
-
-            if (_Mode == enMode.AddNew && _deps.ClientService.ExistsByPersonID(_PersonID))
+            // الشخص مضاف مسبقًا كعميل: حمّله بدل ما تسمح بتكرار.
+            if (!IsEditMode && _clientService.ExistsByPersonID(_personID))
             {
-                this._client = _deps.ClientService.GetByPersonID(_PersonID);
-
-                MessageBox.Show("هذا الشخص مضاف مسبقًا كعميل.",
-                    "تنبيه",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                btnSave.Enabled = false;
-                btnNext.Enabled = true;
+                ShowWarning("هذا الشخص مضاف مسبقًا كعميل.");
+                _LoadExistingClient(_clientService.GetByPersonID(_personID));
+                _SetButtons(canSave: false, canNext: true);
                 return;
             }
 
-            btnSave.Enabled = true;
-            btnNext.Enabled = false;
+            _SetButtons(canSave: true, canNext: false);
         }
-        private void _AfterUpdatePersonInfo(object sender, OnPersonSelectedEventArgs e)
+
+        private void _OnPersonInfoUpdated(object sender, OnPersonSelectedEventArgs e)
         {
-            // Update Top Header Info.
-            _SetSelectedPerson(e.Person);
+            _SetSelectedPerson(e.Person); // تحديث الهيدر بعد تعديل بيانات الشخص
         }
+
         private void LiAddPerson_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
-            frmFindPerson frm = new frmFindPerson();
-            frm.OnPersonSelected += _OnPersonSelected;
-            ctrlPersonCard1.EditLinkClicked += _AfterUpdatePersonInfo;
-            frm.ShowDialog();
+            using (var frm = _formFactory.CreateFindPerson(_OnPersonSelected))
+                frm.ShowDialog(this);
         }
-        private void ctrlPersonCard1_Load(object sender, EventArgs e)
-        {
 
+        private void btnAddNewPerson_Click(object sender, EventArgs e)
+        {
+            using (var frm = _formFactory.CreateAddPerson(_OnPersonSelected))
+                frm.ShowDialog(this);
         }
+
+        #endregion
+
+        #region Validation & Save
+
+        private bool _ValidateForm()
+        {
+            return ValidationHelper.ValidateRequiredComboBox(
+                cbClientTypes, errorProvider1, "الرجاء اختيار النوع");
+        }
+
         private ClientFormData _GetFormData()
         {
-            bool isAddMode = _Mode == enMode.AddNew;
+            bool isAddMode = !IsEditMode;
 
             return new ClientFormData
             {
                 ClientInfo = new Client
                 {
                     Mode = isAddMode ? Client.enMode.AddNew : Client.enMode.Update,
-
                     ClientID = isAddMode ? 0 : _client.ClientID,
-                    PersonID = _PersonID,
-
+                    PersonID = _personID,
                     ClientTypeID = Convert.ToInt32(cbClientTypes.SelectedValue),
-
                     CreatedDate = isAddMode ? DateTime.Now : _client.CreatedDate,
-                    CreatedByUserID = isAddMode ? Global.Global.CourentUser.UserID : _client.CreatedByUserID,
-
+                    CreatedByUserID = isAddMode
+                        ? Global.Global.CourentUser.UserID
+                        : _client.CreatedByUserID,
                     IsActive = 1,
                     Notes = txtNotes.Text.Trim()
                 }
-
-                
             };
         }
-        private bool _SaveClient()  
-        {
-            ClientFormData formData = _GetFormData();
-            _client = _deps.ClientFormMapper.MapToClient(formData);
 
-            if (!_deps.ClientService.Save(_client))
+        private bool _SaveClient()
+        {
+            var client = _clientFormMapper.MapToClient(_GetFormData());
+
+            if (!_clientService.Save(client))
                 return false;
 
-            txtClientID.Text = _client.ClientID.ToString();
-            
-
+            _client = client;
+            txtClientID.Text = client.ClientID.ToString();
             return true;
         }
-        private void _GoToClientSettingsTab()
+
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            tcClientInfo.SelectedTab = tcClientInfo.TabPages["tabClientSettings"];
-        }
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            _GoToClientSettingsTab();
-        }
-        private void btnSaveClick(object sender, EventArgs e)
-        {
-            if (_PersonID <= 0)
+            if (_personID <= 0)
             {
-                MessageBox.Show("الرجاء اختيار شخص أولًا.",
-                    "تنبيه",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                ShowWarning("الرجاء اختيار شخص أولًا.");
                 return;
             }
 
             if (!_ValidateForm())
             {
-                MessageBox.Show("لا يمكن إتمام العملية. يرجى التأكد من إدخال جميع البيانات المطلوبة.",
-                    "تنبيه",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                ShowWarning("لا يمكن إتمام العملية. يرجى التأكد من إدخال جميع البيانات المطلوبة.");
                 return;
             }
 
-            if (_Mode == enMode.AddNew && _deps.ClientService.ExistsByPersonID(_PersonID))
+            if (!IsEditMode && _clientService.ExistsByPersonID(_personID))
             {
-                MessageBox.Show("عملية الإضافة مرفوضة: العميل مضاف مسبقًا ولا يمكن تكراره.",
-                    "تنبيه",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                ShowWarning("عملية الإضافة مرفوضة: العميل مضاف مسبقًا ولا يمكن تكراره.");
                 return;
             }
 
-            if (_SaveClient())
+            if (!_SaveClient())
             {
-                MessageBox.Show("تم حفظ بيانات العميل بنجاح.",
-                    "تم الحفظ",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-
-                btnNext.Enabled = true;
-                _Mode = enMode.Edit;
-            }
-            else
-            {
-                MessageBox.Show("فشل حفظ بيانات العميل. تحقق من البيانات وحاول مرة أخرى.",
-                    "خطأ",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-        }
-        private void _OpenAddPersonForm()
-        {
-            frmAddPerson frm = new frmAddPerson(
-                _deps.PersonService,
-                _deps.CountryService,
-                _deps.PersonImageService,
-                _deps.PersonFormMapper);
-
-            frm.OnPersonSelected += _OnPersonSelected;
-            frm.ShowDialog();
-        }
-        private void btnAddNewPerson_Click(object sender, EventArgs e)
-        {
-            _OpenAddPersonForm();
-        }
-        private void _OpenTenantDetailsForm()
-        {
-            if (_client == null || _client.ClientID <= 0)
-            {
-                MessageBox.Show("يجب حفظ العميل أولًا قبل إضافة تفاصيل المستأجر.",
-                    "تنبيه",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                ShowError("فشل حفظ بيانات العميل. تحقق من البيانات وحاول مرة أخرى.");
                 return;
             }
 
-            Form frm = new frmAddEditTenantDetails(
-                _deps.TenantService,
-                _deps.ClientRoleService,
-                _deps.CountryService,
-                _deps.TenantApplicationService,
-                _client);
-
-            frm.ShowDialog();
-        }
-        private void btnTenant_Click(object sender, EventArgs e)
-        {
-            _OpenTenantDetailsForm();
+            ShowInfo("تم حفظ بيانات العميل بنجاح.");
+            Text = "تعديل بيانات العميل";
+            btnNext.Enabled = true;
         }
 
-        private void _OpenOwnerDetailsForm()
-        {
+        #endregion
 
-            Form frm = new frmAddEditOwner(this._deps.OwnerService, this._deps.ClientRoleService, this._deps.CountryService, this._deps.OwnerApplicationService, this._client);
-            frm.ShowDialog();
-        }
-        private void btnOwner_Click(object sender, EventArgs e)
-        {
-            _OpenOwnerDetailsForm();
-        }
+        #region Search
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            _client = _deps.ClientService.GetByNationalNo(txtFind.Text.Trim());
+            _LoadExistingClient(_clientService.GetByNationalNo(txtFind.Text.Trim()));
+        }
 
-            if (_client != null)
-            {
-                _SetupEditMode();
-                _client.Mode = Client.enMode.Update;
-                _LoadClientData(_client);
+        #endregion
 
-                btnSave.Enabled = true;
-                btnNext.Enabled = true;
-            }
-            else
-                MessageBox.Show("تعذر العثور على بيانات العميل المطلوب.",
-                    "خطأ",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+        #region Navigation / Role forms
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            tcClientInfo.SelectedTab = tcClientInfo.TabPages["tabClientSettings"];
+        }
+
+        /// الأدوار (مستأجر/مالك/مستثمر) ما بتنفتح إلا بعد ما العميل ينحفظ ويصير إله ID.
+        private bool _EnsureClientSaved(string roleName)
+        {
+            if (IsEditMode) return true;
+
+            ShowWarning($"يجب حفظ العميل أولًا قبل إضافة تفاصيل {roleName}.");
+            return false;
+        }
+
+        private void _ShowForm(Form form)
+        {
+            using (form)
+                form.ShowDialog(this);
+        }
+
+        private void btnTenant_Click(object sender, EventArgs e)
+        {
+            if (_EnsureClientSaved("المستأجر"))
+                _ShowForm(_formFactory.CreateTenantDetails(_client));
+        }
+
+        private void btnOwner_Click(object sender, EventArgs e)
+        {
+            if (_EnsureClientSaved("المالك"))
+                _ShowForm(_formFactory.CreateOwnerDetails(_client));
         }
 
         private void btnInvestor_Click(object sender, EventArgs e)
         {
-            frmAddNewInvestor frm = new frmAddNewInvestor(this._deps.PropertyService, this._deps.CityService, this._deps.PaymentMethodService,
-                this._deps.InvestmentPurposeService, this._deps.InterestLevelService, this._deps.InvestorRegistrationService, this._ClientID);  
-            frm.ShowDialog();
+            if (_EnsureClientSaved("المستثمر"))
+                _ShowForm(_formFactory.CreateInvestorRegistration(CurrentClientID));
         }
 
-        private void btnOwner_alone_Click(object sender, EventArgs e)
+        private void btnUnitOwner_Click(object sender, EventArgs e)
         {
-            frmRegistrationUnitOwner frm = new frmRegistrationUnitOwner(this._ClientID); 
-            frm.ShowDialog();
+            if (_EnsureClientSaved("مالك الوحدة"))
+                _ShowForm(_formFactory.CreateUnitOwnerRegistration(CurrentClientID));
         }
+
+        #endregion
     }
 }

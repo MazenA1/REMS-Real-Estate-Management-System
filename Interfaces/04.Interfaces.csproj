@@ -60,6 +60,7 @@
     <Compile Include="IClientRoleService.cs" />
     <Compile Include="IClientService.cs" />
     <Compile Include="IClientTypeRepository.cs" />
+    <Compile Include="IClientTypeService.cs" />
     <Compile Include="ICountryRepository.cs" />
     <Compile Include="ICountryService.cs" />
     <Compile Include="IDashboardStatisticsService.cs" />
