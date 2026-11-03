@@ -1,4 +1,5 @@
-﻿using REMS.UI.Factories;
+﻿using Interfaces;
+using REMS.UI.Factories;
 using REMS.UI.Form_Models.Services;
 using Services;
 using System;
@@ -16,10 +17,16 @@ namespace REMS.UI.Composition
         public static IFormFactory FormFactory =>
             _formFactory ?? (_formFactory = CreateFormFactory());
 
+        // TEMP: كائنات مشتركة لأنها بتطلق أحداث بيسمعها frmMain.
+        public static IClientService ClientService { get; } = ServiceFactory.CreateClientService();
+        public static IOwnerService OwnerService { get; } = ServiceFactory.CreateOwnerService();
+        public static ITenantApplicationService TenantApplicationService { get; } = ServiceFactory.CreateTenantRegistrationService();
+        public static IOwnerApplicationService OwnerApplicationService { get; } = ServiceFactory.CreateOwnerRegistrationService();
+
         public static IFormFactory CreateFormFactory()
         {
             return new FormFactory(
-                clientService: ServiceFactory.CreateClientService(),
+                clientService: ClientService,
                 clientTypeService: ServiceFactory.CreateClientTypeService(),
                 clientFormMapper: new ClientFormMapper(),
                 personService: ServiceFactory.CreatePersonService(),
@@ -28,9 +35,9 @@ namespace REMS.UI.Composition
                 personFormMapper: new PersonFormMapper(),
                 tenantService: ServiceFactory.CreateTenantService(),
                 clientRoleService: ServiceFactory.CreateClientRoleService(),
-                tenantApplicationService: ServiceFactory.CreateTenantRegistrationService(),
-                ownerService: ServiceFactory.CreateOwnerService(),
-                ownerApplicationService: ServiceFactory.CreateOwnerRegistrationService(),
+                tenantApplicationService: TenantApplicationService,
+                ownerService: OwnerService,
+                ownerApplicationService: OwnerApplicationService,
                 propertyService: ServiceFactory.CreatePropertyService(),
                 cityService: ServiceFactory.CreateCityService(),
                 paymentMethodService: ServiceFactory.CreatePaymentMethodService(),

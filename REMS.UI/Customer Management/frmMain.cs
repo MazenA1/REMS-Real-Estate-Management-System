@@ -675,11 +675,11 @@ namespace REMS.UI.Customer_Management
         }
         private void _SubscribeToEvents()
         {
-            _deps.ClientService.ClientAdded += _RefreshDashboardCounts;
-            _deps.AddEditClientDeps.TenantApplicationService.TenantRegistered += OnTenantRegistered;
-            _deps.AddEditClientDeps.OwnerApplicationService.OwnerRegistered += OnOwnerRegistered; 
+            CompositionRoot.ClientService.ClientAdded += _RefreshDashboardCounts;
+            CompositionRoot.TenantApplicationService.TenantRegistered += OnTenantRegistered;
+            CompositionRoot.OwnerApplicationService.OwnerRegistered += OnOwnerRegistered;
 
-            _deps.OwnerService.OwnerAdded += _RefreshDashboardCounts;
+            CompositionRoot.OwnerService.OwnerAdded += _RefreshDashboardCounts;
         }
         private void WebView21_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
