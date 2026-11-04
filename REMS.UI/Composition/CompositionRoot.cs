@@ -26,6 +26,10 @@ namespace REMS.UI.Composition
         public static IFormFactory CreateFormFactory()
         {
             return new FormFactory(
+                propertyTypeService: ServiceFactory.CreatePropertyTypeService(),
+                districtService: ServiceFactory.CreateDistrictService(),
+                managementCommissionTypeService: ServiceFactory.CreateManagementCommissionTypeService(),
+                propertyApplicationService: ServiceFactory.CreatePropertyApplicationService(),
                 clientService: ClientService,
                 clientTypeService: ServiceFactory.CreateClientTypeService(),
                 clientFormMapper: new ClientFormMapper(),

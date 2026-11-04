@@ -19,5 +19,6 @@ namespace REMS.UI.Composition
         Form CreateUnitOwnerRegistration(int clientId);
         Form CreateAddEditClient();
         Form CreateAddEditClient(int clientId);
+        Form CreateAddNewProperty();
     }
 }

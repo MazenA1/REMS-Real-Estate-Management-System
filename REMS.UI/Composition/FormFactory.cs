@@ -6,6 +6,7 @@ using REMS.UI.Client_Roles.Tenant_Details;
 using REMS.UI.Client_Roles.UnitOwner;
 using REMS.UI.Customer_Management;
 using REMS.UI.Form_Models.Interfaces;
+using REMS.UI.RealEstateAndUnits;
 using REMS.UI.Person;
 using REMS.UI.Person.Events;
 using Services;
@@ -44,7 +45,18 @@ namespace REMS.UI.Composition
         private readonly IClientService _clientService;
         private readonly IClientTypeService _clientTypeService;
         private readonly IClientFormMapper _clientFormMapper;
+
+
+        // Property
+        private readonly IPropertyTypeService _propertyTypeService;
+        private readonly IDistrictService _districtService;
+        private readonly IManagementCommissionTypeService _managementCommissionTypeService;
+        private readonly IPropertyApplicationService _propertyApplicationService;
         public FormFactory(
+            IPropertyTypeService propertyTypeService,
+            IDistrictService districtService,
+            IManagementCommissionTypeService managementCommissionTypeService,
+            IPropertyApplicationService propertyApplicationService,
             IClientService clientService,
             IClientTypeService clientTypeService,
             IClientFormMapper clientFormMapper,
@@ -83,6 +95,10 @@ namespace REMS.UI.Composition
             _investmentPurposeService = investmentPurposeService;
             _interestLevelService = interestLevelService;
             _investorRegistrationService = investorRegistrationService;
+            _propertyTypeService = propertyTypeService;
+            _districtService = districtService;
+            _managementCommissionTypeService = managementCommissionTypeService;
+            _propertyApplicationService = propertyApplicationService;
 
         }
 
@@ -124,6 +140,12 @@ namespace REMS.UI.Composition
         public Form CreateAddEditClient(int clientId) =>
             new frmAddEditClient(clientId, _clientService, _clientTypeService,
                                  _clientFormMapper, this);
+
+        public Form CreateAddNewProperty() =>
+            new frmAddNewProperty(_propertyTypeService, _cityService, _districtService,
+                _managementCommissionTypeService, _propertyApplicationService);
+
+
     }
 }
 

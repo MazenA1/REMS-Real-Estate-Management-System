@@ -30,22 +30,38 @@ namespace REMS.UI.RealEstateAndUnits
     public partial class frmAddNewProperty : Form
     {
 
-        private AddNewPropertyFormDependencies _deps;
+        private readonly IPropertyTypeService _propertyTypeService;
+        private readonly ICityService _cityService;
+        private readonly IDistrictService _districtService;
+        private readonly IManagementCommissionTypeService _managementCommissionTypeService;
+        private readonly IPropertyApplicationService _propertyApplicationService;
+        IImageService imageService = new ImageService();
+
         private Dictionary<int, City> _citiesCache;
         private Dictionary<int, List<District>> _districtsByCityId;
 
+
         private List<PropertyOwnership> _propertyOwnerships = new List<PropertyOwnership>();
 
-        IImageService imageService = new ImageService();
         private int _SelectedOwnerID {  get; set; }
-        public frmAddNewProperty(AddNewPropertyFormDependencies deps)
+        public frmAddNewProperty(
+            IPropertyTypeService propertyTypeService,
+            ICityService cityService,
+            IDistrictService districtService,
+            IManagementCommissionTypeService managementCommissionTypeService,
+            IPropertyApplicationService propertyApplicationService)
         {
             InitializeComponent();
-            this._deps = deps;
+
+            _propertyTypeService = propertyTypeService;
+            _cityService = cityService;
+            _districtService = districtService;
+            _managementCommissionTypeService = managementCommissionTypeService;
+            _propertyApplicationService = propertyApplicationService;
         }
         private void _FillcbPropertyTypes()
         {
-            var types = this._deps.PropertyTypeService.GetAll();
+            var types = this._propertyTypeService.GetAll();
 
             cbPropertyTypes.DataSource = types;
             cbPropertyTypes.DisplayMember = "ArabicName";
@@ -53,7 +69,7 @@ namespace REMS.UI.RealEstateAndUnits
         }
         private void _FillcbCities()
         {
-            var cities = this._deps.CityService.GetAll().OrderBy(c => c.CityNameTurkish).ToList();
+            var cities = this._cityService.GetAll().OrderBy(c => c.CityNameTurkish).ToList();
 
             _citiesCache =
                 cities.ToDictionary(c => c.CityID, c => c);
@@ -90,7 +106,7 @@ namespace REMS.UI.RealEstateAndUnits
         }
         private void _LoadDistrictsCache()
         {
-            _districtsByCityId = this._deps.DistrictService.GetAll().GroupBy(d => d.CityID).ToDictionary(g => g.Key, g => g.ToList());
+            _districtsByCityId = this._districtService.GetAll().GroupBy(d => d.CityID).ToDictionary(g => g.Key, g => g.ToList());
         }
         private void cbCities_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -104,7 +120,7 @@ namespace REMS.UI.RealEstateAndUnits
         }
         private void _FillcbManagementCommissionTypes()
         {
-            var commissionTypes = this._deps.ManagementCommissionTypeService.GetAll();
+            var commissionTypes = this._managementCommissionTypeService.GetAll();
 
             cbManagementCommissionTypes.DataSource = commissionTypes;
             cbManagementCommissionTypes.DisplayMember = "ArabicName";
@@ -278,7 +294,7 @@ namespace REMS.UI.RealEstateAndUnits
             };
 
 
-            return this._deps.PropertyApplicationService.Add(PropertyApplicationinfo) > 0;  
+            return this._propertyApplicationService.Add(PropertyApplicationinfo) > 0;  
         }
         private PropertyOwnership _GetMainOwnerFromControls()
         {

@@ -734,8 +734,8 @@ namespace REMS.UI.Customer_Management
 
         private void btnAddNewProperty_Click(object sender, EventArgs e)
         {
-            frmAddNewProperty frm = new frmAddNewProperty(_deps.AddNewPropertyDeps);
-            frm.ShowDialog();
+            using (Form frm = CompositionRoot.FormFactory.CreateAddNewProperty())
+                frm.ShowDialog(this);
         }
     }
 } 
