@@ -52,7 +52,11 @@ namespace REMS.UI.Composition
         private readonly IDistrictService _districtService;
         private readonly IManagementCommissionTypeService _managementCommissionTypeService;
         private readonly IPropertyApplicationService _propertyApplicationService;
+
+
+        private readonly IDashboardStatisticsService _dashboardStatisticsService;
         public FormFactory(
+            IDashboardStatisticsService dashboardStatisticsService,
             IPropertyTypeService propertyTypeService,
             IDistrictService districtService,
             IManagementCommissionTypeService managementCommissionTypeService,
@@ -99,6 +103,7 @@ namespace REMS.UI.Composition
             _districtService = districtService;
             _managementCommissionTypeService = managementCommissionTypeService;
             _propertyApplicationService = propertyApplicationService;
+            _dashboardStatisticsService = dashboardStatisticsService;
 
         }
 
@@ -144,6 +149,17 @@ namespace REMS.UI.Composition
         public Form CreateAddNewProperty() =>
             new frmAddNewProperty(_propertyTypeService, _cityService, _districtService,
                 _managementCommissionTypeService, _propertyApplicationService);
+
+        public Form CreateMain() =>
+            new frmMain(
+                this,
+                _clientRoleService,
+                _clientService,
+                _tenantService,
+                _ownerService,
+                _dashboardStatisticsService,
+                _tenantApplicationService,
+                _ownerApplicationService);
 
 
     }

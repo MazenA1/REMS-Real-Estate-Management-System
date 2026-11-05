@@ -15,6 +15,7 @@ using REMS.UI.Form_Models.Services;
 using REMS.UI.FormDependencies;
 using REMS.UI.Log_In;
 using REMS.UI.Users_Management;
+using REMS.UI.Composition;
 
 namespace REMS.UI
 {
@@ -146,9 +147,8 @@ namespace REMS.UI
         }
         private void guna2GradientButton3_Click(object sender, EventArgs e)
         {
-
-            Form frmMain = new frmMain(_InitializeMainFormDependencies());
-            frmMain.ShowDialog();
+            using (Form frm = CompositionRoot.FormFactory.CreateMain())
+                frm.ShowDialog(this);
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
