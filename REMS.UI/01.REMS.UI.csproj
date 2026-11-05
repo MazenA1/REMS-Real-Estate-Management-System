@@ -167,7 +167,6 @@
     <Compile Include="Form Models\ClientFormData.cs" />
     <Compile Include="Form Models\Interfaces\IClientFormMapper.cs" />
     <Compile Include="Form Models\Services\ClientFormMapper.cs" />
-    <Compile Include="Customer Management\Dependencies\AddEditClientFormDependencies.cs" />
     <Compile Include="RealEstateAndUnits\Control\ctrlPropertyCardBasicInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -180,8 +179,6 @@
     <Compile Include="RealEstateAndUnits\Control\ctrlPropertyCardBasicInfoWhithFilter.Designer.cs">
       <DependentUpon>ctrlPropertyCardBasicInfoWhithFilter.cs</DependentUpon>
     </Compile>
-    <Compile Include="RealEstateAndUnits\Dependencies\AddNewPropertyFormDependencies.cs" />
-    <Compile Include="FormDependencies\MainFormDependencies.cs" />
     <Compile Include="Lease Contracts\frmAddNewLeaseAgreement.cs">
       <SubType>Form</SubType>
     </Compile>

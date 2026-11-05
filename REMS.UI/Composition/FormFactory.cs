@@ -6,15 +6,10 @@ using REMS.UI.Client_Roles.Tenant_Details;
 using REMS.UI.Client_Roles.UnitOwner;
 using REMS.UI.Customer_Management;
 using REMS.UI.Form_Models.Interfaces;
-using REMS.UI.RealEstateAndUnits;
 using REMS.UI.Person;
 using REMS.UI.Person.Events;
-using Services;
+using REMS.UI.RealEstateAndUnits;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace REMS.UI.Composition

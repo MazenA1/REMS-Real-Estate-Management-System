@@ -3,7 +3,6 @@ using Models;
 using REMS.UI.Composition;
 using REMS.UI.Form_Models;
 using REMS.UI.Form_Models.Interfaces;
-using REMS.UI.Global;
 using REMS.UI.Person.Events;
 using REMS.UI.Validation;
 using System;
@@ -58,6 +57,7 @@ namespace REMS.UI.Customer_Management
 
         #endregion
 
+
         #region Messages
 
         private void ShowWarning(string msg) =>
@@ -73,6 +73,7 @@ namespace REMS.UI.Customer_Management
             ShowError("تعذر العثور على بيانات العميل المطلوب.");
 
         #endregion
+
 
         #region Initialization
 
@@ -140,6 +141,7 @@ namespace REMS.UI.Customer_Management
 
         #endregion
 
+
         #region Person selection
 
         private void _SetSelectedPerson(Models.Person person)
@@ -187,6 +189,7 @@ namespace REMS.UI.Customer_Management
         }
 
         #endregion
+
 
         #region Validation & Save
 
@@ -263,6 +266,7 @@ namespace REMS.UI.Customer_Management
 
         #endregion
 
+
         #region Search
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -271,6 +275,7 @@ namespace REMS.UI.Customer_Management
         }
 
         #endregion
+
 
         #region Navigation / Role forms
 

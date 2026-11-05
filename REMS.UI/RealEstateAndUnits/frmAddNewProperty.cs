@@ -1,29 +1,17 @@
-﻿using DataAccessLayer;
-using Guna.UI2.WinForms;
-using Interfaces;
+﻿using Interfaces;
 using Models;
 using Models.FormData;
+using REMS.UI.Client_Roles.Owner;
+using REMS.UI.Client_Roles.Owner.Control.Events;
+using REMS.UI.RealEstateAndUnits.Events;
+using REMS.UI.Validation;
 using Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Linq;
-using System.Management;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using REMS.UI.Client_Roles.Owner;
-using REMS.UI.Client_Roles.Owner.Control.Events;
-using REMS.UI.Customer_Management;
-using REMS.UI.Factories;
-using REMS.UI.FormDependencies;
-using REMS.UI.RealEstateAndUnits.Events;
-using REMS.UI.Validation;
-using static System.Windows.Forms.MonthCalendar;
 
 namespace REMS.UI.RealEstateAndUnits
 {
