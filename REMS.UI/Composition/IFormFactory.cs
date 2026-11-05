@@ -21,5 +21,6 @@ namespace REMS.UI.Composition
         Form CreateAddEditClient(int clientId);
         Form CreateAddNewProperty();
         Form CreateMain();
+        Form CreateMainService(Form loginForm);
     }
 }

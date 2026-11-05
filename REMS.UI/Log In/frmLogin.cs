@@ -1,4 +1,7 @@
 ﻿using Interfaces;
+using REMS.UI.Composition;
+using REMS.UI.Factories;
+using REMS.UI.Global;
 using Services;
 using System;
 using System.Collections.Generic;
@@ -9,8 +12,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using REMS.UI.Factories;
-using REMS.UI.Global;
 
 namespace REMS.UI.Log_In
 {
@@ -59,7 +60,8 @@ namespace REMS.UI.Log_In
             _InitializeCurrentUser();
 
             this.Hide();
-            Form frmMain = new frmMainService(this);
+
+            Form frmMain = CompositionRoot.FormFactory.CreateMainService(this);
             frmMain.ShowDialog();
         }
 

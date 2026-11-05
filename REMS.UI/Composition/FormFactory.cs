@@ -161,7 +161,8 @@ namespace REMS.UI.Composition
                 _tenantApplicationService,
                 _ownerApplicationService);
 
-
+        public Form CreateMainService(Form loginForm) =>
+            new frmMainService(loginForm, this);
     }
 }
 
