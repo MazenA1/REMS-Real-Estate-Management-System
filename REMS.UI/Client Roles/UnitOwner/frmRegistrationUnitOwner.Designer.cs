@@ -28,39 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Container = new System.Windows.Forms.Panel();
-            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.ContractDataPanel = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.dgvUnitOwnerShip = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.LlAddDeedImage = new System.Windows.Forms.LinkLabel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.label27 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.chkOwnershipRepresentative = new System.Windows.Forms.CheckBox();
+            this.txtOwnerShipDescription = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtbOwnerShipStartDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.dgvUnitCoOwner = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label22 = new System.Windows.Forms.Label();
             this.txtOwnershipPercentage = new Guna.UI2.WinForms.Guna2NumericUpDown();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.gbInstrumentCondition = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.dtbDateOfInstrument = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.txtInstrumentNumber = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtDeedNumber = new Guna.UI2.WinForms.Guna2TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSelectUnit = new Guna.UI2.WinForms.Guna2Button();
             this.label12 = new System.Windows.Forms.Label();
             this.txtUnitID = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -80,22 +79,42 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.HeaderPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.LabPersonCount = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.lblTotalPercentage = new System.Windows.Forms.Label();
+            this.lblRemainingPercentage = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDelteCoowners = new Guna.UI2.WinForms.Guna2Button();
+            this.pbCancel = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pbSuccess = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnAddCoOwner = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.Container.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
             this.ContractDataPanel.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUnitOwnerShip)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel12.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUnitCoOwner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOwnershipPercentage)).BeginInit();
             this.panel7.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.HeaderPanel.SuspendLayout();
+            this.panel18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSuccess)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // Container
@@ -107,28 +126,8 @@
             this.Container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Container.Location = new System.Drawing.Point(0, 0);
             this.Container.Name = "Container";
-            this.Container.Size = new System.Drawing.Size(1248, 977);
+            this.Container.Size = new System.Drawing.Size(1248, 1055);
             this.Container.TabIndex = 0;
-            // 
-            // btnSave
-            // 
-            this.btnSave.BorderRadius = 5;
-            this.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSave.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSave.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
-            this.btnSave.Font = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold);
-            this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(201)))), ((int)(((byte)(209)))));
-            this.btnSave.Image = global::REMS.UI.Properties.Resources.icons8_save_30__2_;
-            this.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnSave.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSave.Location = new System.Drawing.Point(0, 932);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(1248, 45);
-            this.btnSave.TabIndex = 9;
-            this.btnSave.Text = "حفظ";
             // 
             // guna2Panel1
             // 
@@ -136,7 +135,7 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 55);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1248, 852);
+            this.guna2Panel1.Size = new System.Drawing.Size(1248, 949);
             this.guna2Panel1.TabIndex = 7;
             // 
             // guna2GroupBox1
@@ -152,7 +151,7 @@
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.White;
             this.guna2GroupBox1.Location = new System.Drawing.Point(0, 0);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Size = new System.Drawing.Size(1248, 800);
+            this.guna2GroupBox1.Size = new System.Drawing.Size(1248, 896);
             this.guna2GroupBox1.TabIndex = 7;
             this.guna2GroupBox1.Text = "بيانات مالك الوحدة";
             this.guna2GroupBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -165,151 +164,179 @@
             this.ContractDataPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ContractDataPanel.Location = new System.Drawing.Point(0, 40);
             this.ContractDataPanel.Name = "ContractDataPanel";
-            this.ContractDataPanel.Size = new System.Drawing.Size(1248, 760);
+            this.ContractDataPanel.Size = new System.Drawing.Size(1248, 856);
             this.ContractDataPanel.TabIndex = 0;
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.guna2DateTimePicker1);
-            this.panel6.Controls.Add(this.panel18);
-            this.panel6.Controls.Add(this.dgvUnitOwnerShip);
+            this.panel6.Controls.Add(this.panel12);
+            this.panel6.Controls.Add(this.panel9);
+            this.panel6.Controls.Add(this.chkOwnershipRepresentative);
+            this.panel6.Controls.Add(this.txtOwnerShipDescription);
+            this.panel6.Controls.Add(this.label5);
+            this.panel6.Controls.Add(this.dtbOwnerShipStartDate);
+            this.panel6.Controls.Add(this.dgvUnitCoOwner);
             this.panel6.Controls.Add(this.pictureBox2);
             this.panel6.Controls.Add(this.label22);
             this.panel6.Controls.Add(this.txtOwnershipPercentage);
-            this.panel6.Controls.Add(this.guna2Button3);
+            this.panel6.Controls.Add(this.btnAddCoOwner);
             this.panel6.Controls.Add(this.guna2Button1);
             this.panel6.Controls.Add(this.gbInstrumentCondition);
             this.panel6.Controls.Add(this.label21);
             this.panel6.Controls.Add(this.dtbDateOfInstrument);
             this.panel6.Controls.Add(this.label18);
             this.panel6.Controls.Add(this.label19);
-            this.panel6.Controls.Add(this.txtInstrumentNumber);
+            this.panel6.Controls.Add(this.txtDeedNumber);
             this.panel6.Controls.Add(this.label17);
-            this.panel6.Controls.Add(this.guna2Button2);
+            this.panel6.Controls.Add(this.btnSelectUnit);
             this.panel6.Controls.Add(this.label12);
             this.panel6.Controls.Add(this.txtUnitID);
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 331);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1227, 762);
+            this.panel6.Size = new System.Drawing.Size(1227, 1066);
             this.panel6.TabIndex = 1;
             // 
-            // guna2DateTimePicker1
+            // panel12
             // 
-            this.guna2DateTimePicker1.Checked = true;
-            this.guna2DateTimePicker1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
-            this.guna2DateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(718, 220);
-            this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            this.guna2DateTimePicker1.Size = new System.Drawing.Size(335, 36);
-            this.guna2DateTimePicker1.TabIndex = 55;
-            this.guna2DateTimePicker1.Value = new System.DateTime(2026, 5, 25, 20, 45, 33, 825);
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.panel12.Controls.Add(this.label6);
+            this.panel12.Controls.Add(this.panel4);
+            this.panel12.Controls.Add(this.btnDelteCoowners);
+            this.panel12.Location = new System.Drawing.Point(0, 584);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(1227, 55);
+            this.panel12.TabIndex = 63;
             // 
-            // panel18
+            // label6
             // 
-            this.panel18.BackColor = System.Drawing.Color.White;
-            this.panel18.Controls.Add(this.label40);
-            this.panel18.Controls.Add(this.label39);
-            this.panel18.Controls.Add(this.label36);
-            this.panel18.Controls.Add(this.pictureBox3);
-            this.panel18.Controls.Add(this.pictureBox4);
-            this.panel18.Controls.Add(this.label37);
-            this.panel18.Controls.Add(this.label38);
-            this.panel18.Controls.Add(this.label31);
-            this.panel18.Location = new System.Drawing.Point(45, 616);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(1138, 48);
-            this.panel18.TabIndex = 53;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Cairo Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
+            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label6.Location = new System.Drawing.Point(586, 15);
+            this.label6.Name = "label6";
+            this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label6.Size = new System.Drawing.Size(58, 24);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "الشركاء";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label40
+            // panel4
             // 
-            this.label40.AutoSize = true;
-            this.label40.ForeColor = System.Drawing.Color.Gray;
-            this.label40.Location = new System.Drawing.Point(25, 11);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(21, 29);
-            this.label40.TabIndex = 54;
-            this.label40.Text = "4";
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
+            this.panel4.Location = new System.Drawing.Point(1222, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(2, 55);
+            this.panel4.TabIndex = 2;
             // 
-            // label39
+            // panel9
             // 
-            this.label39.AutoSize = true;
-            this.label39.ForeColor = System.Drawing.Color.Gray;
-            this.label39.Location = new System.Drawing.Point(52, 11);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(108, 29);
-            this.label39.TabIndex = 53;
-            this.label39.Text = ": عدد الأشخاص";
+            this.panel9.Controls.Add(this.pbCancel);
+            this.panel9.Controls.Add(this.pbSuccess);
+            this.panel9.Controls.Add(this.LlAddDeedImage);
+            this.panel9.Controls.Add(this.panel10);
+            this.panel9.Location = new System.Drawing.Point(0, 449);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1227, 138);
+            this.panel9.TabIndex = 62;
             // 
-            // label36
+            // LlAddDeedImage
             // 
-            this.label36.AutoSize = true;
-            this.label36.ForeColor = System.Drawing.Color.Gray;
-            this.label36.Location = new System.Drawing.Point(575, 10);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(78, 29);
-            this.label36.TabIndex = 49;
-            this.label36.Text = ": المتبقي ";
+            this.LlAddDeedImage.AutoSize = true;
+            this.LlAddDeedImage.LinkColor = System.Drawing.Color.Black;
+            this.LlAddDeedImage.Location = new System.Drawing.Point(534, 83);
+            this.LlAddDeedImage.Name = "LlAddDeedImage";
+            this.LlAddDeedImage.Size = new System.Drawing.Size(173, 29);
+            this.LlAddDeedImage.TabIndex = 4;
+            this.LlAddDeedImage.TabStop = true;
+            this.LlAddDeedImage.Text = "اضغط هنا لتحميل الملف";
+            this.LlAddDeedImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlAddDeedImage_LinkClicked);
             // 
-            // pictureBox3
+            // panel10
             // 
-            this.pictureBox3.Image = global::REMS.UI.Properties.Resources.icons8_percentage_302;
-            this.pictureBox3.Location = new System.Drawing.Point(964, 10);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(26, 30);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 52;
-            this.pictureBox3.TabStop = false;
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.panel10.Controls.Add(this.label27);
+            this.panel10.Controls.Add(this.panel11);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1227, 55);
+            this.panel10.TabIndex = 3;
             // 
-            // pictureBox4
+            // label27
             // 
-            this.pictureBox4.Image = global::REMS.UI.Properties.Resources.icons8_percentage_302;
-            this.pictureBox4.Location = new System.Drawing.Point(543, 10);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(26, 30);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 52;
-            this.pictureBox4.TabStop = false;
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Cairo Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
+            this.label27.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label27.Location = new System.Drawing.Point(575, 14);
+            this.label27.Name = "label27";
+            this.label27.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label27.Size = new System.Drawing.Size(95, 24);
+            this.label27.TabIndex = 3;
+            this.label27.Text = "   صوره الصك";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label37
+            // panel11
             // 
-            this.label37.AutoSize = true;
-            this.label37.ForeColor = System.Drawing.Color.Gray;
-            this.label37.Location = new System.Drawing.Point(924, 10);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(37, 29);
-            this.label37.TabIndex = 50;
-            this.label37.Text = "100";
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
+            this.panel11.Location = new System.Drawing.Point(1222, 3);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(2, 55);
+            this.panel11.TabIndex = 2;
             // 
-            // label38
+            // chkOwnershipRepresentative
             // 
-            this.label38.AutoSize = true;
-            this.label38.ForeColor = System.Drawing.Color.Gray;
-            this.label38.Location = new System.Drawing.Point(516, 10);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(21, 29);
-            this.label38.TabIndex = 51;
-            this.label38.Text = "0";
+            this.chkOwnershipRepresentative.AutoSize = true;
+            this.chkOwnershipRepresentative.ForeColor = System.Drawing.Color.Gray;
+            this.chkOwnershipRepresentative.Location = new System.Drawing.Point(359, 293);
+            this.chkOwnershipRepresentative.Name = "chkOwnershipRepresentative";
+            this.chkOwnershipRepresentative.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.chkOwnershipRepresentative.Size = new System.Drawing.Size(141, 33);
+            this.chkOwnershipRepresentative.TabIndex = 59;
+            this.chkOwnershipRepresentative.Text = "المالك الأساسي";
+            this.chkOwnershipRepresentative.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkOwnershipRepresentative.UseVisualStyleBackColor = true;
             // 
-            // label31
+            // txtOwnerShipDescription
             // 
-            this.label31.AutoSize = true;
-            this.label31.ForeColor = System.Drawing.Color.Gray;
-            this.label31.Location = new System.Drawing.Point(996, 10);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(130, 29);
-            this.label31.TabIndex = 48;
-            this.label31.Text = " :  مجموع الحصص ";
+            this.txtOwnerShipDescription.Location = new System.Drawing.Point(165, 359);
+            this.txtOwnerShipDescription.Multiline = true;
+            this.txtOwnerShipDescription.Name = "txtOwnerShipDescription";
+            this.txtOwnerShipDescription.Size = new System.Drawing.Size(900, 84);
+            this.txtOwnerShipDescription.TabIndex = 58;
             // 
-            // dgvUnitOwnerShip
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Gray;
+            this.label5.Location = new System.Drawing.Point(1071, 359);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 29);
+            this.label5.TabIndex = 57;
+            this.label5.Text = "نبذه عنه";
+            // 
+            // dtbOwnerShipStartDate
+            // 
+            this.dtbOwnerShipStartDate.Checked = true;
+            this.dtbOwnerShipStartDate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
+            this.dtbOwnerShipStartDate.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtbOwnerShipStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtbOwnerShipStartDate.Location = new System.Drawing.Point(718, 220);
+            this.dtbOwnerShipStartDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtbOwnerShipStartDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtbOwnerShipStartDate.Name = "dtbOwnerShipStartDate";
+            this.dtbOwnerShipStartDate.Size = new System.Drawing.Size(335, 36);
+            this.dtbOwnerShipStartDate.TabIndex = 55;
+            this.dtbOwnerShipStartDate.Value = new System.DateTime(2026, 5, 25, 20, 45, 33, 825);
+            // 
+            // dgvUnitCoOwner
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvUnitOwnerShip.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvUnitOwnerShip.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.dgvUnitCoOwner.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvUnitCoOwner.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold);
@@ -317,9 +344,9 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUnitOwnerShip.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvUnitOwnerShip.ColumnHeadersHeight = 4;
-            this.dgvUnitOwnerShip.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvUnitCoOwner.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvUnitCoOwner.ColumnHeadersHeight = 4;
+            this.dgvUnitCoOwner.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold);
@@ -327,53 +354,43 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUnitOwnerShip.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvUnitOwnerShip.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvUnitOwnerShip.Location = new System.Drawing.Point(45, 358);
-            this.dgvUnitOwnerShip.Name = "dgvUnitOwnerShip";
-            this.dgvUnitOwnerShip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvUnitOwnerShip.RowHeadersVisible = false;
-            this.dgvUnitOwnerShip.RowHeadersWidth = 51;
-            this.dgvUnitOwnerShip.RowTemplate.Height = 24;
-            this.dgvUnitOwnerShip.Size = new System.Drawing.Size(1138, 252);
-            this.dgvUnitOwnerShip.TabIndex = 47;
-            this.dgvUnitOwnerShip.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvUnitOwnerShip.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvUnitOwnerShip.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvUnitOwnerShip.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvUnitOwnerShip.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvUnitOwnerShip.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.dgvUnitOwnerShip.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvUnitOwnerShip.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.White;
-            this.dgvUnitOwnerShip.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvUnitOwnerShip.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Cairo SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dgvUnitOwnerShip.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvUnitOwnerShip.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvUnitOwnerShip.ThemeStyle.HeaderStyle.Height = 4;
-            this.dgvUnitOwnerShip.ThemeStyle.ReadOnly = false;
-            this.dgvUnitOwnerShip.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvUnitOwnerShip.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvUnitOwnerShip.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Cairo SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dgvUnitOwnerShip.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvUnitOwnerShip.ThemeStyle.RowsStyle.Height = 24;
-            this.dgvUnitOwnerShip.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvUnitOwnerShip.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::REMS.UI.Properties.Resources.icons8_percentage_302;
-            this.pictureBox2.Location = new System.Drawing.Point(993, 286);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(26, 30);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 46;
-            this.pictureBox2.TabStop = false;
+            this.dgvUnitCoOwner.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvUnitCoOwner.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvUnitCoOwner.Location = new System.Drawing.Point(59, 660);
+            this.dgvUnitCoOwner.Name = "dgvUnitCoOwner";
+            this.dgvUnitCoOwner.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dgvUnitCoOwner.RowHeadersVisible = false;
+            this.dgvUnitCoOwner.RowHeadersWidth = 51;
+            this.dgvUnitCoOwner.RowTemplate.Height = 24;
+            this.dgvUnitCoOwner.Size = new System.Drawing.Size(1124, 252);
+            this.dgvUnitCoOwner.TabIndex = 47;
+            this.dgvUnitCoOwner.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvUnitCoOwner.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvUnitCoOwner.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvUnitCoOwner.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvUnitCoOwner.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvUnitCoOwner.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.dgvUnitCoOwner.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvUnitCoOwner.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.White;
+            this.dgvUnitCoOwner.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvUnitCoOwner.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Cairo SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dgvUnitCoOwner.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvUnitCoOwner.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvUnitCoOwner.ThemeStyle.HeaderStyle.Height = 4;
+            this.dgvUnitCoOwner.ThemeStyle.ReadOnly = false;
+            this.dgvUnitCoOwner.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvUnitCoOwner.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvUnitCoOwner.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Cairo SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dgvUnitCoOwner.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvUnitCoOwner.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvUnitCoOwner.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvUnitCoOwner.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.ForeColor = System.Drawing.Color.Gray;
-            this.label22.Location = new System.Drawing.Point(1058, 282);
+            this.label22.Location = new System.Drawing.Point(1071, 288);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(99, 29);
             this.label22.TabIndex = 45;
@@ -385,45 +402,12 @@
             this.txtOwnershipPercentage.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtOwnershipPercentage.DecimalPlaces = 2;
             this.txtOwnershipPercentage.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtOwnershipPercentage.Location = new System.Drawing.Point(718, 282);
+            this.txtOwnershipPercentage.Location = new System.Drawing.Point(718, 288);
             this.txtOwnershipPercentage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtOwnershipPercentage.Name = "txtOwnershipPercentage";
             this.txtOwnershipPercentage.Size = new System.Drawing.Size(335, 38);
             this.txtOwnershipPercentage.TabIndex = 44;
             this.txtOwnershipPercentage.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
-            // 
-            // guna2Button3
-            // 
-            this.guna2Button3.BorderRadius = 2;
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Image = global::REMS.UI.Properties.Resources.icons8_add_male_user_group_50;
-            this.guna2Button3.Location = new System.Drawing.Point(165, 95);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(41, 38);
-            this.guna2Button3.TabIndex = 35;
-            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BorderRadius = 2;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Image = global::REMS.UI.Properties.Resources.icons8_more_info_40;
-            this.guna2Button1.Location = new System.Drawing.Point(207, 95);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(41, 38);
-            this.guna2Button1.TabIndex = 35;
             // 
             // gbInstrumentCondition
             // 
@@ -484,24 +468,24 @@
             this.label19.TabIndex = 24;
             this.label19.Text = "تاريخ بدء الملكية";
             // 
-            // txtInstrumentNumber
+            // txtDeedNumber
             // 
-            this.txtInstrumentNumber.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtInstrumentNumber.DefaultText = "";
-            this.txtInstrumentNumber.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtInstrumentNumber.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtInstrumentNumber.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtInstrumentNumber.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtInstrumentNumber.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtInstrumentNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtInstrumentNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtInstrumentNumber.Location = new System.Drawing.Point(718, 155);
-            this.txtInstrumentNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtInstrumentNumber.Name = "txtInstrumentNumber";
-            this.txtInstrumentNumber.PlaceholderText = "";
-            this.txtInstrumentNumber.SelectedText = "";
-            this.txtInstrumentNumber.Size = new System.Drawing.Size(335, 38);
-            this.txtInstrumentNumber.TabIndex = 25;
+            this.txtDeedNumber.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtDeedNumber.DefaultText = "";
+            this.txtDeedNumber.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtDeedNumber.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtDeedNumber.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDeedNumber.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDeedNumber.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDeedNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtDeedNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDeedNumber.Location = new System.Drawing.Point(718, 155);
+            this.txtDeedNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtDeedNumber.Name = "txtDeedNumber";
+            this.txtDeedNumber.PlaceholderText = "";
+            this.txtDeedNumber.SelectedText = "";
+            this.txtDeedNumber.Size = new System.Drawing.Size(335, 38);
+            this.txtDeedNumber.TabIndex = 25;
             // 
             // label17
             // 
@@ -513,22 +497,22 @@
             this.label17.TabIndex = 24;
             this.label17.Text = "رقم الصك";
             // 
-            // guna2Button2
+            // btnSelectUnit
             // 
-            this.guna2Button2.BorderRadius = 2;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(249, 95);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(41, 38);
-            this.guna2Button2.TabIndex = 23;
-            this.guna2Button2.Text = "+";
-            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            this.btnSelectUnit.BorderRadius = 2;
+            this.btnSelectUnit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSelectUnit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSelectUnit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSelectUnit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSelectUnit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
+            this.btnSelectUnit.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSelectUnit.ForeColor = System.Drawing.Color.White;
+            this.btnSelectUnit.Location = new System.Drawing.Point(211, 95);
+            this.btnSelectUnit.Name = "btnSelectUnit";
+            this.btnSelectUnit.Size = new System.Drawing.Size(41, 38);
+            this.btnSelectUnit.TabIndex = 23;
+            this.btnSelectUnit.Text = "+";
+            this.btnSelectUnit.Click += new System.EventHandler(this.btnSelectUnit_Click);
             // 
             // label12
             // 
@@ -756,6 +740,7 @@
             // 
             this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
             this.HeaderPanel.Controls.Add(this.label1);
+            this.HeaderPanel.Controls.Add(this.panel18);
             this.HeaderPanel.Controls.Add(this.panel1);
             this.HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.HeaderPanel.Location = new System.Drawing.Point(0, 0);
@@ -777,6 +762,81 @@
             this.label1.Text = "تسجيل مالك الوحدة";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
+            this.panel18.Controls.Add(this.LabPersonCount);
+            this.panel18.Controls.Add(this.label39);
+            this.panel18.Controls.Add(this.label36);
+            this.panel18.Controls.Add(this.lblTotalPercentage);
+            this.panel18.Controls.Add(this.lblRemainingPercentage);
+            this.panel18.Controls.Add(this.label31);
+            this.panel18.Font = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold);
+            this.panel18.Location = new System.Drawing.Point(2, 4);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(728, 48);
+            this.panel18.TabIndex = 53;
+            // 
+            // LabPersonCount
+            // 
+            this.LabPersonCount.AutoSize = true;
+            this.LabPersonCount.ForeColor = System.Drawing.Color.Gray;
+            this.LabPersonCount.Location = new System.Drawing.Point(25, 11);
+            this.LabPersonCount.Name = "LabPersonCount";
+            this.LabPersonCount.Size = new System.Drawing.Size(21, 29);
+            this.LabPersonCount.TabIndex = 54;
+            this.LabPersonCount.Text = "0";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.ForeColor = System.Drawing.Color.Gray;
+            this.label39.Location = new System.Drawing.Point(52, 11);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(108, 29);
+            this.label39.TabIndex = 53;
+            this.label39.Text = ": عدد الأشخاص";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.ForeColor = System.Drawing.Color.Gray;
+            this.label36.Location = new System.Drawing.Point(351, 10);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(78, 29);
+            this.label36.TabIndex = 49;
+            this.label36.Text = ": المتبقي ";
+            // 
+            // lblTotalPercentage
+            // 
+            this.lblTotalPercentage.AutoSize = true;
+            this.lblTotalPercentage.ForeColor = System.Drawing.Color.Gray;
+            this.lblTotalPercentage.Location = new System.Drawing.Point(513, 10);
+            this.lblTotalPercentage.Name = "lblTotalPercentage";
+            this.lblTotalPercentage.Size = new System.Drawing.Size(21, 29);
+            this.lblTotalPercentage.TabIndex = 50;
+            this.lblTotalPercentage.Text = "0";
+            // 
+            // lblRemainingPercentage
+            // 
+            this.lblRemainingPercentage.AutoSize = true;
+            this.lblRemainingPercentage.ForeColor = System.Drawing.Color.Gray;
+            this.lblRemainingPercentage.Location = new System.Drawing.Point(276, 10);
+            this.lblRemainingPercentage.Name = "lblRemainingPercentage";
+            this.lblRemainingPercentage.Size = new System.Drawing.Size(37, 29);
+            this.lblRemainingPercentage.TabIndex = 51;
+            this.lblRemainingPercentage.Text = "100";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.ForeColor = System.Drawing.Color.Gray;
+            this.label31.Location = new System.Drawing.Point(585, 10);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(130, 29);
+            this.label31.TabIndex = 48;
+            this.label31.Text = " :  مجموع الحصص ";
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
@@ -786,29 +846,142 @@
             this.panel1.Size = new System.Drawing.Size(2, 55);
             this.panel1.TabIndex = 2;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            this.errorProvider1.RightToLeft = true;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // btnSave
+            // 
+            this.btnSave.BorderRadius = 5;
+            this.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSave.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSave.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
+            this.btnSave.Font = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold);
+            this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(201)))), ((int)(((byte)(209)))));
+            this.btnSave.Image = global::REMS.UI.Properties.Resources.icons8_save_30__2_;
+            this.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnSave.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnSave.Location = new System.Drawing.Point(0, 1010);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(1248, 45);
+            this.btnSave.TabIndex = 9;
+            this.btnSave.Text = "حفظ";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnDelteCoowners
+            // 
+            this.btnDelteCoowners.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelteCoowners.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelteCoowners.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDelteCoowners.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDelteCoowners.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
+            this.btnDelteCoowners.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDelteCoowners.ForeColor = System.Drawing.Color.White;
+            this.btnDelteCoowners.Image = global::REMS.UI.Properties.Resources.icons8_reset_30;
+            this.btnDelteCoowners.Location = new System.Drawing.Point(12, 10);
+            this.btnDelteCoowners.Name = "btnDelteCoowners";
+            this.btnDelteCoowners.Size = new System.Drawing.Size(194, 35);
+            this.btnDelteCoowners.TabIndex = 56;
+            this.btnDelteCoowners.Click += new System.EventHandler(this.btnDelteCoowners_Click);
+            // 
+            // pbCancel
+            // 
+            this.pbCancel.Image = global::REMS.UI.Properties.Resources.icons8_cancel_30;
+            this.pbCancel.ImageRotate = 0F;
+            this.pbCancel.Location = new System.Drawing.Point(698, 87);
+            this.pbCancel.Name = "pbCancel";
+            this.pbCancel.Size = new System.Drawing.Size(26, 25);
+            this.pbCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCancel.TabIndex = 6;
+            this.pbCancel.TabStop = false;
+            this.pbCancel.Visible = false;
+            // 
+            // pbSuccess
+            // 
+            this.pbSuccess.Image = global::REMS.UI.Properties.Resources.icons8_success_25;
+            this.pbSuccess.ImageRotate = 0F;
+            this.pbSuccess.Location = new System.Drawing.Point(502, 87);
+            this.pbSuccess.Name = "pbSuccess";
+            this.pbSuccess.Size = new System.Drawing.Size(26, 25);
+            this.pbSuccess.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSuccess.TabIndex = 5;
+            this.pbSuccess.TabStop = false;
+            this.pbSuccess.Visible = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::REMS.UI.Properties.Resources.icons8_percentage_302;
+            this.pictureBox2.Location = new System.Drawing.Point(993, 292);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(26, 30);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 46;
+            this.pictureBox2.TabStop = false;
+            // 
+            // btnAddCoOwner
+            // 
+            this.btnAddCoOwner.BorderRadius = 2;
+            this.btnAddCoOwner.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddCoOwner.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddCoOwner.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddCoOwner.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddCoOwner.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
+            this.btnAddCoOwner.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAddCoOwner.ForeColor = System.Drawing.Color.White;
+            this.btnAddCoOwner.Image = global::REMS.UI.Properties.Resources.icons8_add_male_user_group_50;
+            this.btnAddCoOwner.Location = new System.Drawing.Point(165, 95);
+            this.btnAddCoOwner.Name = "btnAddCoOwner";
+            this.btnAddCoOwner.Size = new System.Drawing.Size(41, 38);
+            this.btnAddCoOwner.TabIndex = 35;
+            this.btnAddCoOwner.Click += new System.EventHandler(this.btnAddCoOwner_Click);
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BorderRadius = 2;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Image = global::REMS.UI.Properties.Resources.icons8_more_info_40;
+            this.guna2Button1.Location = new System.Drawing.Point(165, 40);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(888, 38);
+            this.guna2Button1.TabIndex = 35;
+            // 
             // frmRegistrationUnitOwner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1248, 977);
+            this.ClientSize = new System.Drawing.Size(1248, 1055);
             this.Controls.Add(this.Container);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmRegistrationUnitOwner";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "نموذج تسجيل مالك الوحدة";
-            this.Load += new System.EventHandler(this.frmRegistrationUnitOwner_Load);
             this.Container.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2GroupBox1.ResumeLayout(false);
             this.ContractDataPanel.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.panel18.ResumeLayout(false);
-            this.panel18.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUnitOwnerShip)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUnitCoOwner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOwnershipPercentage)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -818,6 +991,12 @@
             this.panel3.PerformLayout();
             this.HeaderPanel.ResumeLayout(false);
             this.HeaderPanel.PerformLayout();
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSuccess)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -833,28 +1012,26 @@
         private System.Windows.Forms.Panel ContractDataPanel;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label LabPersonCount;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label lblTotalPercentage;
+        private System.Windows.Forms.Label lblRemainingPercentage;
         private System.Windows.Forms.Label label31;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvUnitOwnerShip;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvUnitCoOwner;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label22;
         private Guna.UI2.WinForms.Guna2NumericUpDown txtOwnershipPercentage;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button btnAddCoOwner;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2ComboBox gbInstrumentCondition;
         private System.Windows.Forms.Label label21;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtbDateOfInstrument;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private Guna.UI2.WinForms.Guna2TextBox txtInstrumentNumber;
+        private Guna.UI2.WinForms.Guna2TextBox txtDeedNumber;
         private System.Windows.Forms.Label label17;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button btnSelectUnit;
         private System.Windows.Forms.Label label12;
         private Guna.UI2.WinForms.Guna2TextBox txtUnitID;
         private System.Windows.Forms.Panel panel7;
@@ -872,7 +1049,23 @@
         private System.Windows.Forms.Panel panel5;
         private Guna.UI2.WinForms.Guna2TextBox txtCreationUserID;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtbOwnerShipStartDate;
         private Guna.UI2.WinForms.Guna2Button btnSave;
+        private Guna.UI2.WinForms.Guna2Button btnDelteCoowners;
+        private System.Windows.Forms.TextBox txtOwnerShipDescription;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.CheckBox chkOwnershipRepresentative;
+        private System.Windows.Forms.Panel panel9;
+        private Guna.UI2.WinForms.Guna2PictureBox pbSuccess;
+        private System.Windows.Forms.LinkLabel LlAddDeedImage;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private Guna.UI2.WinForms.Guna2PictureBox pbCancel;
     }
 }

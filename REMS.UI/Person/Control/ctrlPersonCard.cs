@@ -27,8 +27,28 @@ namespace REMS.UI.Person.Control
         private readonly IPersonService _personService;
         private readonly ICountryService _countryService;
 
-        private Models.Person _person;
+        private Models.Person _person = null;
 
+        private int _PersonID = -1;
+        public int PersonID
+        {
+            get {  return _PersonID; }
+        }
+
+        public Models.Person PersonInfo
+        {
+            get
+            {
+                return this._person;
+            }
+        }
+        public bool HasPerson
+        {
+            get
+            {
+                return (this._person != null && this._PersonID > 0);
+            }
+        }
         public ctrlPersonCard()
         {
             InitializeComponent();
@@ -65,6 +85,9 @@ namespace REMS.UI.Person.Control
             }
 
             _FillPersonInfo();
+
+            this._PersonID = _person.PersonID;
+
             return true;
         }
 
@@ -93,6 +116,9 @@ namespace REMS.UI.Person.Control
             }
 
             _FillPersonInfo();
+
+            this._PersonID = _person.PersonID;
+
             return true;
         }
 

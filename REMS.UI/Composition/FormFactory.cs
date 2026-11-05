@@ -1,0 +1,163 @@
+﻿using Interfaces;
+using Models;
+using REMS.UI.Client_Roles.Investor;
+using REMS.UI.Client_Roles.Owner;
+using REMS.UI.Client_Roles.Tenant_Details;
+using REMS.UI.Client_Roles.UnitOwner;
+using REMS.UI.Customer_Management;
+using REMS.UI.Form_Models.Interfaces;
+using REMS.UI.Person;
+using REMS.UI.Person.Events;
+using REMS.UI.RealEstateAndUnits;
+using System;
+using System.Windows.Forms;
+
+namespace REMS.UI.Composition
+{
+    public class FormFactory : IFormFactory
+    {
+        // Person
+        private readonly IPersonService _personService;
+        private readonly ICountryService _countryService;
+        private readonly IPersonImageService _personImageService;
+        private readonly IPersonFormMapper _personFormMapper;
+
+        // Tenant / Owner
+        private readonly ITenantService _tenantService;
+        private readonly IClientRoleService _clientRoleService;
+        private readonly ITenantApplicationService _tenantApplicationService;
+        private readonly IOwnerService _ownerService;
+        private readonly IOwnerApplicationService _ownerApplicationService;
+
+        // Investor
+        private readonly IPropertyService _propertyService;
+        private readonly ICityService _cityService;
+        private readonly IPaymentMethodService _paymentMethodService;
+        private readonly IInvestmentPurposeService _investmentPurposeService;
+        private readonly IInterestLevelService _interestLevelService;
+        private readonly IInvestorRegistrationService _investorRegistrationService;
+
+        private readonly IClientService _clientService;
+        private readonly IClientTypeService _clientTypeService;
+        private readonly IClientFormMapper _clientFormMapper;
+
+
+        // Property
+        private readonly IPropertyTypeService _propertyTypeService;
+        private readonly IDistrictService _districtService;
+        private readonly IManagementCommissionTypeService _managementCommissionTypeService;
+        private readonly IPropertyApplicationService _propertyApplicationService;
+
+
+        private readonly IDashboardStatisticsService _dashboardStatisticsService;
+        public FormFactory(
+            IDashboardStatisticsService dashboardStatisticsService,
+            IPropertyTypeService propertyTypeService,
+            IDistrictService districtService,
+            IManagementCommissionTypeService managementCommissionTypeService,
+            IPropertyApplicationService propertyApplicationService,
+            IClientService clientService,
+            IClientTypeService clientTypeService,
+            IClientFormMapper clientFormMapper,
+            IPersonService personService,
+            ICountryService countryService,
+            IPersonImageService personImageService,
+            IPersonFormMapper personFormMapper,
+            ITenantService tenantService,
+            IClientRoleService clientRoleService,
+            ITenantApplicationService tenantApplicationService,
+            IOwnerService ownerService,
+            IOwnerApplicationService ownerApplicationService,
+            IPropertyService propertyService,
+            ICityService cityService,
+            IPaymentMethodService paymentMethodService,
+            IInvestmentPurposeService investmentPurposeService,
+            IInterestLevelService interestLevelService,
+            IInvestorRegistrationService investorRegistrationService)
+        {
+
+            _clientService = clientService;
+            _clientTypeService = clientTypeService;
+            _clientFormMapper = clientFormMapper;
+            _personService = personService;
+            _countryService = countryService;
+            _personImageService = personImageService;
+            _personFormMapper = personFormMapper;
+            _tenantService = tenantService;
+            _clientRoleService = clientRoleService;
+            _tenantApplicationService = tenantApplicationService;
+            _ownerService = ownerService;
+            _ownerApplicationService = ownerApplicationService;
+            _propertyService = propertyService;
+            _cityService = cityService;
+            _paymentMethodService = paymentMethodService;
+            _investmentPurposeService = investmentPurposeService;
+            _interestLevelService = interestLevelService;
+            _investorRegistrationService = investorRegistrationService;
+            _propertyTypeService = propertyTypeService;
+            _districtService = districtService;
+            _managementCommissionTypeService = managementCommissionTypeService;
+            _propertyApplicationService = propertyApplicationService;
+            _dashboardStatisticsService = dashboardStatisticsService;
+
+        }
+
+        public Form CreateFindPerson(EventHandler<OnPersonSelectedEventArgs> onSelected)
+        {
+            var frm = new frmFindPerson();
+            frm.OnPersonSelected += onSelected;
+            return frm;
+        }
+
+        public Form CreateAddPerson(EventHandler<OnPersonSelectedEventArgs> onSelected)
+        {
+            var frm = new frmAddPerson(_personService, _countryService,
+                                       _personImageService, _personFormMapper);
+            frm.OnPersonSelected += onSelected;
+            return frm;
+        }
+
+        public Form CreateTenantDetails(Client client) =>
+            new frmAddEditTenantDetails(_tenantService, _clientRoleService,
+                                        _countryService, _tenantApplicationService, client);
+
+        public Form CreateOwnerDetails(Client client) =>
+            new frmAddEditOwner(_ownerService, _clientRoleService,
+                                _countryService, _ownerApplicationService, client);
+
+        public Form CreateInvestorRegistration(int clientId) =>
+            new frmAddNewInvestor(_propertyService, _cityService, _paymentMethodService,
+                                  _investmentPurposeService, _interestLevelService,
+                                  _investorRegistrationService, clientId);
+
+        public Form CreateUnitOwnerRegistration(int clientId) =>
+            new frmRegistrationUnitOwner(clientId);
+
+        public Form CreateAddEditClient() =>
+            new frmAddEditClient(_clientService, _clientTypeService,
+                                 _clientFormMapper, this);
+
+        public Form CreateAddEditClient(int clientId) =>
+            new frmAddEditClient(clientId, _clientService, _clientTypeService,
+                                 _clientFormMapper, this);
+
+        public Form CreateAddNewProperty() =>
+            new frmAddNewProperty(_propertyTypeService, _cityService, _districtService,
+                _managementCommissionTypeService, _propertyApplicationService);
+
+        public Form CreateMain() =>
+            new frmMain(
+                this,
+                _clientRoleService,
+                _clientService,
+                _tenantService,
+                _ownerService,
+                _dashboardStatisticsService,
+                _tenantApplicationService,
+                _ownerApplicationService);
+
+        public Form CreateMainService(Form loginForm) =>
+            new frmMainService(loginForm, this);
+    }
+}
+

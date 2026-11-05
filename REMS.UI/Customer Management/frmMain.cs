@@ -1,23 +1,12 @@
-﻿using Guna.UI2.WinForms;
-using Interfaces;
+﻿using Interfaces;
 using Microsoft.Web.WebView2.Core;
-using Models;
 using Models.DTOs;
 using Models.Events;
-using REMS.UI.Factories;
-using REMS.UI.Form_Models.Interfaces;
-using REMS.UI.Form_Models.Services;
-using REMS.UI.FormDependencies;
+using REMS.UI.Composition;
 using REMS.UI.Lease_Contracts;
-using REMS.UI.RealEstateAndUnits;
-using Services;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -25,16 +14,39 @@ namespace REMS.UI.Customer_Management
 {
     public partial class frmMain : Form
     {
+        private readonly IFormFactory _formFactory;
+        private readonly IClientRoleService _roleService;
+        private readonly IClientService _clientService;
+        private readonly ITenantService _tenantService;
+        private readonly IOwnerService _ownerService;
+        private readonly IDashboardStatisticsService _dashboardStatisticsService;
+        private readonly ITenantApplicationService _tenantApplicationService;
+        private readonly IOwnerApplicationService _ownerApplicationService;
 
-        private MainFormDependencies _deps;
-        private AddEditClientFormDependencies _clientFormDeps;
-        private BindingList<ClientListDTO> _clients = new BindingList<ClientListDTO>(); 
-        private BindingList<TenantListDTO> _Tenants = new BindingList<TenantListDTO>();  
-        private BindingList<OwnersListDTO> _Owners = new BindingList<OwnersListDTO>(); 
-        public frmMain(MainFormDependencies deps)
+        private BindingList<ClientListDTO> _clients = new BindingList<ClientListDTO>();
+        private BindingList<TenantListDTO> _Tenants = new BindingList<TenantListDTO>();
+        private BindingList<OwnersListDTO> _Owners = new BindingList<OwnersListDTO>();
+
+        public frmMain(
+            IFormFactory formFactory,
+            IClientRoleService roleService,
+            IClientService clientService,
+            ITenantService tenantService,
+            IOwnerService ownerService,
+            IDashboardStatisticsService dashboardStatisticsService,
+            ITenantApplicationService tenantApplicationService,
+            IOwnerApplicationService ownerApplicationService)
         {
             InitializeComponent();
-            this._deps = deps;
+
+            _formFactory = formFactory;
+            _roleService = roleService;
+            _clientService = clientService;
+            _tenantService = tenantService;
+            _ownerService = ownerService;
+            _dashboardStatisticsService = dashboardStatisticsService;
+            _tenantApplicationService = tenantApplicationService;
+            _ownerApplicationService = ownerApplicationService;
         }
 
         private void _PrepareDataGridView()
@@ -81,13 +93,13 @@ namespace REMS.UI.Customer_Management
             dgvAllClients.Columns["colEdit"].Width = 70;
             dgvAllClients.Columns["colDelete"].Width = 70;
         }
-        private void _TenantsDataGridView() 
+        private void _TenantsDataGridView()
         {
             dgvAllTenants.AutoGenerateColumns = false;
 
             dgvAllTenants.Columns["colTenantName"].DataPropertyName = "TenantFullName";
             dgvAllTenants.Columns["colTenantNationalNo"].DataPropertyName = "TenantNationalNo";
-            dgvAllTenants.Columns["colTenantPhoneNumber"].DataPropertyName = "TenantPhoneNumber"; 
+            dgvAllTenants.Columns["colTenantPhoneNumber"].DataPropertyName = "TenantPhoneNumber";
             dgvAllTenants.Columns["colTenantOpeningBalance"].DataPropertyName = "TenantOpeningBalance";
 
 
@@ -110,13 +122,13 @@ namespace REMS.UI.Customer_Management
                 deleteColumn.Text = "حذف";
                 deleteColumn.UseColumnTextForButtonValue = true;
                 deleteColumn.Width = 90;
-                dgvAllTenants.Columns.Add(deleteColumn); 
+                dgvAllTenants.Columns.Add(deleteColumn);
             }
 
             dgvAllTenants.Columns["colTenantName"].DisplayIndex = 0;
             dgvAllTenants.Columns["colTenantPhoneNumber"].DisplayIndex = 1;
             dgvAllTenants.Columns["colTenantNationalNo"].DisplayIndex = 2;
-            dgvAllTenants.Columns["colTenantOpeningBalance"].DisplayIndex = 3; 
+            dgvAllTenants.Columns["colTenantOpeningBalance"].DisplayIndex = 3;
             dgvAllTenants.Columns["colEdit"].DisplayIndex = 4;
             dgvAllTenants.Columns["colDelete"].DisplayIndex = 5;
 
@@ -133,7 +145,7 @@ namespace REMS.UI.Customer_Management
             dgvAllOwners.Columns["colOwnerName"].DataPropertyName = "OwnerFullName";
             dgvAllOwners.Columns["colOwnerNationalNo"].DataPropertyName = "OwnerNationalNo";
             dgvAllOwners.Columns["colOwnerPhoneNumber"].DataPropertyName = "OwnerPhoneNumber";
-            dgvAllOwners.Columns["colOwnerOpeningBalance"].DataPropertyName = "OwnerOpeningBalance"; 
+            dgvAllOwners.Columns["colOwnerOpeningBalance"].DataPropertyName = "OwnerOpeningBalance";
 
 
             if (!dgvAllOwners.Columns.Contains("colEdit"))
@@ -170,36 +182,36 @@ namespace REMS.UI.Customer_Management
 
             dgvAllOwners.Columns["colEdit"].Width = 70;
             dgvAllOwners.Columns["colDelete"].Width = 70;
-        } 
+        }
 
         private async Task _LoadAllClientsAsync()
         {
             _clients = await Task.Run(() =>
-                _deps.RoleService.GetAllClientsList());
+                _roleService.GetAllClientsList());
 
             dgvAllClients.DataSource = _clients;
         }
         private async Task _LoadAllTenantsAsync()
         {
             this._Tenants = await Task.Run(() =>
-                _deps.TenantService.GetTenantList());
+                _tenantService.GetTenantList());
 
             dgvAllTenants.DataSource = this._Tenants;
         }
-        private async Task _LoadAllOwnersAsync() 
+        private async Task _LoadAllOwnersAsync()
         {
             this._Owners = await Task.Run(() =>
-                _deps.OwnerService.GetAllOwnersList());
+                _ownerService.GetAllOwnersList());
 
-            dgvAllOwners.DataSource = this._Owners; 
+            dgvAllOwners.DataSource = this._Owners;
         }
         private void _UpdatedgvAllClients(string NationalNo)
         {
-            ClientListDTO clientListDTO = this._deps.AddEditClientDeps.ClientRoleService.GetClientItemInfoByNationalNo(NationalNo);
+            ClientListDTO clientListDTO = _roleService.GetClientItemInfoByNationalNo(NationalNo);
 
             this._clients.Add(clientListDTO);
         }
-        private void _StyleDataGridViewTenants() 
+        private void _StyleDataGridViewTenants()
         {
             // الشكل العام
             dgvAllTenants.BorderStyle = BorderStyle.None;
@@ -391,7 +403,7 @@ namespace REMS.UI.Customer_Management
         {
             // الشكل العام
             dgvAllClients.BorderStyle = BorderStyle.None;
-       
+
             dgvAllClients.BackgroundColor = Color.White;
             dgvAllClients.GridColor = Color.FromArgb(235, 235, 235);
 
@@ -481,7 +493,7 @@ namespace REMS.UI.Customer_Management
             dgvAllClients.RightToLeft = RightToLeft.Yes;
         }
 
-        private void _StyleContractsGrid() 
+        private void _StyleContractsGrid()
         {
             dgvContracts.RightToLeft = RightToLeft.Yes;
             dgvContracts.EnableHeadersVisualStyles = false;
@@ -612,7 +624,7 @@ namespace REMS.UI.Customer_Management
             dgvAllClients.Columns["colClientName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
-        private void _SetColumnsSizedgvTenants() 
+        private void _SetColumnsSizedgvTenants()
         {
             dgvAllTenants.Columns["colTenantName"].Width = 190;
             dgvAllTenants.Columns["colTenantPhoneNumber"].Width = 130;
@@ -622,7 +634,7 @@ namespace REMS.UI.Customer_Management
             dgvAllTenants.Columns["colEdit"].Width = 55;
             dgvAllTenants.Columns["colDelete"].Width = 55;
 
-            dgvAllTenants.Columns["colTenantName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; 
+            dgvAllTenants.Columns["colTenantName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         private void _SetColumnsSizedgvOwners()
         {
@@ -632,26 +644,29 @@ namespace REMS.UI.Customer_Management
             dgvAllOwners.Columns["colOwnerNationalNo"].Width = 130;
 
             dgvAllOwners.Columns["colEdit"].Width = 55;
-            dgvAllOwners.Columns["colDelete"].Width = 55; 
+            dgvAllOwners.Columns["colDelete"].Width = 55;
 
-            dgvAllOwners.Columns["colOwnerName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; 
+            dgvAllOwners.Columns["colOwnerName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
-        private frmAddEditClient _CreateAddClientForm()
+
+        /// <summary>
+        /// يعرض الفورم كـ Dialog ويتخلص منه (Dispose) بعد الإغلاق.
+        /// </summary>
+        private void _ShowForm(Form form)
         {
-            return new frmAddEditClient(this._deps.AddEditClientDeps);
+            using (form)
+                form.ShowDialog(this);
         }
+
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-
-            frmAddEditClient frm = _CreateAddClientForm();
-            frm.ShowDialog();
-
+            _ShowForm(_formFactory.CreateAddEditClient());
         }
         private void _RefreshDashboardCounts()
         {
-            lblClientsCount.Text = _deps.DashboardStatisticsService.GetClientsCount().ToString();
-            lblTenantsCount.Text = _deps.DashboardStatisticsService.GetTenantsCount().ToString();
-            lblOwnersCounts.Text = _deps.DashboardStatisticsService.GetOwnersCount().ToString();
+            lblClientsCount.Text = _dashboardStatisticsService.GetClientsCount().ToString();
+            lblTenantsCount.Text = _dashboardStatisticsService.GetTenantsCount().ToString();
+            lblOwnersCounts.Text = _dashboardStatisticsService.GetOwnersCount().ToString();
         } // Letar Handling 
         private void OnTenantRegistered(object sender, TenantRegisteredEventArgs e)
         {
@@ -659,7 +674,7 @@ namespace REMS.UI.Customer_Management
 
             _UpdatedgvAllClients(e.Tenant.TenantNationalNo);
 
-            lblTenantsCount.Text = _deps.DashboardStatisticsService.GetTenantsCount().ToString();
+            lblTenantsCount.Text = _dashboardStatisticsService.GetTenantsCount().ToString();
         }
 
         private void OnOwnerRegistered(object sender, OwnerRegisteredEventArgs e)
@@ -668,15 +683,15 @@ namespace REMS.UI.Customer_Management
 
             _UpdatedgvAllClients(e.ownersListDTO.OwnerNationalNo);
 
-            lblOwnersCounts.Text = _deps.DashboardStatisticsService.GetOwnersCount().ToString(); 
+            lblOwnersCounts.Text = _dashboardStatisticsService.GetOwnersCount().ToString();
         }
         private void _SubscribeToEvents()
         {
-            _deps.ClientService.ClientAdded += _RefreshDashboardCounts;
-            _deps.AddEditClientDeps.TenantApplicationService.TenantRegistered += OnTenantRegistered;
-            _deps.AddEditClientDeps.OwnerApplicationService.OwnerRegistered += OnOwnerRegistered; 
+            _clientService.ClientAdded += _RefreshDashboardCounts;
+            _tenantApplicationService.TenantRegistered += OnTenantRegistered;
+            _ownerApplicationService.OwnerRegistered += OnOwnerRegistered;
 
-            _deps.OwnerService.OwnerAdded += _RefreshDashboardCounts;
+            _ownerService.OwnerAdded += _RefreshDashboardCounts;
         }
         private void WebView21_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
@@ -724,15 +739,12 @@ namespace REMS.UI.Customer_Management
 
         private void guna2Button13_Click(object sender, EventArgs e)
         {
-            frmLeaseContracts frm = new frmLeaseContracts();
-            frm.ShowDialog();
-
+            _ShowForm(new frmLeaseContracts());
         }
 
         private void btnAddNewProperty_Click(object sender, EventArgs e)
         {
-            frmAddNewProperty frm = new frmAddNewProperty(_deps.AddNewPropertyDeps);
-            frm.ShowDialog();
+            _ShowForm(_formFactory.CreateAddNewProperty());
         }
     }
-} 
+}

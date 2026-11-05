@@ -143,6 +143,9 @@
     <Compile Include="Client Roles\UnitOwner\frmUnitsListView.Designer.cs">
       <DependentUpon>frmUnitsListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Composition\CompositionRoot.cs" />
+    <Compile Include="Composition\FormFactory.cs" />
+    <Compile Include="Composition\IFormFactory.cs" />
     <Compile Include="Customer Management\Control\ctrlClientCardInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -164,7 +167,6 @@
     <Compile Include="Form Models\ClientFormData.cs" />
     <Compile Include="Form Models\Interfaces\IClientFormMapper.cs" />
     <Compile Include="Form Models\Services\ClientFormMapper.cs" />
-    <Compile Include="Customer Management\Dependencies\AddEditClientFormDependencies.cs" />
     <Compile Include="RealEstateAndUnits\Control\ctrlPropertyCardBasicInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -177,8 +179,6 @@
     <Compile Include="RealEstateAndUnits\Control\ctrlPropertyCardBasicInfoWhithFilter.Designer.cs">
       <DependentUpon>ctrlPropertyCardBasicInfoWhithFilter.cs</DependentUpon>
     </Compile>
-    <Compile Include="RealEstateAndUnits\Dependencies\AddNewPropertyFormDependencies.cs" />
-    <Compile Include="FormDependencies\MainFormDependencies.cs" />
     <Compile Include="Lease Contracts\frmAddNewLeaseAgreement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -647,9 +647,17 @@
   <ItemGroup>
     <None Include="Resources\icons8-create-document-442.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\icons8-percentage-25.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-hotel-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-reset-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cancel-30.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Web.WebView2.1.0.3967.48\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.3967.48\build\Microsoft.Web.WebView2.targets')" />

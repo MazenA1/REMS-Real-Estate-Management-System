@@ -60,11 +60,13 @@
     <Compile Include="IClientRoleService.cs" />
     <Compile Include="IClientService.cs" />
     <Compile Include="IClientTypeRepository.cs" />
+    <Compile Include="IClientTypeService.cs" />
     <Compile Include="ICountryRepository.cs" />
     <Compile Include="ICountryService.cs" />
     <Compile Include="IDashboardStatisticsService.cs" />
     <Compile Include="IDistrictRepository.cs" />
     <Compile Include="IDistrictService.cs" />
+    <Compile Include="IFileStoradeServics.cs" />
     <Compile Include="IImageService.cs" />
     <Compile Include="IInterestLevelRepository.cs" />
     <Compile Include="IInterestLevelService.cs" />
@@ -114,6 +116,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Web.WebView2.1.0.3967.48\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.3967.48\build\Microsoft.Web.WebView2.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

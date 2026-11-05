@@ -67,11 +67,15 @@
     <Compile Include="DTOs\InvestorPreferredPropertyTypeDTO.cs" />
     <Compile Include="DTOs\PropertyBasicCardDTO.cs" />
     <Compile Include="DTOs\TenantListDTO.cs" />
+    <Compile Include="DTOs\UnitCoOwnerDTO.cs" />
     <Compile Include="DTOs\UnitSelectionDTO.cs" />
+    <Compile Include="Enum\StorageFolderType.cs" />
+    <Compile Include="Enum\StoredFileType.cs" />
     <Compile Include="Events\OwnerRegisteredEventArgs .cs" />
     <Compile Include="Events\PropertyActionEventArgs .cs" />
     <Compile Include="Events\PropertyAndUnitSelectedEventArgs.cs" />
     <Compile Include="Events\TenantRegisteredEventArgs .cs" />
+    <Compile Include="Events\UnitCoOwnerSelectedEventArgs .cs" />
     <Compile Include="Events\UnitSelectedEventArgs.cs" />
     <Compile Include="FormData\InvestorRegistrationData.cs" />
     <Compile Include="FormData\OwnerFormData.cs" />
@@ -90,6 +94,7 @@
     <Compile Include="PropertyManagement.cs" />
     <Compile Include="PropertyOwnership.cs" />
     <Compile Include="PropertyType.cs" />
+    <Compile Include="StorageFileResult.cs" />
     <Compile Include="Tenant.cs" />
     <Compile Include="Unit.cs" />
     <Compile Include="UnitOwner.cs" />

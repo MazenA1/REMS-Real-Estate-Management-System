@@ -36,11 +36,11 @@
             this.txtFinde = new Guna.UI2.WinForms.Guna2TextBox();
             this.tcClientInfo = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabAddClient = new System.Windows.Forms.TabPage();
+            this.ctrlPersonCard1 = new REMS.UI.Person.Control.ctrlPersonCard();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.btnNext = new Guna.UI2.WinForms.Guna2Button();
             this.tabClientSettings = new System.Windows.Forms.TabPage();
             this.ClientPageInfoPanel = new System.Windows.Forms.Panel();
-            this.ctrlPersonCard1 = new REMS.UI.Person.Control.ctrlPersonCard();
             this.ctrlClientCardInfo1 = new REMS.UI.Customer_Management.Control.ctrlClientCardInfo();
             this.CountainerPanel.SuspendLayout();
             this.tcClientInfo.SuspendLayout();
@@ -78,6 +78,7 @@
             this.btnAddClient.Size = new System.Drawing.Size(1220, 45);
             this.btnAddClient.TabIndex = 6;
             this.btnAddClient.Text = "إضافة عميل";
+            this.btnAddClient.Click += new System.EventHandler(this.btnAddClient_Click);
             // 
             // btnAddPerson
             // 
@@ -94,6 +95,7 @@
             this.btnAddPerson.Size = new System.Drawing.Size(1220, 45);
             this.btnAddPerson.TabIndex = 6;
             this.btnAddPerson.Text = "إضافة شخص";
+            this.btnAddPerson.Click += new System.EventHandler(this.btnAddPerson_Click);
             // 
             // btnFindeData
             // 
@@ -193,6 +195,15 @@
             this.tabAddClient.TabIndex = 0;
             this.tabAddClient.Text = "المعلومات الشخصية";
             // 
+            // ctrlPersonCard1
+            // 
+            this.ctrlPersonCard1.BackColor = System.Drawing.Color.White;
+            this.ctrlPersonCard1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ctrlPersonCard1.Location = new System.Drawing.Point(3, 3);
+            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
+            this.ctrlPersonCard1.Size = new System.Drawing.Size(1206, 480);
+            this.ctrlPersonCard1.TabIndex = 5;
+            // 
             // btnSave
             // 
             this.btnSave.BorderRadius = 5;
@@ -252,15 +263,6 @@
             this.ClientPageInfoPanel.Name = "ClientPageInfoPanel";
             this.ClientPageInfoPanel.Size = new System.Drawing.Size(1206, 481);
             this.ClientPageInfoPanel.TabIndex = 0;
-            // 
-            // ctrlPersonCard1
-            // 
-            this.ctrlPersonCard1.BackColor = System.Drawing.Color.White;
-            this.ctrlPersonCard1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ctrlPersonCard1.Location = new System.Drawing.Point(3, 3);
-            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
-            this.ctrlPersonCard1.Size = new System.Drawing.Size(1206, 480);
-            this.ctrlPersonCard1.TabIndex = 5;
             // 
             // ctrlClientCardInfo1
             // 
