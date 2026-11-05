@@ -1,29 +1,27 @@
 ﻿using Interfaces;
 using REMS.UI.Composition;
-using REMS.UI.Factories;
 using REMS.UI.Global;
 using Services;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace REMS.UI.Log_In
 {
     public partial class frmLogin : Form
     {
+        private readonly IUserService _userService;
+        private readonly IFormFactory _formFactory;
+
         private User _user = null;
-        private readonly IUserService _userService = ServiceFactory.CreateUserService();
-        public frmLogin(IUserService userService)
+
+        public frmLogin(IUserService userService, IFormFactory formFactory)
         {
             InitializeComponent();
-            this._userService = userService;
+
+            _userService = userService;
+            _formFactory = formFactory;
         }
+
         private bool _ValidatingUser()
         {
             _user = _userService.FindUserByUserNameAndPassword(txtUserName.Text.Trim(), txtPassword.Text.Trim());
@@ -46,23 +44,23 @@ namespace REMS.UI.Log_In
             }
             else
                 return false;
-        } 
+        }
+
         private void _InitializeCurrentUser()
         {
             Global.Global.CourentUser = _user;
         }
+
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-
             if (!_ValidatingUser())
                 return;
 
             _InitializeCurrentUser();
 
             this.Hide();
-
-            Form frmMain = CompositionRoot.FormFactory.CreateMainService(this);
-            frmMain.ShowDialog();
+            using (Form mainService = _formFactory.CreateMainService(this))
+                mainService.ShowDialog();
         }
 
         private void frmLogin_Load(object sender, EventArgs e)

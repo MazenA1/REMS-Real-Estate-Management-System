@@ -12,10 +12,6 @@ namespace REMS.UI.Composition
 {
     public static class CompositionRoot
     {
-        // TEMP: جسر مؤقت لحد ما نحوّل باقي الفورمات. رح نحذفه بالمرحلة الأخيرة.
-        private static IFormFactory _formFactory;
-        public static IFormFactory FormFactory =>
-            _formFactory ?? (_formFactory = CreateFormFactory());
 
         // TEMP: كائنات مشتركة لأنها بتطلق أحداث بيسمعها frmMain.
         public static IClientService ClientService { get; } = ServiceFactory.CreateClientService();

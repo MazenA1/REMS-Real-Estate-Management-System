@@ -1,11 +1,12 @@
-﻿using System;
+﻿using REMS.UI.Composition;
+using REMS.UI.Customer_Management;
+using REMS.UI.Factories;
+using REMS.UI.Log_In;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using REMS.UI.Customer_Management;
-using REMS.UI.Factories;
-using REMS.UI.Log_In;
 
 namespace REMS.UI
 {
@@ -19,7 +20,12 @@ namespace REMS.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin(ServiceFactory.CreateUserService()));
+
+            IFormFactory formFactory = CompositionRoot.CreateFormFactory();
+
+            Application.Run(new frmLogin(
+                ServiceFactory.CreateUserService(),
+                formFactory));
         }
     }
 }
