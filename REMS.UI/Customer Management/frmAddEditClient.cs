@@ -6,11 +6,12 @@ using REMS.UI.Form_Models.Interfaces;
 using REMS.UI.Person.Events;
 using REMS.UI.Validation;
 using System;
+using REMS.UI.Base;
 using System.Windows.Forms;
 
 namespace REMS.UI.Customer_Management
 {
-    public partial class frmAddEditClient : Form
+    public partial class frmAddEditClient : BaseForm
     {
         private readonly IClientService _clientService;
         private readonly IClientTypeService _clientTypeService;
@@ -59,16 +60,6 @@ namespace REMS.UI.Customer_Management
 
 
         #region Messages
-
-        private void ShowWarning(string msg) =>
-            MessageBox.Show(msg, "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-        private void ShowError(string msg) =>
-            MessageBox.Show(msg, "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-        private void ShowInfo(string msg) =>
-            MessageBox.Show(msg, "تم", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         private void ShowClientNotFound() =>
             ShowError("تعذر العثور على بيانات العميل المطلوب.");
 
@@ -293,34 +284,28 @@ namespace REMS.UI.Customer_Management
             return false;
         }
 
-        private void _ShowForm(Form form)
-        {
-            using (form)
-                form.ShowDialog(this);
-        }
-
         private void btnTenant_Click(object sender, EventArgs e)
         {
             if (_EnsureClientSaved("المستأجر"))
-                _ShowForm(_formFactory.CreateTenantDetails(_client));
+                ShowDialogAndDispose(_formFactory.CreateTenantDetails(_client));
         }
 
         private void btnOwner_Click(object sender, EventArgs e)
         {
             if (_EnsureClientSaved("المالك"))
-                _ShowForm(_formFactory.CreateOwnerDetails(_client));
+                ShowDialogAndDispose(_formFactory.CreateOwnerDetails(_client));
         }
 
         private void btnInvestor_Click(object sender, EventArgs e)
         {
             if (_EnsureClientSaved("المستثمر"))
-                _ShowForm(_formFactory.CreateInvestorRegistration(CurrentClientID));
+                ShowDialogAndDispose(_formFactory.CreateInvestorRegistration(CurrentClientID));
         }
 
         private void btnUnitOwner_Click(object sender, EventArgs e)
         {
             if (_EnsureClientSaved("مالك الوحدة"))
-                _ShowForm(_formFactory.CreateUnitOwnerRegistration(CurrentClientID));
+                ShowDialogAndDispose(_formFactory.CreateUnitOwnerRegistration(CurrentClientID)); 
         }
 
         #endregion
