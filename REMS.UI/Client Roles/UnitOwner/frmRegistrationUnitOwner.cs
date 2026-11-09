@@ -25,6 +25,8 @@ namespace REMS.UI.Client_Roles.UnitOwner
         private string _SelectedImagePath = string.Empty;
         private decimal _totalPercentage;
 
+        private int _selectedUnitID = -1;
+
         /// <summary>
         /// Gets or updates the total ownership percentage
         /// and notifies the form when the value changes.
@@ -80,6 +82,18 @@ namespace REMS.UI.Client_Roles.UnitOwner
             Debug.WriteLine($"[{nameof(frmManageUnitCoOwners)}] {message}");
         }
 
+        private decimal _GetCurrentOwnerPercentage()
+        {
+            if (decimal.TryParse(
+                txtOwnershipPercentage.Text,
+                out decimal percentage))
+            {
+                return percentage;
+            }
+
+            return 0m;
+        }
+
         /// <summary>
         /// Recalculates the ownership summary using the current owners list
         /// and updates the displayed owner count.
@@ -87,7 +101,7 @@ namespace REMS.UI.Client_Roles.UnitOwner
         private void _CalculateOwnershipSummary()
         {
             TotalPercentage =
-                _Co_Owners.Sum(owner => owner.OwnershipPercentage);
+                _Co_Owners.Sum(owner => owner.OwnershipPercentage) + _GetCurrentOwnerPercentage();
 
             _UpdatePersonCount();
         }
@@ -409,7 +423,9 @@ namespace REMS.UI.Client_Roles.UnitOwner
 
         private void FrmFindProperty_PropertyAndUnitSelected(object sender, PropertyAndUnitSelectedEventArgs e)
         {
-            txtUnitID.Text = e.Unit.UnitNumber.ToString() + " - " + e.Unit.BuildingNumber + " - " + e.Property.PropertyName; 
+            this._selectedUnitID = e.Unit.UnitID;
+
+            txtSelectedUnitID.Text = e.Unit.UnitNumber.ToString() + " - " + e.Unit.BuildingNumber + " - " + e.Property.PropertyName; 
         } 
 
         private void btnSelectUnit_Click(object sender, EventArgs e)
@@ -436,14 +452,14 @@ namespace REMS.UI.Client_Roles.UnitOwner
         /// True if the client already exists in the owners list;
         /// otherwise, false.
         /// </returns>
-        private bool _isDuplicateOwner(int ClientID)  
+        private bool _OwnerAlreadyExists(int ClientID)  
         {
             if (this._Co_Owners == null)
             {
                 return false;
             }
 
-            return this._Co_Owners.Any(Owner => Owner.ClientID == ClientID);
+            return this._Co_Owners.Any(Owner => Owner.ClientID == ClientID) || this._CuurentClientID == ClientID; 
         }
 
         /// <summary>
@@ -468,7 +484,7 @@ namespace REMS.UI.Client_Roles.UnitOwner
 
             UnitOwnerRegistrationItem SelectedCo_Owner = e.Owner;
 
-            if (_isDuplicateOwner(SelectedCo_Owner.ClientID))
+            if (_OwnerAlreadyExists(SelectedCo_Owner.ClientID))
             {
                 MessageBox.Show(
                     "تمت إضافة هذا العميل كمالك بالفعل."); 
@@ -491,7 +507,7 @@ namespace REMS.UI.Client_Roles.UnitOwner
         {
             bool isValid = true;
 
-            if (!ValidationHelper.ValidateRequiredTextBox(txtUnitID, errorProvider1, "يرجى اختيار الوحده"))
+            if (!ValidationHelper.ValidateRequiredTextBox(txtSelectedUnitID, errorProvider1, "يرجى اختيار الوحده")) 
                 isValid = false;
 
             if (!ValidationHelper.ValidateRequiredTextBox(txtDeedNumber, errorProvider1, "يرجى اختيار رقم السند")) 
@@ -553,6 +569,11 @@ namespace REMS.UI.Client_Roles.UnitOwner
                 else
                     pbCancel.Visible = true;
             }
+        }
+
+        private void txtOwnershipPercentage_ValueChanged(object sender, EventArgs e)
+        {
+            _CalculateOwnershipSummary();
         }
     }
 }

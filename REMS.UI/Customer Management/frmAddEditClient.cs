@@ -17,8 +17,8 @@ namespace REMS.UI.Customer_Management
         private readonly IClientFormMapper _clientFormMapper;
         private readonly IFormFactory _formFactory;
 
-        private readonly int _initialClientID;   // 0 = وضع الإضافة
-        private Client _client;                  // null = لسا ما انحفظ/ما انحمّل
+        private readonly int _initialClientID;   
+        private Client _client;                  
         private int _personID;
 
         /// وضع التعديل = في عميل محمّل وله ID. هاد المصدر الوحيد لمعرفة الوضع.

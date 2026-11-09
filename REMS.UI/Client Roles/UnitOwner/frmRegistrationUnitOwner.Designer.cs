@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Container = new System.Windows.Forms.Panel();
+            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.ContractDataPanel = new System.Windows.Forms.Panel();
@@ -40,7 +41,10 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnDelteCoowners = new Guna.UI2.WinForms.Guna2Button();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.pbCancel = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pbSuccess = new Guna.UI2.WinForms.Guna2PictureBox();
             this.LlAddDeedImage = new System.Windows.Forms.LinkLabel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
@@ -50,8 +54,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dtbOwnerShipStartDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.dgvUnitCoOwner = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label22 = new System.Windows.Forms.Label();
             this.txtOwnershipPercentage = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.btnAddCoOwner = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.gbInstrumentCondition = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.dtbDateOfInstrument = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -61,7 +68,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.btnSelectUnit = new Guna.UI2.WinForms.Guna2Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtUnitID = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtSelectedUnitID = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -89,13 +96,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
-            this.btnDelteCoowners = new Guna.UI2.WinForms.Guna2Button();
-            this.pbCancel = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.pbSuccess = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnAddCoOwner = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.Container.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
@@ -103,8 +103,11 @@
             this.panel6.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSuccess)).BeginInit();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnitCoOwner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOwnershipPercentage)).BeginInit();
             this.panel7.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -112,9 +115,6 @@
             this.HeaderPanel.SuspendLayout();
             this.panel18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSuccess)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // Container
@@ -128,6 +128,27 @@
             this.Container.Name = "Container";
             this.Container.Size = new System.Drawing.Size(1248, 1055);
             this.Container.TabIndex = 0;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BorderRadius = 5;
+            this.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSave.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSave.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
+            this.btnSave.Font = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold);
+            this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(201)))), ((int)(((byte)(209)))));
+            this.btnSave.Image = global::REMS.UI.Properties.Resources.icons8_save_30__2_;
+            this.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnSave.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnSave.Location = new System.Drawing.Point(0, 1010);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(1248, 45);
+            this.btnSave.TabIndex = 9;
+            this.btnSave.Text = "حفظ";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // guna2Panel1
             // 
@@ -190,7 +211,7 @@
             this.panel6.Controls.Add(this.label17);
             this.panel6.Controls.Add(this.btnSelectUnit);
             this.panel6.Controls.Add(this.label12);
-            this.panel6.Controls.Add(this.txtUnitID);
+            this.panel6.Controls.Add(this.txtSelectedUnitID);
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 331);
@@ -231,6 +252,22 @@
             this.panel4.Size = new System.Drawing.Size(2, 55);
             this.panel4.TabIndex = 2;
             // 
+            // btnDelteCoowners
+            // 
+            this.btnDelteCoowners.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelteCoowners.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelteCoowners.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDelteCoowners.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDelteCoowners.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
+            this.btnDelteCoowners.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDelteCoowners.ForeColor = System.Drawing.Color.White;
+            this.btnDelteCoowners.Image = global::REMS.UI.Properties.Resources.icons8_reset_30;
+            this.btnDelteCoowners.Location = new System.Drawing.Point(12, 10);
+            this.btnDelteCoowners.Name = "btnDelteCoowners";
+            this.btnDelteCoowners.Size = new System.Drawing.Size(194, 35);
+            this.btnDelteCoowners.TabIndex = 56;
+            this.btnDelteCoowners.Click += new System.EventHandler(this.btnDelteCoowners_Click);
+            // 
             // panel9
             // 
             this.panel9.Controls.Add(this.pbCancel);
@@ -241,6 +278,30 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1227, 138);
             this.panel9.TabIndex = 62;
+            // 
+            // pbCancel
+            // 
+            this.pbCancel.Image = global::REMS.UI.Properties.Resources.icons8_cancel_30;
+            this.pbCancel.ImageRotate = 0F;
+            this.pbCancel.Location = new System.Drawing.Point(698, 87);
+            this.pbCancel.Name = "pbCancel";
+            this.pbCancel.Size = new System.Drawing.Size(26, 25);
+            this.pbCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCancel.TabIndex = 6;
+            this.pbCancel.TabStop = false;
+            this.pbCancel.Visible = false;
+            // 
+            // pbSuccess
+            // 
+            this.pbSuccess.Image = global::REMS.UI.Properties.Resources.icons8_success_25;
+            this.pbSuccess.ImageRotate = 0F;
+            this.pbSuccess.Location = new System.Drawing.Point(502, 87);
+            this.pbSuccess.Name = "pbSuccess";
+            this.pbSuccess.Size = new System.Drawing.Size(26, 25);
+            this.pbSuccess.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSuccess.TabIndex = 5;
+            this.pbSuccess.TabStop = false;
+            this.pbSuccess.Visible = false;
             // 
             // LlAddDeedImage
             // 
@@ -386,6 +447,16 @@
             this.dgvUnitCoOwner.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvUnitCoOwner.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::REMS.UI.Properties.Resources.icons8_percentage_302;
+            this.pictureBox2.Location = new System.Drawing.Point(993, 292);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(26, 30);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 46;
+            this.pictureBox2.TabStop = false;
+            // 
             // label22
             // 
             this.label22.AutoSize = true;
@@ -408,6 +479,40 @@
             this.txtOwnershipPercentage.Size = new System.Drawing.Size(335, 38);
             this.txtOwnershipPercentage.TabIndex = 44;
             this.txtOwnershipPercentage.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
+            this.txtOwnershipPercentage.ValueChanged += new System.EventHandler(this.txtOwnershipPercentage_ValueChanged);
+            // 
+            // btnAddCoOwner
+            // 
+            this.btnAddCoOwner.BorderRadius = 2;
+            this.btnAddCoOwner.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddCoOwner.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddCoOwner.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddCoOwner.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddCoOwner.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
+            this.btnAddCoOwner.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAddCoOwner.ForeColor = System.Drawing.Color.White;
+            this.btnAddCoOwner.Image = global::REMS.UI.Properties.Resources.icons8_add_male_user_group_50;
+            this.btnAddCoOwner.Location = new System.Drawing.Point(165, 95);
+            this.btnAddCoOwner.Name = "btnAddCoOwner";
+            this.btnAddCoOwner.Size = new System.Drawing.Size(41, 38);
+            this.btnAddCoOwner.TabIndex = 35;
+            this.btnAddCoOwner.Click += new System.EventHandler(this.btnAddCoOwner_Click);
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BorderRadius = 2;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Image = global::REMS.UI.Properties.Resources.icons8_more_info_40;
+            this.guna2Button1.Location = new System.Drawing.Point(165, 40);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(888, 38);
+            this.guna2Button1.TabIndex = 35;
             // 
             // gbInstrumentCondition
             // 
@@ -524,26 +629,26 @@
             this.label12.TabIndex = 7;
             this.label12.Text = "الوحدة";
             // 
-            // txtUnitID
+            // txtSelectedUnitID
             // 
-            this.txtUnitID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtUnitID.DefaultText = "";
-            this.txtUnitID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtUnitID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtUnitID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtUnitID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtUnitID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUnitID.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtUnitID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUnitID.Location = new System.Drawing.Point(296, 95);
-            this.txtUnitID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtUnitID.Name = "txtUnitID";
-            this.txtUnitID.PlaceholderText = "";
-            this.txtUnitID.ReadOnly = true;
-            this.txtUnitID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtUnitID.SelectedText = "";
-            this.txtUnitID.Size = new System.Drawing.Size(757, 38);
-            this.txtUnitID.TabIndex = 6;
+            this.txtSelectedUnitID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSelectedUnitID.DefaultText = "";
+            this.txtSelectedUnitID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSelectedUnitID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSelectedUnitID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSelectedUnitID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSelectedUnitID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSelectedUnitID.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtSelectedUnitID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSelectedUnitID.Location = new System.Drawing.Point(296, 95);
+            this.txtSelectedUnitID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSelectedUnitID.Name = "txtSelectedUnitID";
+            this.txtSelectedUnitID.PlaceholderText = "";
+            this.txtSelectedUnitID.ReadOnly = true;
+            this.txtSelectedUnitID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtSelectedUnitID.SelectedText = "";
+            this.txtSelectedUnitID.Size = new System.Drawing.Size(757, 38);
+            this.txtSelectedUnitID.TabIndex = 6;
             // 
             // panel7
             // 
@@ -855,110 +960,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // btnSave
-            // 
-            this.btnSave.BorderRadius = 5;
-            this.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSave.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSave.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
-            this.btnSave.Font = new System.Drawing.Font("Cairo", 9F, System.Drawing.FontStyle.Bold);
-            this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(201)))), ((int)(((byte)(209)))));
-            this.btnSave.Image = global::REMS.UI.Properties.Resources.icons8_save_30__2_;
-            this.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnSave.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSave.Location = new System.Drawing.Point(0, 1010);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(1248, 45);
-            this.btnSave.TabIndex = 9;
-            this.btnSave.Text = "حفظ";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnDelteCoowners
-            // 
-            this.btnDelteCoowners.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDelteCoowners.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDelteCoowners.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDelteCoowners.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDelteCoowners.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
-            this.btnDelteCoowners.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnDelteCoowners.ForeColor = System.Drawing.Color.White;
-            this.btnDelteCoowners.Image = global::REMS.UI.Properties.Resources.icons8_reset_30;
-            this.btnDelteCoowners.Location = new System.Drawing.Point(12, 10);
-            this.btnDelteCoowners.Name = "btnDelteCoowners";
-            this.btnDelteCoowners.Size = new System.Drawing.Size(194, 35);
-            this.btnDelteCoowners.TabIndex = 56;
-            this.btnDelteCoowners.Click += new System.EventHandler(this.btnDelteCoowners_Click);
-            // 
-            // pbCancel
-            // 
-            this.pbCancel.Image = global::REMS.UI.Properties.Resources.icons8_cancel_30;
-            this.pbCancel.ImageRotate = 0F;
-            this.pbCancel.Location = new System.Drawing.Point(698, 87);
-            this.pbCancel.Name = "pbCancel";
-            this.pbCancel.Size = new System.Drawing.Size(26, 25);
-            this.pbCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbCancel.TabIndex = 6;
-            this.pbCancel.TabStop = false;
-            this.pbCancel.Visible = false;
-            // 
-            // pbSuccess
-            // 
-            this.pbSuccess.Image = global::REMS.UI.Properties.Resources.icons8_success_25;
-            this.pbSuccess.ImageRotate = 0F;
-            this.pbSuccess.Location = new System.Drawing.Point(502, 87);
-            this.pbSuccess.Name = "pbSuccess";
-            this.pbSuccess.Size = new System.Drawing.Size(26, 25);
-            this.pbSuccess.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbSuccess.TabIndex = 5;
-            this.pbSuccess.TabStop = false;
-            this.pbSuccess.Visible = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::REMS.UI.Properties.Resources.icons8_percentage_302;
-            this.pictureBox2.Location = new System.Drawing.Point(993, 292);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(26, 30);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 46;
-            this.pictureBox2.TabStop = false;
-            // 
-            // btnAddCoOwner
-            // 
-            this.btnAddCoOwner.BorderRadius = 2;
-            this.btnAddCoOwner.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddCoOwner.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddCoOwner.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAddCoOwner.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddCoOwner.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
-            this.btnAddCoOwner.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnAddCoOwner.ForeColor = System.Drawing.Color.White;
-            this.btnAddCoOwner.Image = global::REMS.UI.Properties.Resources.icons8_add_male_user_group_50;
-            this.btnAddCoOwner.Location = new System.Drawing.Point(165, 95);
-            this.btnAddCoOwner.Name = "btnAddCoOwner";
-            this.btnAddCoOwner.Size = new System.Drawing.Size(41, 38);
-            this.btnAddCoOwner.TabIndex = 35;
-            this.btnAddCoOwner.Click += new System.EventHandler(this.btnAddCoOwner_Click);
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BorderRadius = 2;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(61)))), ((int)(((byte)(126)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Image = global::REMS.UI.Properties.Resources.icons8_more_info_40;
-            this.guna2Button1.Location = new System.Drawing.Point(165, 40);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(888, 38);
-            this.guna2Button1.TabIndex = 35;
-            // 
             // frmRegistrationUnitOwner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -979,9 +980,12 @@
             this.panel12.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSuccess)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnitCoOwner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOwnershipPercentage)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -994,9 +998,6 @@
             this.panel18.ResumeLayout(false);
             this.panel18.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSuccess)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1033,7 +1034,7 @@
         private System.Windows.Forms.Label label17;
         private Guna.UI2.WinForms.Guna2Button btnSelectUnit;
         private System.Windows.Forms.Label label12;
-        private Guna.UI2.WinForms.Guna2TextBox txtUnitID;
+        private Guna.UI2.WinForms.Guna2TextBox txtSelectedUnitID;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Panel panel8;
